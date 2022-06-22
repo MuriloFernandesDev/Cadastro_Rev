@@ -1,4 +1,5 @@
 import styles from '/style.module.scss'
+import Link from 'next/link'
 export function Primary() {
     return (
         <>
@@ -23,12 +24,11 @@ export function Primary() {
                         >
                             Entrar
                         </a>
-                        <a
-                            className="w-full h-[38px] border font-medium text-xs uppercase border-white rounded-md flex items-center justify-center"
-                            href="/Register"
-                        >
-                            Cadastrar
-                        </a>
+                        <Link href={'/Page1'}>
+                            <a className="w-full h-[38px] border font-medium text-xs uppercase border-white rounded-md flex items-center justify-center">
+                                Cadastrar
+                            </a>
+                        </Link>
                     </div>
                 </div>
             </div>
