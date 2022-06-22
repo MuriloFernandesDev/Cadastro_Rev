@@ -27,9 +27,11 @@ const Timer = (props: any) => {
     return (
         <div>
             {minutes === 0 && seconds === 0 ? (
-                <h1>Tempo Expirado - Envie Novamente</h1>
+                <h1 className="flex justify-center">
+                    Tempo Expirado - Envie Novamente
+                </h1>
             ) : (
-                <h1>
+                <h1 className="flex justify-center">
                     {' '}
                     {minutes}:{seconds < 10 ? `0${seconds}` : seconds}
                 </h1>

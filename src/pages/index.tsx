@@ -1,6 +1,4 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import React, { useState, useEffect, useRef } from 'react'
 import { Primary } from './components/Primary'
 
 export default function Home() {

@@ -3,11 +3,12 @@ import Link from 'next/link'
 export function Primary() {
     return (
         <>
-            <div className="w-full bg-white relative">
-                {/* <div className="mx-auto w-[150%] h-96 bg-white rounded-[50%] absolute mt-16"></div> */}
-                <div className="flex flex-col items-center mt-4">
-                    <img src="/Logo1.png" alt="Logo BuyPhone" />
-                    <img src="/Cel.png" alt="Celular Flutuando" />
+            <div className="w-full bg-Loja relative min-h-screen">
+                <div className="w-full bg-white">
+                    <div className="flex flex-col items-center mt-4 bg-white">
+                        <img src="/Logo1.png" alt="Logo BuyPhone" />
+                        <img src="/Cel.png" alt="Celular Flutuando" />
+                    </div>
                 </div>
                 <div className="w-full bg-Loja">
                     <div className="w-[90%] mx-auto p-2 gap-3 flex flex-col justify-around items-center text-white">

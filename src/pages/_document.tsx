@@ -1,4 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
+import { Primary } from './components/Primary'
 
 export default class MyDocument extends Document {
     render() {
@@ -20,6 +21,7 @@ export default class MyDocument extends Document {
                     <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
                 </Head>
                 <body>
+                    {/* <Primary /> */}
                     <Main />
                     <NextScript />
                 </body>

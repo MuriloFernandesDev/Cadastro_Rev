@@ -1,8 +1,6 @@
 import Head from 'next/head'
-import { ActiveLink } from '../components/Register/ActiveLink'
 import { Register } from '../components/Register/Header'
 import Link from 'next/link'
-import styles from '/styles.module.scss'
 
 export default function Page2() {
     return (
@@ -12,8 +10,9 @@ export default function Page2() {
             </Head>
 
             <Register />
-            <div className="bg-Loja">
-                <div className="bg-white min-h-screen flex flex-col rounded-t-xl p-3">
+
+            <div className="bg-white min-h-screen">
+                <div className="bg-white w-full flex flex-col rounded-t-xl p-3 absolute -mt-[9px]">
                     <div className="flex w-full items-center justify-between">
                         <Link href={'/Page1'}>
                             <a>
@@ -42,11 +41,9 @@ export default function Page2() {
                                 <input
                                     className="border text-black p-2 border-Loja rounded-lg w-full h-10 z-10"
                                     type="text"
-                                    id="nome"
                                 />
                             </form>
                         </div>
-
                         <div className="flex justify-center w-full items-center mt-10">
                             <Link href={'/Page3'}>
                                 <a className="text-white bg-Loja uppercase text-lg font-semi-bold rounded-md w-full flex justify-center">

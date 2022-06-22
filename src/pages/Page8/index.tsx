@@ -1,9 +1,6 @@
 import Head from 'next/head'
-import { ActiveLink } from '../components/Register/ActiveLink'
 import { Register } from '../components/Register/Header'
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
-import styles from '/styles.module.scss'
 import Image from 'next/image'
 import ConcluirImg from '../../../public/undrawn.png'
 
@@ -15,8 +12,9 @@ export default function Page8() {
             </Head>
 
             <Register />
-            <div className="bg-Loja">
-                <div className="bg-white min-h-screen flex flex-col rounded-t-xl p-3">
+
+            <div className="bg-white min-h-screen">
+                <div className="bg-white w-full flex flex-col rounded-t-xl p-3 absolute -mt-[9px]">
                     <div className="flex w-full items-center justify-between">
                         <Link href={'/Page7'}>
                             <a>

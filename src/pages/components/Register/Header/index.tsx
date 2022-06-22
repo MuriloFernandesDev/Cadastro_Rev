@@ -1,7 +1,3 @@
-import Image from 'next/image'
-import { ActiveLink } from '../ActiveLink'
-import styles from './styles.module.scss'
-
 export function Register() {
     return (
         <>
