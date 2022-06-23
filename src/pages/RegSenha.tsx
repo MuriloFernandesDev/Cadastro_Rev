@@ -1,16 +1,10 @@
 import Head from 'next/head'
-import { Register } from '../components/Register/Header'
+import { Register } from './components/Header'
 import Link from 'next/link'
 
-export default function Page4() {
+export default function RegSenha() {
     return (
         <>
-            <Head>
-                <title>Page5 | Murilo</title>
-            </Head>
-
-            <Register />
-
             <div className="bg-white min-h-screen">
                 <div className="bg-white w-full flex flex-col rounded-t-xl p-3 absolute -mt-[9px]">
                     <div className="flex w-full items-center justify-between">
@@ -54,7 +48,7 @@ export default function Page4() {
                         </div>
 
                         <div className="flex justify-center w-full items-center mt-10">
-                            <Link href={'/Page7'}>
+                            <Link href={'/RegConfirmation'}>
                                 <a className="text-white bg-Loja uppercase text-lg font-semi-bold rounded-md w-full flex justify-center">
                                     Próximo
                                 </a>

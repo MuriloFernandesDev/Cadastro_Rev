@@ -1,17 +1,11 @@
 import Head from 'next/head'
-import { Register } from '../components/Register/Header'
+import { Register } from './components/Header'
 import Link from 'next/link'
 import Timer from './Timer'
-import './styles.module.scss'
 
-export default function Page7() {
+export default function RegConfirmation() {
     return (
         <>
-            <Head>
-                <title>Page7 | Murilo</title>
-            </Head>
-
-            <Register />
             <div className="bg-white min-h-screen">
                 <div className="bg-white w-full flex flex-col rounded-t-xl p-3 absolute -mt-[9px]">
                     <div className="flex w-full items-center justify-between">
@@ -80,7 +74,7 @@ export default function Page7() {
                         </div>
 
                         <div className="flex justify-center w-full items-center mt-20">
-                            <Link href={'/Page8'}>
+                            <Link href={'/RegConc'}>
                                 <a className="text-white bg-Loja uppercase text-lg font-semi-bold rounded-md w-full flex justify-center">
                                     CONCLUIR CADASTRO
                                 </a>

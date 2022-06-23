@@ -1,18 +1,12 @@
 import Head from 'next/head'
-import { Register } from '../components/Register/Header'
+import { Register } from './components/Header'
 import Link from 'next/link'
 import Image from 'next/image'
-import GroupImg from '../../../public/group.png'
+import GroupImg from '../../public/group.png'
 
-export default function Page9() {
+export default function RegConc() {
     return (
         <>
-            <Head>
-                <title>Page7 | Murilo</title>
-            </Head>
-
-            <Register />
-
             <div className="bg-white min-h-screen">
                 <div className="bg-white w-full flex flex-col rounded-t-xl p-3 absolute -mt-[9px]">
                     <div className="flex flex-col w-full items-center justify-between">

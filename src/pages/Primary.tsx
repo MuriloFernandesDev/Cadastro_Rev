@@ -25,7 +25,7 @@ export function Primary() {
                         >
                             Entrar
                         </a>
-                        <Link href={'/Page1'}>
+                        <Link href={'/Welcome'}>
                             <a className="w-full h-[38px] border font-medium text-xs uppercase border-white rounded-md flex items-center justify-center">
                                 Cadastrar
                             </a>

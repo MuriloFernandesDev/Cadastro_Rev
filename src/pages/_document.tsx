@@ -1,5 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
-import { Primary } from './components/Primary'
+import { Primary } from './Registro'
 
 export default class MyDocument extends Document {
     render() {

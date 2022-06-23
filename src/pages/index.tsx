@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { Primary } from './components/Primary'
+import { Primary } from './Primary'
 
 export default function Home() {
     return (
@@ -11,10 +11,7 @@ export default function Home() {
                     content="Buy Phone para revendedores!"
                 />
             </Head>
-
-            <main>
-                <Primary />
-            </main>
+            <Primary />
         </>
     )
 }

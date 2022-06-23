@@ -1,12 +1,20 @@
 import '../../styles/globals.scss'
 import type { AppProps } from 'next/app'
-import MyDocument from './_document'
-import { Html } from 'next/document'
+import { useRouter } from 'next/router'
+import { Register } from './components/Header'
 
-function MyApp({ Component, pageProps }: AppProps): JSX.Element {
+function MyApp({ Component, pageProps }: AppProps) {
+    const router = useRouter()
     return (
         <>
-            <Component {...pageProps} />
+            {router.route === `/` ? (
+                <Component {...pageProps} />
+            ) : (
+                <>
+                    <Register />
+                    <Component {...pageProps} />
+                </>
+            )}
         </>
     )
 }
