@@ -5,7 +5,7 @@ import Link from 'next/link'
 export default function RegCpf() {
     return (
         <>
-            <div className="bg-white min-h-screen">
+            <div className="bg-white">
                 <div className="bg-white w-full flex flex-col rounded-t-xl p-3 absolute -mt-[9px]">
                     <div className="flex w-full items-center justify-between">
                         <Link href={'/Page2'}>
@@ -19,7 +19,7 @@ export default function RegCpf() {
                             max="100"
                         ></progress>
                     </div>
-                    <div className="flex flex-col min-h-screen">
+                    <div className="flex flex-col">
                         <div className="flex flex-col justify-between h-32 mt-2">
                             <h2 className="pb-5 text-black text-xl font-semibold">
                                 Qual seu CPF?

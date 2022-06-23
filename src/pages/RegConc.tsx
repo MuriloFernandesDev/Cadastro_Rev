@@ -7,12 +7,12 @@ import GroupImg from '../../public/group.png'
 export default function RegConc() {
     return (
         <>
-            <div className="bg-white min-h-screen">
+            <div className="bg-white">
                 <div className="bg-white w-full flex flex-col rounded-t-xl p-3 absolute -mt-[9px]">
                     <div className="flex flex-col w-full items-center justify-between">
                         <img src="/foguete.svg" alt="" />
 
-                        <div className="flex flex-col min-h-screen">
+                        <div className="flex flex-col">
                             <div className="flex flex-col gap-3 justify-between h-32 mt-2">
                                 <h1 className="text-black text-xl font-semibold">
                                     Tudo pronto!

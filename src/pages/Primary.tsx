@@ -3,7 +3,7 @@ import Link from 'next/link'
 export function Primary() {
     return (
         <>
-            <div className="w-full bg-Loja relative min-h-screen">
+            <body className="overflow-y-hidden">
                 <div className="w-full bg-white">
                     <div className="flex flex-col items-center mt-4 bg-white">
                         <img src="/Logo1.png" alt="Logo BuyPhone" />
@@ -32,7 +32,7 @@ export function Primary() {
                         </Link>
                     </div>
                 </div>
-            </div>
+            </body>
         </>
     )
 }

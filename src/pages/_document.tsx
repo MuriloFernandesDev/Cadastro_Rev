@@ -1,10 +1,9 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
-import { Primary } from './Registro'
 
 export default class MyDocument extends Document {
     render() {
         return (
-            <Html lang="pt-BR">
+            <Html lang="pt-BR" className="bg-white">
                 <Head>
                     <link rel="icon" type="image/ico" href="/favicon.ico" />
 
@@ -20,8 +19,7 @@ export default class MyDocument extends Document {
                     <meta charSet="utf-16" />
                     <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
                 </Head>
-                <body>
-                    {/* <Primary /> */}
+                <body className="bg-white">
                     <Main />
                     <NextScript />
                 </body>

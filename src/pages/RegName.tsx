@@ -5,7 +5,7 @@ import Link from 'next/link'
 export default function RegName() {
     return (
         <>
-            <div className="bg-white min-h-screen">
+            <div className="bg-white">
                 <div className="bg-white w-full flex flex-col rounded-t-xl p-3 absolute -mt-[9px]">
                     <div className="flex w-full items-center justify-between">
                         <Link href={'/Page1'}>
@@ -19,7 +19,7 @@ export default function RegName() {
                             max="100"
                         ></progress>
                     </div>
-                    <div className="flex flex-col min-h-screen">
+                    <div className="flex flex-col">
                         <div className="flex flex-col justify-between h-32 mt-2">
                             <h1 className="font-semibold text-sm text-black opacity-50">
                                 Vamos começar

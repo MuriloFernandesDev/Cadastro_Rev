@@ -11,6 +11,7 @@ export default function Home() {
                     content="Buy Phone para revendedores!"
                 />
             </Head>
+
             <Primary />
         </>
     )

@@ -6,7 +6,7 @@ import Timer from './Timer'
 export default function RegConfirmation() {
     return (
         <>
-            <div className="bg-white min-h-screen">
+            <div className="bg-white">
                 <div className="bg-white w-full flex flex-col rounded-t-xl p-3 absolute -mt-[9px]">
                     <div className="flex w-full items-center justify-between">
                         <Link href={'/Page6'}>
