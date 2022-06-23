@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { Primary } from './Primary'
+import Primary from './Primary'
 
 export default function Home() {
     return (

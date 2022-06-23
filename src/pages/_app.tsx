@@ -1,7 +1,7 @@
 import '../../styles/globals.scss'
 import type { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
-import { Register } from './components/Header'
+import Header from './components/Header'
 
 function MyApp({ Component, pageProps }: AppProps) {
     const router = useRouter()
@@ -11,7 +11,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                 <Component {...pageProps} />
             ) : (
                 <>
-                    <Register />
+                    <Header />
                     <Component {...pageProps} />
                 </>
             )}

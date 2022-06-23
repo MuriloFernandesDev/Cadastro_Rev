@@ -1,5 +1,3 @@
-import Head from 'next/head'
-import { Register } from './components/Header'
 import Link from 'next/link'
 import Image from 'next/image'
 import GroupImg from '../../public/group.png'

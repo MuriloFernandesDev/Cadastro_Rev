@@ -1,5 +1,3 @@
-import Head from 'next/head'
-import { Register } from './components/Header'
 import Link from 'next/link'
 import Image from 'next/image'
 import ConcluirImg from '../../public/undrawn.png'
@@ -7,8 +5,6 @@ import ConcluirImg from '../../public/undrawn.png'
 export default function RegTermos() {
     return (
         <>
-            <Register />
-
             <div className="bg-white">
                 <div className="bg-white w-full flex flex-col rounded-t-xl p-3 absolute -mt-[9px]">
                     <div className="flex w-full items-center justify-between">

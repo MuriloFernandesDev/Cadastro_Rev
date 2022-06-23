@@ -1,4 +1,3 @@
-import styles from '/style.module.scss'
 import Link from 'next/link'
 export default function Primary() {
     return (

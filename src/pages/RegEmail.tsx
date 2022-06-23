@@ -1,5 +1,3 @@
-import Head from 'next/head'
-import { Register } from './components/Header'
 import Link from 'next/link'
 
 export default function RegEmail() {
