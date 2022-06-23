@@ -19,7 +19,7 @@ export default class MyDocument extends Document {
                     <meta charSet="utf-16" />
                     <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
                 </Head>
-                <body className="bg-white">
+                <body>
                     <Main />
                     <NextScript />
                 </body>

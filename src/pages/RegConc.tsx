@@ -5,45 +5,16 @@ import GroupImg from '../../public/group.png'
 export default function RegConc() {
     return (
         <>
-            <div className="bg-white">
-                <div className="bg-white w-full flex flex-col rounded-t-xl p-3 absolute -mt-[9px]">
-                    <div className="flex flex-col w-full items-center justify-between">
-                        <img src="/foguete.svg" alt="" />
+            <h1 className="text-black text-xl font-semibold">Tudo pronto!</h1>
+            <h2 className="text-black">Agora é só aguardar</h2>
 
-                        <div className="flex flex-col">
-                            <div className="flex flex-col gap-3 justify-between h-32 mt-2">
-                                <h1 className="text-black text-xl font-semibold">
-                                    Tudo pronto!
-                                </h1>
-                                <h2 className="text-black">
-                                    Agora é só aguardar
-                                </h2>
-
-                                <h3 className="text-sm">
-                                    O seu cadastro de usuário foi concluído e
-                                    está sob análise. Enviaremos a resposta da
-                                    sua solicitação em seu e-mail e também
-                                    atualizaremos aqui.
-                                </h3>
-                                <div className="w-64 h-auto">
-                                    <Image
-                                        src={GroupImg}
-                                        layout="responsive"
-                                        quality={100}
-                                    ></Image>
-                                </div>
-                            </div>
-
-                            <div className="flex justify-center w-full items-center mt-72">
-                                <Link href={'/#'}>
-                                    <a className="text-white bg-Loja uppercase text-lg p-2 font-semi-bold rounded-md w-full flex justify-center">
-                                        entrar
-                                    </a>
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <h3 className="text-sm">
+                O seu cadastro de usuário foi concluído e está sob análise.
+                Enviaremos a resposta da sua solicitação em seu e-mail e também
+                atualizaremos aqui.
+            </h3>
+            <div className="w-64 h-auto">
+                <Image src={GroupImg} layout="responsive" quality={100}></Image>
             </div>
         </>
     )
