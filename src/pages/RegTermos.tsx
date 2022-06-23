@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { Register } from './components/Header'
 import Link from 'next/link'
 import Image from 'next/image'
-import ConcluirImg from '../../../public/undrawn.png'
+import ConcluirImg from '../../public/undrawn.png'
 
 export default function RegTermos() {
     return (
