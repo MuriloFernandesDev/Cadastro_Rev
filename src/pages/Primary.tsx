@@ -1,6 +1,6 @@
 import styles from '/style.module.scss'
 import Link from 'next/link'
-export function Primary() {
+export default function Primary() {
     return (
         <>
             <body className="overflow-y-hidden">
