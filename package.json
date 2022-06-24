@@ -6,11 +6,28 @@
     "start": "next start"
   },
   "dependencies": {
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@hookform/resolvers": "^2.9.2",
+    "@material-ui/core": "^4.12.4",
+    "@material/textfield": "^14.0.0",
+    "@mui/icons-material": "^5.8.4",
+    "@mui/material": "^5.8.5",
+    "@react-br-forms/cpf-cnpj-mask": "^1.0.6",
+    "@types/react-input-mask": "^3.0.1",
+    "@types/react-text-mask": "^5.4.11",
     "daisyui": "^2.15.4",
+    "formik": "^2.2.9",
     "next": "latest",
     "react": "18.1.0",
     "react-dom": "18.1.0",
-    "sass": "^1.52.3"
+    "react-hook-form": "^7.33.0",
+    "react-hot-toast": "^2.2.0",
+    "react-input-mask": "^2.0.4",
+    "react-use-form": "^0.1.0",
+    "sass": "^1.52.3",
+    "types": "^0.1.1",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@types/node": "^18.0.0",
