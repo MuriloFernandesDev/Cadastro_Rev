@@ -56,7 +56,7 @@ export default function RegCpf() {
                 Qual seu email?
             </h1>
             <form onSubmit={formik.handleSubmit}>
-                {/* <TextField
+                <TextField
                     label="Seu Cpf: (Ex: 999.999.999-99)"
                     type="text"
                     name="cpf"
@@ -65,9 +65,9 @@ export default function RegCpf() {
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.cpf}
-                /> */}
+                />
 
-                <InputMask
+                {/* <InputMask
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.cpf}
@@ -84,7 +84,7 @@ export default function RegCpf() {
                             variant="outlined"
                         />
                     )}
-                </InputMask>
+                </InputMask> */}
 
                 {formik.touched.cpf && formik.errors.cpf ? (
                     <div className="text-red-700 ml-2">{formik.errors.cpf}</div>

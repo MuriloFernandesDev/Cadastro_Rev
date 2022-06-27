@@ -56,18 +56,18 @@ export default function RegCelular() {
                 Qual seu Celular?
             </h1>
             <form onSubmit={formik.handleSubmit}>
-                {/* <TextField
-                    label="Seu Cpf: (Ex: 999.999.999-99)"
+                <TextField
+                    label="Seu Celular: (Ex: (99) 99999-9999)"
                     type="text"
-                    name="cpf"
+                    name="celular"
                     fullWidth
                     variant="outlined"
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    value={formik.values.cpf}
-                /> */}
+                    value={formik.values.Celular}
+                />
 
-                <InputMask
+                {/* <InputMask
                     onChange={formik.handleChange}
                     mask="(99) 99999-9999"
                     onBlur={formik.handleBlur}
@@ -85,7 +85,7 @@ export default function RegCelular() {
                             variant="outlined"
                         />
                     )}
-                </InputMask>
+                </InputMask> */}
 
                 {formik.touched.Celular && formik.errors.Celular ? (
                     <div className="text-red-700 ml-2">
