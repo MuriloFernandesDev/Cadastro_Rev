@@ -1,7 +1,9 @@
+import toast from 'react-hot-toast'
 import * as yup from 'yup'
 import { useFormik } from 'formik'
-import toast from 'react-hot-toast'
 import Button from './components/Button'
+import TextField from '@material-ui/core/TextField'
+import InputMask from 'react-input-mask'
 
 export default function RegCpf() {
     const formik = useFormik({
@@ -10,37 +12,82 @@ export default function RegCpf() {
         },
         validationSchema: yup.object({
             cpf: yup
-                .number()
+                .string()
                 .required('O campo é obrigatório.')
-                .positive('O campo deve ser positivo.'),
+                .test('len', 'Insira um CPF válido!', (val = '') => {
+                    const val_length_without_dashes = val.replace(
+                        /-|_/g,
+                        ''
+                    ).length
+                    return val_length_without_dashes === 13
+                }),
         }),
         onSubmit: (values) => {
-            toast.success('Cpf Registrado com sucesso!')
-            console.log(JSON.stringify(values))
+            setTimeout(() => {
+                var Lista_Cadastro = JSON.parse(
+                    localStorage.getItem('Lista_Cadastro') || '[]'
+                )
+                // bool val = false;
+                // for(int i = 0; i < lista.length; i++){
+                //     if(lista[i] = values){
+                //         textbox.sdfa("Número já cadastrado");
+                //         val = true;
+                //     }
+                // }
+                // if(val = false){
+
+                // }LOGICA PARA VERIFICAR SE CADASTRO JÁ EXISTE NA LISTA
+
+                Lista_Cadastro.push({
+                    cpf: values,
+                }),
+                    localStorage.setItem(
+                        'Lista_Cadastro',
+                        JSON.stringify(Lista_Cadastro)
+                    )
+            }, 500)
+            toast.success('CPF Resgistrado com sucesso')
         },
     })
 
     return (
         <>
             <h1 className="pb-5 text-black text-xl font-semibold">
-                Qual seu CPF?
+                Qual seu email?
             </h1>
             <form onSubmit={formik.handleSubmit}>
-                <label className="absolute text-Loja bg-white -mt-3 ml-7 h-5 pl-2 pr-2">
-                    Cpf
-                </label>
-                <input
-                    className="border text-black p-2 border-Loja rounded-lg w-full h-10 z-10"
-                    id="cpf"
-                    maxLength={14}
+                {/* <TextField
+                    label="Seu Cpf: (Ex: 999.999.999-99)"
+                    type="text"
                     name="cpf"
-                    type="number"
+                    fullWidth
+                    variant="outlined"
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.cpf}
-                />
+                /> */}
+
+                <InputMask
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.cpf}
+                    mask="999.999.999-99"
+                    name="cpf"
+                >
+                    {() => (
+                        <TextField
+                            fullWidth
+                            onBlur={formik.handleBlur}
+                            value={formik.values.cpf}
+                            name="cpf"
+                            label="Seu Cpf: (Ex: 999.999.999-99)"
+                            variant="outlined"
+                        />
+                    )}
+                </InputMask>
+
                 {formik.touched.cpf && formik.errors.cpf ? (
-                    <div>{formik.errors.cpf}</div>
+                    <div className="text-red-700 ml-2">{formik.errors.cpf}</div>
                 ) : null}
                 <Button />
             </form>

@@ -1,5 +1,11 @@
 import Link from 'next/link'
+import React from 'react'
+
 export default function Button() {
+    // interface Homeprops {
+    //     props: ReactElement
+    // }
+
     return (
         <>
             <button

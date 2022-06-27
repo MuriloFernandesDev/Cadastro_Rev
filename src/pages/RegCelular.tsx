@@ -1,81 +1,99 @@
-import React from 'react'
-import { Formik } from 'formik'
-import InputMask from 'react-input-mask'
-import TextField from '@material-ui/core/TextField'
-import Container from '@material-ui/core/Container'
-import Button from '@material-ui/core/Button'
+import toast from 'react-hot-toast'
 import * as yup from 'yup'
-
-let validateSchema = yup.object().shape({
-    tel_no: yup
-        .string()
-        .test('len', 'Insira um telefone válido', (val = '') => {
-            const val_length_without_dashes = val.replace(/-|_/g, '').length
-            return val_length_without_dashes === 12 || 12
-        })
-        .required('Telefone é obrigatório'),
-})
+import { useFormik } from 'formik'
+import Button from './components/Button'
+import TextField from '@material-ui/core/TextField'
+import InputMask from 'react-input-mask'
 
 export default function RegCelular() {
-    return (
-        <Container style={{ marginTop: '20px' }}>
-            <Formik
-                initialValues={{
-                    tel_no: '',
-                }}
-                validationSchema={validateSchema}
-                onSubmit={(values, actions) => {
-                    setTimeout(() => {
-                        // alert(JSON.stringify(values, null, 2));
-                        actions.setSubmitting(false)
-                    }, 500)
-                }}
-            >
-                {({
-                    errors,
-                    values,
-                    setFieldValue,
-                    isSubmitting,
-                    touched,
-                    handleBlur,
-                    handleSubmit,
-                    handleChange,
-                }) => {
-                    return (
-                        <form onSubmit={handleSubmit}>
-                            <InputMask
-                                mask="99-99999-9999"
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                                value={values.tel_no}
-                            >
-                                {() => (
-                                    <TextField
-                                        type="text"
-                                        label="Número de telefone:  (Ex: 99-99999-9999)"
-                                        name="tel_no"
-                                        fullWidth
-                                        variant="outlined"
-                                        helperText={
-                                            touched.tel_no ? errors.tel_no : ''
-                                        }
-                                        error={
-                                            touched.tel_no &&
-                                            Boolean(errors.tel_no)
-                                        }
-                                    />
-                                )}
-                            </InputMask>
-                            <button
-                                className="flex justify-center mx-auto font-bold uppercase w-full text-white text-xl py-3 mt-2 rounded-xl hover:scale-105 ease-in-out duration-300 bg-Loja"
-                                type="submit"
-                            >
-                                Próximo
-                            </button>
-                        </form>
+    const formik = useFormik({
+        initialValues: {
+            Celular: '',
+        },
+        validationSchema: yup.object({
+            Celular: yup
+                .string()
+                .required('O campo é obrigatório.')
+                .test('len', 'Insira um Celular válido!', (val = '') => {
+                    const val_length_without_dashes = val.replace(
+                        /-|_/g,
+                        ''
+                    ).length
+                    return val_length_without_dashes === 14
+                }),
+        }),
+        onSubmit: (values) => {
+            setTimeout(() => {
+                var Lista_Cadastro = JSON.parse(
+                    localStorage.getItem('Lista_Cadastro') || '[]'
+                )
+                // bool val = false;
+                // for(int i = 0; i < lista.length; i++){
+                //     if(lista[i] = values){
+                //         textbox.sdfa("Número já cadastrado");
+                //         val = true;
+                //     }
+                // }
+                // if(val = false){
+
+                // }LOGICA PARA VERIFICAR SE CADASTRO JÁ EXISTE NA LISTA
+
+                Lista_Cadastro.push({
+                    Celular: values,
+                }),
+                    localStorage.setItem(
+                        'Lista_Cadastro',
+                        JSON.stringify(Lista_Cadastro)
                     )
-                }}
-            </Formik>
-        </Container>
+            }, 500)
+            toast.success('Celular Resgistrado com sucesso')
+        },
+    })
+
+    return (
+        <>
+            <h1 className="pb-5 text-black text-xl font-semibold">
+                Qual seu Celular?
+            </h1>
+            <form onSubmit={formik.handleSubmit}>
+                {/* <TextField
+                    label="Seu Cpf: (Ex: 999.999.999-99)"
+                    type="text"
+                    name="cpf"
+                    fullWidth
+                    variant="outlined"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.cpf}
+                /> */}
+
+                <InputMask
+                    onChange={formik.handleChange}
+                    mask="(99) 99999-9999"
+                    onBlur={formik.handleBlur}
+                    value={formik.values.Celular}
+                    name="cpf"
+                    type="number"
+                >
+                    {() => (
+                        <TextField
+                            fullWidth
+                            onBlur={formik.handleBlur}
+                            value={formik.values.Celular}
+                            name="Celular"
+                            label="Seu Celular: (Ex: (99) 99999-9999)"
+                            variant="outlined"
+                        />
+                    )}
+                </InputMask>
+
+                {formik.touched.Celular && formik.errors.Celular ? (
+                    <div className="text-red-700 ml-2">
+                        {formik.errors.Celular}
+                    </div>
+                ) : null}
+                <Button />
+            </form>
+        </>
     )
 }
