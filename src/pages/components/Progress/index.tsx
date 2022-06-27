@@ -4,7 +4,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 export default function Progress() {
     return (
         <div className="flex w-full items-center justify-between">
-            <Link href={'/Welcome'}>
+            <Link href={'/'}>
                 <a>
                     <ArrowBackIcon></ArrowBackIcon>
                 </a>
