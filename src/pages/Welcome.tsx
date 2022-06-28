@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Button from './components/Button'
 
 export default function Welcome() {
     return (
@@ -21,6 +22,12 @@ export default function Welcome() {
                 </li>
                 <li>4. Tem seus documentos em mãos.</li>
             </ul>
+
+            <Link href="/RegName">
+                <a>
+                    <Button />
+                </a>
+            </Link>
         </>
     )
 }

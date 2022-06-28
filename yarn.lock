@@ -1843,6 +1843,11 @@ jest-worker@^27.3.1:
     merge-stream "^2.0.0"
     supports-color "^8.0.0"
 
+jquery@^3.6.0:
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.6.0.tgz#c72a09f15c1bdce142f49dbf1170bdf8adac2470"
+  integrity sha512-JVzAR/AjBvVt2BmYhxRCSYysDsPcssdmTFnzyLEts9qNwmjmu4JTAMYubEfwVOSwpQ1I1sKKFcxhZCI2buerfw==
+
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
   version "4.0.0"
   resolved "https://registry.npmjs.org/js-tokens/-/js-tokens-4.0.0.tgz"
@@ -2351,6 +2356,11 @@ react-hot-toast@^2.2.0:
   integrity sha512-248rXw13uhf/6TNDVzagX+y7R8J183rp7MwUMNkcrBRyHj/jWOggfXTGlM8zAOuh701WyVW+eUaWG2LeSufX9g==
   dependencies:
     goober "^2.1.1"
+
+react-input-auto-tab@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/react-input-auto-tab/-/react-input-auto-tab-0.0.5.tgz#e8cdfbd197aa6dec6f96338b87b8be2ddd61f303"
+  integrity sha512-UQMtLHqKtnHE3fG4RERqSTthpytQOjV7ZPJCWw7nQMTr64YHP8DCKTKmYEvVMVprgwBHZYVlLdEW116+lY/Bjw==
 
 react-input-mask@^2.0.4:
   version "2.0.4"

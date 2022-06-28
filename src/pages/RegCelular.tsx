@@ -46,7 +46,10 @@ export default function RegCelular() {
                         JSON.stringify(Lista_Cadastro)
                     )
             }, 500)
-            toast.success('Celular Resgistrado com sucesso')
+            toast.success('Celular Registrado com sucesso')
+            setTimeout(() => {
+                window.location.href = '/RegSenha'
+            }, 2000)
         },
     })
 
@@ -56,18 +59,7 @@ export default function RegCelular() {
                 Qual seu Celular?
             </h1>
             <form onSubmit={formik.handleSubmit}>
-                <TextField
-                    label="Seu Celular: (Ex: (99) 99999-9999)"
-                    type="text"
-                    name="celular"
-                    fullWidth
-                    variant="outlined"
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    value={formik.values.Celular}
-                />
-
-                {/* <InputMask
+                <InputMask
                     onChange={formik.handleChange}
                     mask="(99) 99999-9999"
                     onBlur={formik.handleBlur}
@@ -81,11 +73,11 @@ export default function RegCelular() {
                             onBlur={formik.handleBlur}
                             value={formik.values.Celular}
                             name="Celular"
-                            label="Seu Celular: (Ex: (99) 99999-9999)"
+                            label="Celular"
                             variant="outlined"
                         />
                     )}
-                </InputMask> */}
+                </InputMask>
 
                 {formik.touched.Celular && formik.errors.Celular ? (
                     <div className="text-red-700 ml-2">

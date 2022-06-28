@@ -40,16 +40,21 @@ export default function RegEmail() {
                         JSON.stringify(Lista_Cadastro)
                     )
             }, 500)
-            toast.success('Email Resgistrado com sucesso')
+            toast.success('Email Registrado com sucesso')
+
+            setTimeout(() => {
+                window.location.href = '/RegCelular'
+            }, 2000)
         },
     })
 
     return (
         <>
-            <h1 className="pb-5 text-black text-xl font-semibold">
-                Qual seu email?
-            </h1>
             <form onSubmit={formik.handleSubmit}>
+                <h1 className="pb-5 text-black text-xl font-semibold">
+                    Qual seu email?
+                </h1>
+
                 <TextField
                     label="Seu Email: (Ex: BuyPhone@gmail.com)"
                     type="text"

@@ -1,8 +1,6 @@
 import { useRouter } from 'next/router'
-
 import { ReactElement, cloneElement } from 'react'
 import Progress from '../Progress'
-import Button from '../Button'
 
 interface Homeprops {
     children: ReactElement

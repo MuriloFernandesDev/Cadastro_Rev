@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 
 const Timer = (props: any) => {
-    const { initialMinute = 1, initialSeconds = 0 } = props
+    const { initialMinute = 5, initialSeconds = 0 } = props
     const [minutes, setMinutes] = useState(initialMinute)
     const [seconds, setSeconds] = useState(initialSeconds)
     useEffect(() => {
@@ -31,7 +31,7 @@ const Timer = (props: any) => {
                     Tempo Expirado - Envie Novamente
                 </h1>
             ) : (
-                <h1 className="flex justify-center">
+                <h1 className="flex justify-center text-black font-normal">
                     {' '}
                     {minutes}:{seconds < 10 ? `0${seconds}` : seconds}
                 </h1>
