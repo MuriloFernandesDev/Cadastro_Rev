@@ -55,7 +55,7 @@ export default function RegConfirmation() {
                 {inputRefsArray.map((ref, index) => {
                     return (
                         <input
-                            className="border text-black p-2 border-Loja rounded-lg w-10 h-10 z-10"
+                            className="border flex text-center text-black p-2 border-Loja rounded-lg w-10 h-10 z-10"
                             ref={ref}
                             type="text"
                             id={`box${index}-1`}
@@ -68,7 +68,6 @@ export default function RegConfirmation() {
                                 )
                             }}
                             value={letters[index]}
-                            max={1}
                             maxlength={1}
                         />
                     )

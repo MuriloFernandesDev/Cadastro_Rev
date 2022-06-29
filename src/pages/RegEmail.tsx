@@ -17,34 +17,12 @@ export default function RegEmail() {
                 .required('O campo é obrigatório.'),
         }),
         onSubmit: (values) => {
-            setTimeout(() => {
-                var Lista_Cadastro = JSON.parse(
-                    localStorage.getItem('Lista_Cadastro') || '[]'
-                )
-                // bool val = false;
-                // for(int i = 0; i < lista.length; i++){
-                //     if(lista[i] = values){
-                //         textbox.sdfa("Número já cadastrado");
-                //         val = true;
-                //     }
-                // }
-                // if(val = false){
+            localStorage.setItem(
+                'email',
+                JSON.stringify(values.email).replace('"', '').replace('"', '')
+            )
 
-                // }LOGICA PARA VERIFICAR SE CADASTRO JÁ EXISTE NA LISTA
-
-                Lista_Cadastro.push({
-                    email: values,
-                }),
-                    localStorage.setItem(
-                        'Lista_Cadastro',
-                        JSON.stringify(Lista_Cadastro)
-                    )
-            }, 500)
-            toast.success('Email Registrado com sucesso')
-
-            setTimeout(() => {
-                window.location.href = '/RegCelular'
-            }, 2000)
+            window.location.href = '/RegCelular'
         },
     })
 

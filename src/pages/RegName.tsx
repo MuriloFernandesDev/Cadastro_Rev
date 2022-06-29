@@ -1,8 +1,8 @@
-import toast from 'react-hot-toast'
 import * as yup from 'yup'
 import { useFormik } from 'formik'
 import Button from './components/Button'
 import TextField from '@material-ui/core/TextField'
+import { useEffect, useState } from 'react'
 
 export default function RegName() {
     const formik = useFormik({
@@ -13,24 +13,11 @@ export default function RegName() {
             nome: yup.string().required('O campo é obrigatório.'),
         }),
         onSubmit: (values) => {
-            var Lista_Cadastro = JSON.parse(
-                localStorage.getItem('Lista_Cadastro') || '[]'
+            localStorage.setItem(
+                'name',
+                JSON.stringify(values.nome).replace('"', '').replace('"', '')
             )
-            Lista_Cadastro.push({
-                nome: values,
-            }),
-                localStorage.setItem(
-                    'Lista_Cadastro',
-                    JSON.stringify(Lista_Cadastro)
-                )
-
-            setTimeout(() => {
-                toast.success('Nome Resgistrado com sucesso')
-            }, 2000)
-
-            setTimeout(() => {
-                window.location.href = '/RegCpf'
-            }, 2000)
+            window.location.href = '/RegCpf'
         },
     })
 
@@ -43,6 +30,7 @@ export default function RegName() {
             <h2 className="pb-5 text-black text-xl font-semibold">
                 Qual seu nome completo?
             </h2>
+
             <form onSubmit={formik.handleSubmit}>
                 <TextField
                     label="Nome"
@@ -60,6 +48,7 @@ export default function RegName() {
                         {formik.errors.nome}
                     </div>
                 ) : null}
+
                 <Button />
             </form>
         </>

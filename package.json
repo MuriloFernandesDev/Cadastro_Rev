@@ -16,6 +16,7 @@
     "@react-br-forms/cpf-cnpj-mask": "^1.0.6",
     "@types/react-input-mask": "^3.0.1",
     "@types/react-text-mask": "^5.4.11",
+    "axios": "^0.27.2",
     "daisyui": "^2.15.4",
     "formik": "^2.2.9",
     "jquery": "^3.6.0",

@@ -2,7 +2,6 @@ import Button from './components/Button'
 import TextField from '@material-ui/core/TextField'
 import * as Yup from 'yup'
 import { Formik } from 'formik'
-import toast from 'react-hot-toast'
 
 const Schema = Yup.object().shape({
     password: Yup.string().required('This field is required'),
@@ -14,33 +13,42 @@ const Schema = Yup.object().shape({
         ),
     }),
 })
+const ISSERVER = typeof window === 'undefined'
+if (!ISSERVER) localStorage.getItem('password')
 
+function teste() {
+    if (ISSERVER !== undefined) {
+        ISSERVER
+    }
+    return ''
+}
 export default function RegSenha() {
     return (
         <Formik
             initialValues={{
-                password: '',
-                changepassword: '',
+                password: teste() ?? '',
+                changepassword: teste() ?? '',
             }}
             validationSchema={Schema}
             onSubmit={(values) => {
-                setTimeout(() => {
-                    var Lista_Cadastro = JSON.parse(
-                        localStorage.getItem('Lista_Cadastro') || '[]'
-                    )
-                    Lista_Cadastro.push({
-                        nome: values,
-                    }),
-                        localStorage.setItem(
-                            'Lista_Cadastro',
-                            JSON.stringify(Lista_Cadastro)
-                        )
-                }, 500)
-                toast.success('Senha registrada com sucesso!')
+                localStorage.setItem(
+                    'password',
+                    JSON.stringify(values.password)
+                        .replace('"', '')
+                        .replace('"', '')
+                )
 
-                setTimeout(() => {
-                    window.location.href = '/RegConfirmation'
-                }, 2000)
+                const Data1 = localStorage.getItem('senha')
+                const Data2 = localStorage.getItem('name')
+                const Data3 = localStorage.getItem('cpf')
+                const Data4 = localStorage.getItem('celular')
+                const Data5 = localStorage.getItem('email')
+                console.log(Data1, Data2, Data3, Data4, Data5)
+
+                //enviar dados para o pablo
+                // localStorage.clear()
+
+                window.location.href = '/RegConfirmation'
             }}
         >
             {({ values, errors, handleSubmit, handleChange, handleBlur }) => {
