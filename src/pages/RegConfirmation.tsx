@@ -3,38 +3,38 @@ import Timer from './Timer'
 import { useState, createRef, useEffect, useRef } from 'react'
 
 export default function RegConfirmation() {
-    // const lineIndex = props.index
     const numerOfInputs = 4
 
     const [inputRefsArray] = useState(() =>
         Array.from({ length: numerOfInputs }, () => createRef())
     )
+
     const [currentIndex, setCurrentIndex] = useState(0)
 
     const [letters, setLetters] = useState(() =>
         Array.from({ length: numerOfInputs }, () => '')
     )
 
-    const handleKeyPress = () => {
-        setCurrentIndex((prevIndex) => {
-            const nextIndex = prevIndex < numerOfInputs - 1 ? prevIndex + 1 : 0
-            const nextInput = inputRefsArray?.[nextIndex]?.current
-            nextInput.focus()
-            nextInput.select()
-            return nextIndex
-        })
-    }
+    // const handleKeyPress = () => {
+    //     setCurrentIndex((prevIndex) => {
+    //         const nextIndex = prevIndex < numerOfInputs - 1 ? prevIndex + 1 : 0
+    //         const nextInput = inputRefsArray?.[nextIndex]?.current
+    //         nextInput.focus()
+    //         nextInput.select()
+    //         return nextIndex
+    //     })
+    // }
 
-    useEffect(() => {
-        if (inputRefsArray?.[0]?.current) {
-            inputRefsArray?.[0]?.current?.focus()
-        }
+    // useEffect(() => {
+    //     if (inputRefsArray?.[0]?.current) {
+    //         inputRefsArray?.[0]?.current?.focus()
+    //     }
 
-        window.addEventListener('keyup', handleKeyPress, false)
-        return () => {
-            window.removeEventListener('keyup', handleKeyPress)
-        }
-    }, [])
+    //     window.addEventListener('keyup', handleKeyPress, false)
+    //     return () => {
+    //         window.removeEventListener('keyup', handleKeyPress)
+    //     }
+    // }, [])
 
     return (
         <>
@@ -56,7 +56,7 @@ export default function RegConfirmation() {
                     return (
                         <input
                             className="border flex text-center text-black p-2 border-Loja rounded-lg w-10 h-10 z-10"
-                            ref={ref}
+                            // ref={ref}
                             type="text"
                             id={`box${index}-1`}
                             onChange={(e) => {
@@ -68,7 +68,7 @@ export default function RegConfirmation() {
                                 )
                             }}
                             value={letters[index]}
-                            maxlength={1}
+                            // maxlength={1}
                         />
                     )
                 })}

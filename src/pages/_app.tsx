@@ -12,7 +12,6 @@ function MyApp({ Component, pageProps }: AppProps) {
                 <Component {...pageProps} />
             ) : (
                 <>
-                    <Toaster position="bottom-right" />
                     <Corpo>
                         <Component {...pageProps} />
                     </Corpo>
