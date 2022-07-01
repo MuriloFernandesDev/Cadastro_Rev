@@ -19,11 +19,14 @@
         "next-env.d.ts",
         "**/*.ts",
         "**/*.tsx",
-        "src/pages/RegEmail.jsx",
-        "src/pages/RegCpf.jsx",
-        "src/pages/RegCelular.jsx",
-        "src/pages/useLocalStorage.js",
-        "src/pages/useLocalStorage.js"
+        "src/pages/RegEmail.tsx",
+        "src/pages/RegCpf.tsx",
+        "src/pages/Register/RegCelular.jsx",
+        "src/utils/useLocalStorage.jsx",
+        "src/utils/useLocalStorage.jsx",
+        "src/pages/components/Corpo/index.jsx",
+        "src/pages/RegName.jsx",
+        "src/pages/RegSenha.jsx"
     ],
     "exclude": ["node_modules"]
 }

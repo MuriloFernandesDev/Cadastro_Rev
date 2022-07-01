@@ -1,7 +1,7 @@
 import '../../styles/globals.scss'
+import type { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
 import Corpo from './components/Corpo'
-import { AppProps } from 'next/app'
 
 function MyApp({ Component, pageProps }: AppProps) {
     const router = useRouter()
@@ -11,7 +11,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                 <Component {...pageProps} />
             ) : (
                 <>
-                    <Corpo valor={1}>
+                    <Corpo>
                         <Component {...pageProps} />
                     </Corpo>
                 </>
