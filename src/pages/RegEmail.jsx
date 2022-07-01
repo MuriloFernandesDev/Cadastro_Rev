@@ -2,7 +2,6 @@ import * as yup from 'yup'
 import { useFormik } from 'formik'
 import Button from './components/Button'
 import TextField from '@material-ui/core/TextField'
-import React, { useState, useEffect, FormEvent } from 'react' //
 import { useRouter } from 'next/router'
 import { useLocalStorage } from '../utils/useLocalStorage'
 

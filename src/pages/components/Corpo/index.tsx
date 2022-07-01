@@ -8,9 +8,10 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 
 interface Homeprops {
     children: ReactElement
+    valor: number
 }
 
-export default function Corpo({ children }: Homeprops) {
+export default function Corpo({ children, valor }: Homeprops) {
     return (
         <>
             <div className="glass z-10 absolute left-0 w-full h-full"></div>
@@ -44,7 +45,7 @@ export default function Corpo({ children }: Homeprops) {
                         </Link>
                         <progress
                             className="progress progress-primary ml-3 w-full bg-[rgba(0, 0, 0, 0.1)]"
-                            value="20"
+                            value={valor}
                             max="100"
                         ></progress>
                     </div>
