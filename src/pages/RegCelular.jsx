@@ -8,7 +8,7 @@ import { useLocalStorage } from '../utils/useLocalStorage'
 
 export default function RegCelular() {
     const router = useRouter()
-    const celular = useLocalStorage('celular', '')
+    const [celular] = useLocalStorage('celular', '')
     const formik = useFormik({
         initialValues: {
             celular: celular,

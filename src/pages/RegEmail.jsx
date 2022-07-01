@@ -7,7 +7,7 @@ import { useRouter } from 'next/router'
 import { useLocalStorage } from '../utils/useLocalStorage'
 
 export default function RegEmail() {
-    const email = useLocalStorage('email', '')
+    const [email] = useLocalStorage('email', '')
     const router = useRouter()
     const formik = useFormik({
         initialValues: {

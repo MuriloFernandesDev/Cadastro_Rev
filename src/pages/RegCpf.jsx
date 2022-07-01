@@ -7,7 +7,7 @@ import { useLocalStorage } from '../utils/useLocalStorage'
 import InputMask from 'react-input-mask'
 
 export default function RegCpf() {
-    const cpf = useLocalStorage('cpf', '')
+    const [cpf] = useLocalStorage('cpf', '')
     const router = useRouter()
     const formik = useFormik({
         initialValues: {

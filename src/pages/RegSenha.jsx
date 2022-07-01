@@ -62,13 +62,9 @@ export default function RegSenha() {
 
     return (
         <>
-            <h1 className="font-semibold text-sm text-black opacity-50">
-                Vamos começar
+            <h1 className="pb-5 text-black text-xl font-semibold">
+                Vamos criar uma senha!
             </h1>
-
-            <h2 className="pb-5 text-black text-xl font-semibold">
-                Qual seu nome completo?
-            </h2>
 
             <form className="gap-3 h-auto" onSubmit={formik.handleSubmit}>
                 <TextField
