@@ -76,11 +76,11 @@ export default function Home() {
                     className="modal cursor-pointer modal-bottom md:bg-white sm:modal-middle"
                   >
                     <label
-                      className="modal-box relative gap-3 h-[70vh] justify-between pb-14 p-4 flex flex-col text-center items-center bg-white shadow-lg"
+                      className="modal-box relative h-[60vh] justify-between pb-14 md:h-[60vh] p-4 flex flex-col text-center items-center bg-white shadow-lg"
                       htmlFor=""
                     >
                       <div className="h-[1px] bg-Loja mt-[0.85rem] opacity-50 w-5/6 absolute"></div>
-                      <h1 className="text-lg font-bold z-10 flex justify-center uppercase w-24 bg-white">
+                      <h1 className="text-lg font-bold z-10 pb-2 flex justify-center uppercase w-24 bg-white">
                         Entrar
                       </h1>
                       <TextField
