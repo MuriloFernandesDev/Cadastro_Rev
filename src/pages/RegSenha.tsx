@@ -4,7 +4,7 @@ import Button from './components/Button'
 import TextField from '@material-ui/core/TextField'
 import { useRouter } from 'next/router'
 import axios from 'axios'
-import { useLocalStorage } from './useLocalStorage'
+import { useLocalStorage } from '../utils/useLocalStorage'
 
 export default function RegSenha() {
     const router = useRouter()

@@ -4,7 +4,7 @@ import Button from './components/Button'
 import TextField from '@material-ui/core/TextField'
 import InputMask from 'react-input-mask'
 import { useRouter } from 'next/router'
-import { useLocalStorage } from './useLocalStorage'
+import { useLocalStorage } from '../utils/useLocalStorage'
 
 export default function RegCelular() {
     const router = useRouter()

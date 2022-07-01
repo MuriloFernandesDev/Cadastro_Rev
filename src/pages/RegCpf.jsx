@@ -3,7 +3,7 @@ import { replace, useFormik } from 'formik'
 import Button from './components/Button'
 import TextField from '@material-ui/core/TextField'
 import { useRouter } from 'next/router'
-import { useLocalStorage } from './useLocalStorage'
+import { useLocalStorage } from '../utils/useLocalStorage'
 import InputMask from 'react-input-mask'
 
 export default function RegCpf() {
