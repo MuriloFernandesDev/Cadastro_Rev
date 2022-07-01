@@ -52,12 +52,6 @@ export default function Home() {
                     Tenha acesso a preços imbatíveis de iPhones nacionais
                     lacrados para revenda!
                   </p>
-                  {/* <a
-                                        className="w-full h-[38px] text-white font-medium text-xs uppercase bg-Loja rounded-md flex items-center justify-center hover:scale-105 ease-in-out duration-300"
-                                        id="my-modal-6"
-                                    >
-                                        Entrar
-                                    </a> */}
 
                   <label
                     htmlFor="my-modal-4"
@@ -76,37 +70,41 @@ export default function Home() {
                     className="modal cursor-pointer modal-bottom md:bg-white sm:modal-middle"
                   >
                     <label
-                      className="modal-box relative h-[60vh] justify-between pb-14 md:h-[60vh] p-4 flex flex-col text-center items-center bg-white shadow-lg"
+                      className="modal-box relative justify-between gap-4 pb-20 flex flex-col text-center items-center bg-white shadow-lg"
                       htmlFor=""
                     >
                       <div className="h-[1px] bg-Loja mt-[0.85rem] opacity-50 w-5/6 absolute"></div>
-                      <h1 className="text-lg font-bold z-10 pb-2 flex justify-center uppercase w-24 bg-white">
+                      <h1 className="text-lg font-bold z-10 flex justify-center uppercase w-24 bg-white">
                         Entrar
                       </h1>
-                      <TextField
-                        label="Email"
-                        type="text"
-                        name="email"
-                        fullWidth
-                        variant="outlined"
-                      />
-                      <TextField
-                        label="Senha"
-                        type="password"
-                        name="email"
-                        fullWidth
-                        variant="outlined"
-                      />
-                      <button
-                        className="flex mt-[1.5rem] p-2 justify-center mx-auto font-medium uppercase w-full text-white text-xl py-3 rounded-md hover:scale-105 ease-in-out duration-300 bg-Loja"
-                        type="submit"
-                      >
-                        Entrar
-                      </button>
+                      <div className="flex flex-col gap-3 w-full">
+                        <TextField
+                          label="Email"
+                          type="email"
+                          name="email"
+                          fullWidth
+                          variant="outlined"
+                        />
+                        <TextField
+                          label="Senha"
+                          type="password"
+                          name="password"
+                          fullWidth
+                          variant="outlined"
+                        />
+                      </div>
+                      <div className="w-full flex flex-col mt-3">
+                        <button
+                          className="flex justify-center mx-auto uppercase w-full text-white text-base py-2 rounded-md bg-Loja"
+                          type="submit"
+                        >
+                          Entrar
+                        </button>
 
-                      <a className="font-semibold" href="">
-                        Esqueci minha senha{' '}
-                      </a>
+                        <a className="font-semibold mt-2" href="">
+                          Esqueci minha senha
+                        </a>
+                      </div>
                     </label>
                   </label>
 
