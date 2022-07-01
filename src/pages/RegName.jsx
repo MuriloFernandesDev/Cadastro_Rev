@@ -4,10 +4,10 @@ import Button from './components/Button'
 import TextField from '@material-ui/core/TextField'
 import { useRouter } from 'next/router'
 import React, { useState, useEffect, useRef } from 'react'
-import { useLocalStorage } from '../utils/useLocalStorage'
+import { useLocalStorage } from './useLocalStorage'
 
 export default function RegName() {
-    const name = useLocalStorage('name', '')
+    const [name] = useLocalStorage('name', '')
     const router = useRouter()
 
     const formik = useFormik({

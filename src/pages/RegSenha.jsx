@@ -4,11 +4,12 @@ import Button from './components/Button'
 import TextField from '@material-ui/core/TextField'
 import { useRouter } from 'next/router'
 import axios from 'axios'
-import { useLocalStorage } from '../utils/useLocalStorage'
+import React, { useState, useEffect, useRef } from 'react'
+import { useLocalStorage } from './useLocalStorage'
 
 export default function RegSenha() {
     const router = useRouter()
-    const password = useLocalStorage('password', '')
+    const [password] = useLocalStorage('password', '')
 
     const formik = useFormik({
         initialValues: {
@@ -24,8 +25,7 @@ export default function RegSenha() {
                 .string()
                 .required('Campo para confirmar senha obrigatório!')
                 .when('password', {
-                    is: (val: string | any[]) =>
-                        val && val.length > 0 ? true : false,
+                    is: (val) => (val && val.length > 0 ? true : false),
                     then: yup
                         .string()
                         .oneOf([yup.ref('password')], 'Senhas não são iguais!'),

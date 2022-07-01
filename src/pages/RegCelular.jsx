@@ -14,7 +14,7 @@ export default function RegCelular() {
             celular: celular,
         },
         validationSchema: yup.object({
-            celular: yup.string().required('O campo é obrigatório.'),
+            celular: yup.string('aa').required('O campo é obrigatório.'),
             // .transform((value) => value.replace(/[^\d]/g, ''))
             // .min(10, 'Número muito curto!')
             // .max(11, 'Número muito longo!'),
@@ -37,7 +37,7 @@ export default function RegCelular() {
                     onBlur={formik.handleBlur}
                     value={formik.values.celular}
                     name="celular"
-                    type="number"
+                    type="text"
                 >
                     {() => (
                         <TextField

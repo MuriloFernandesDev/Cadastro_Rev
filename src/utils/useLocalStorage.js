@@ -15,10 +15,10 @@ export const useLocalStorage = (key, initial) => {
         return getStorageValue(key, initial)
     })
 
-    // useEffect(() => {
-    //     // storing input name
-    //     localStorage.setItem(key, JSON.stringify(value))
-    // }, [key, value])
+    useEffect(() => {
+        // storing input name
+        localStorage.setItem(key, JSON.stringify(value))
+    }, [key, value])
 
-    // return [value, setValue]
+    return [value]
 }
