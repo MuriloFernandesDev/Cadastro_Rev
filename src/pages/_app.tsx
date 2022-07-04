@@ -4,20 +4,20 @@ import { useRouter } from 'next/router'
 import Corpo from './components/Corpo'
 
 function MyApp({ Component, pageProps }: AppProps) {
-    const router = useRouter()
-    return (
+  const router = useRouter()
+  return (
+    <>
+      {router.route === `/` ? (
+        <Component {...pageProps} />
+      ) : (
         <>
-            {router.route === `/` ? (
-                <Component {...pageProps} />
-            ) : (
-                <>
-                    <Corpo>
-                        <Component {...pageProps} />
-                    </Corpo>
-                </>
-            )}
+          <Corpo>
+            <Component {...pageProps} />
+          </Corpo>
         </>
-    )
+      )}
+    </>
+  )
 }
 
 export default MyApp

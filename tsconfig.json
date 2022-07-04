@@ -1,32 +1,33 @@
 {
-    "compilerOptions": {
-        "target": "es5",
-        "lib": ["dom", "dom.iterable", "esnext"],
-        "allowJs": true,
-        "skipLibCheck": true,
-        "strict": true,
-        "forceConsistentCasingInFileNames": true,
-        "noEmit": true,
-        "esModuleInterop": true,
-        "module": "esnext",
-        "moduleResolution": "node",
-        "resolveJsonModule": true,
-        "isolatedModules": true,
-        "jsx": "preserve",
-        "incremental": true
-    },
-    "include": [
-        "next-env.d.ts",
-        "**/*.ts",
-        "**/*.tsx",
-        "src/pages/RegEmail.tsx",
-        "src/pages/RegCpf.tsx",
-        "src/pages/Register/RegCelular.jsx",
-        "src/utils/useLocalStorage.jsx",
-        "src/utils/useLocalStorage.jsx",
-        "src/pages/components/Corpo/index.jsx",
-        "src/pages/RegName.jsx",
-        "src/pages/RegSenha.jsx"
-    ],
-    "exclude": ["node_modules"]
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "src/pages/RegEmail.tsx",
+    "src/pages/RegCpf.tsx",
+    "src/pages/Register/RegCelular.jsx",
+    "src/utils/useLocalStorage.jsx",
+    "src/utils/useLocalStorage.jsx",
+    "src/pages/components/Corpo/index.jsx",
+    "src/pages/name.jsx",
+    "src/pages/password.jsx",
+    "src/pages/componente.jsx"
+  ],
+  "exclude": ["node_modules"]
 }

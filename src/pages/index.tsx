@@ -4,7 +4,6 @@ import styles from './styles.module.scss'
 import Image from 'next/image'
 import LogoSvg from '../../public/LogoPurple.svg'
 import { TextField } from '@mui/material'
-import Button from './components/Button'
 
 export default function Home() {
   return (
@@ -13,7 +12,6 @@ export default function Home() {
         <title>BuyPhone</title>
         <meta name="description" content="Buy Phone para revendedores!" />
       </Head>
-
       <div className="min-h-screen w-full relative bg-white flex items-center justify-center">
         <div className="glass z-10 absolute left-0 w-full h-full"></div>
         <ul className={styles.circles}>
@@ -28,7 +26,6 @@ export default function Home() {
           <li></li>
           <li></li>
         </ul>
-
         <div className="flex flex-col items-center lg:flex-row">
           <div className="flex flex-col">
             <div className="pt-4 w-3/5 h-auto mx-auto z-20 relative pb-2 lg:w-80">
@@ -52,8 +49,7 @@ export default function Home() {
                     Tenha acesso a preços imbatíveis de iPhones nacionais
                     lacrados para revenda!
                   </p>
-
-                  <label
+                  {/* <label
                     htmlFor="my-modal-4"
                     className="w-full h-[38px] text-white font-medium text-xs uppercase bg-Loja rounded-md flex items-center justify-center hover:scale-105 ease-in-out duration-300"
                   >
@@ -100,13 +96,21 @@ export default function Home() {
                         >
                           Entrar
                         </button>
-
-                        <a className="font-semibold mt-2" href="">
+                        <a
+                          className="font-semibold mt-2"
+                          target="_blank"
+                          href="https://pedidos.buyphone.com.br/forgot-password"
+                        >
                           Esqueci minha senha
                         </a>
                       </div>
                     </label>
-                  </label>
+                  </label> */}
+                  <Link href={'https://pedidos.buyphone.com.br/login'}>
+                    <a className="w-full h-[38px] text-white font-medium text-xs uppercase bg-Loja rounded-md flex items-center justify-center hover:scale-105 ease-in-out duration-300">
+                      Entrar
+                    </a>
+                  </Link>
 
                   <Link href={'/Welcome'}>
                     <a className="w-full h-[38px] border font-medium text-xs uppercase border-Loja rounded-md flex items-center justify-center hover:scale-105 ease-in-out duration-300">

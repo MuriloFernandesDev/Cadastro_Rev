@@ -5,7 +5,7 @@ import TextField from '@material-ui/core/TextField'
 import { useRouter } from 'next/router'
 import { useLocalStorage } from '../utils/useLocalStorage'
 
-export default function RegEmail() {
+export default function email() {
   const [email] = useLocalStorage('email', '')
   const router = useRouter()
   const formik = useFormik({
@@ -20,7 +20,7 @@ export default function RegEmail() {
     }),
     onSubmit: (values) => {
       localStorage.setItem('email', JSON.stringify(values.email))
-      router.push('/RegCelular')
+      router.push('/phone')
     },
   })
 
@@ -30,7 +30,6 @@ export default function RegEmail() {
         <h1 className="pb-5 text-black text-xl font-semibold">
           Qual seu email?
         </h1>
-
         <TextField
           label="Seu Email"
           type="text"
@@ -41,7 +40,6 @@ export default function RegEmail() {
           onBlur={formik.handleBlur}
           value={formik.values.email}
         />
-
         {formik.touched.email && formik.errors.email ? (
           <div className="badge badge-warning badge-lg bg-opacity-80 text-xs mt-[1.5rem]">
             <svg
