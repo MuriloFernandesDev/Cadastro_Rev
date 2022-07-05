@@ -11,7 +11,7 @@ export default function adress() {
 
   const formik = useFormik({
     initialValues: {
-      adress: adress,
+      adress: adress ?? localStorage.getItem(adress),
     },
     validationSchema: yup.object({
       adress: yup
