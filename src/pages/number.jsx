@@ -16,9 +16,9 @@ export default function number() {
 
   const formik = useFormik({
     initialValues: {
-      district: district,
       number: number,
-      complemento: complemento,
+      // district: district,
+      // complemento: complemento,
     },
     validationSchema: yup.object({
       number: yup
@@ -26,17 +26,17 @@ export default function number() {
         .required('Campo nome é Obrigatório!')
         .min(1, 'Número muito curto!')
         .max(5, 'Número muito longo!'),
-      district: yup
-        .string()
-        .required('Campo bairro é Obrigatório!')
-        .min(5, 'Bairro muito curto!')
-        .max(25, 'Bairro muito longo!'),
-      complemento: yup.string().max(25, 'Complemento muito longo!'),
+      // district: yup
+      //   .string()
+      //   .required('Campo bairro é Obrigatório!')
+      //   .min(5, 'Bairro muito curto!')
+      //   .max(25, 'Bairro muito longo!'),
+      // complemento: yup.string().max(25, 'Complemento muito longo!'),
     }),
     onSubmit: (values) => {
       localStorage.setItem('number', JSON.stringify(values.number))
-      localStorage.setItem('district', JSON.stringify(values.district))
-      localStorage.setItem('complemento', JSON.stringify(values.complemento))
+      // localStorage.setItem('district', JSON.stringify(values.district))
+      // localStorage.setItem('complemento', JSON.stringify(values.complemento))
       router.push('/confirmadress')
     },
   })
@@ -48,7 +48,7 @@ export default function number() {
         {city}, {state}
       </h2>
       <form className="gap-3 h-auto" onSubmit={formik.handleSubmit}>
-        <TextField
+        {/* <TextField
           label="Bairro"
           type="text"
           name="district"
@@ -56,7 +56,7 @@ export default function number() {
           variant="outlined"
           onChange={formik.handleChange}
           value={formik.values.district}
-        />
+        /> */}
         <div className="p-2"></div>
         <TextField
           label="Número (casa, condomínio, km, etc..)"
@@ -68,7 +68,7 @@ export default function number() {
           value={formik.values.number}
         />
         <div className="p-2"></div>
-        <TextField
+        {/* <TextField
           label="Complemento (apto, bloco, sala, etc..) - opcional"
           type="text"
           name="complemento"
@@ -76,7 +76,7 @@ export default function number() {
           variant="outlined"
           onChange={formik.handleChange}
           value={formik.values.complemento}
-        />
+        /> */}
         {formik.touched.number && formik.errors.number ? (
           <div className="badge badge-warning badge-lg bg-opacity-80 text-xs mt-[1.5rem]">
             <svg
@@ -92,9 +92,9 @@ export default function number() {
                 d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
               />
             </svg>
-            <span className="pl-2"> {formik.errors.district}</span>
             <span className="pl-2"> {formik.errors.number}</span>
-            <span className="pl-2"> {formik.errors.complemento}</span>
+            {/* <span className="pl-2"> {formik.errors.district}</span>
+            <span className="pl-2"> {formik.errors.complemento}</span> */}
           </div>
         ) : null}
         <Button />

@@ -6,7 +6,6 @@ import { useRouter } from 'next/router'
 import { useLocalStorage } from '../utils/useLocalStorage'
 import InputMask from 'react-input-mask'
 import ApiCep from '../utils/getCep'
-import { useState } from 'react'
 
 export default function postal() {
   const [postal] = useLocalStorage('postal', '')
