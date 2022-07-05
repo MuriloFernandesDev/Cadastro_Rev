@@ -5,6 +5,7 @@ import TextField from '@material-ui/core/TextField'
 import { useRouter } from 'next/router'
 import axios from 'axios'
 import { useLocalStorage } from '../utils/useLocalStorage'
+import toast from 'react-hot-toast'
 
 export default function password() {
   const router = useRouter()
@@ -32,30 +33,76 @@ export default function password() {
     }),
     onSubmit: (values) => {
       localStorage.setItem('password', JSON.stringify(values.password))
-      const Data1 = localStorage.getItem('senha')
-      const Data2 = localStorage.getItem('name')
-      const Data3 = localStorage.getItem('cpf')
-      const Data4 = localStorage.getItem('celular')
-      const Data5 = localStorage.getItem('email')
 
-      const post = () => {
-        const data = {
-          senha: localStorage.getItem('senha'),
-          name: localStorage.getItem('name'),
-          cpf: localStorage.getItem('cpf'),
-          celular: localStorage.getItem('celular'),
-          email: localStorage.getItem('email'),
-        }
+      const data_americana = localStorage
+        .getItem('birthdate')
+        .split('/')
+        .reverse()
+        .join('-')
+        .replace('"', '')
+        .replace('"', '')
 
-        axios.post('api', data)
-        // .then((response) => renderOutput(response))
+      const data = {
+        password: localStorage
+          .getItem('password')
+          .replace('"', '')
+          .replace('"', ''),
+        name: localStorage.getItem('name').replace('"', '').replace('"', ''),
+        document: localStorage
+          .getItem('document')
+          .replace('"', '')
+          .replace('"', ''),
+        mobile_phone: localStorage
+          .getItem('mobile_phone')
+          .replace('"', '')
+          .replace('"', '')
+          .replace(' ', ''),
+        birthdate: data_americana,
+        email: localStorage.getItem('email').replace('"', '').replace('"', ''),
+        type: localStorage.getItem('type').replace('"', '').replace('"', ''),
       }
 
-      console.log(Data1, Data2, Data3, Data4, Data5)
-
-      //enviar dados para o pablo
-      // localStorage.clear()
-      router.push('/confirmation')
+      axios
+        .post(`https://loja.buyphone.com.br/api/register`, data)
+        .then((res) => {
+          router.push('/confirmation')
+        })
+        .catch((error) => {
+          var Error = error.response.data.message
+            .split('document')
+            .join('CPF')
+            .split('mobile phone')
+            .join('celular')
+            .split('birthdate')
+            .join('data de aniversário')
+          toast.custom((t) => (
+            <div
+              className={`${
+                t.visible ? 'animate-enter' : 'animate-leave'
+              } w-full lg:w-1/4 bg-[#FECACA] text-[#484752] h-auto items-center shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5`}
+            >
+              <div className="flex-1 w-0 p-4">
+                <div className="flex items-center">
+                  <div className="flex-shrink-0 pt-0.5">
+                    <img
+                      className="h-auto w-10"
+                      src="/error.webp"
+                      alt="Error img"
+                    />
+                  </div>
+                  <div className="ml-3 flex-1">
+                    <p className="text-xs font-medium text-gray-900">
+                      Verifique o alerta abaixo e corrija:
+                    </p>
+                    <p className="mt-1 text-[11px] text-gray-900 opacity-70">
+                      {Error}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))
+        })
     },
   })
 

@@ -7,7 +7,7 @@ import { useLocalStorage } from '../utils/useLocalStorage'
 import InputMask from 'react-input-mask'
 
 export default function cpf() {
-  const [cpf] = useLocalStorage('cpf', '')
+  const [cpf] = useLocalStorage('document', '')
   const router = useRouter()
   const formik = useFormik({
     initialValues: {
@@ -20,7 +20,7 @@ export default function cpf() {
       // .max(11, 'Digite um CPF!'),
     }),
     onSubmit: (values) => {
-      localStorage.setItem('cpf', JSON.stringify(values.cpf))
+      localStorage.setItem('document', JSON.stringify(values.cpf))
       router.push('/email')
     },
   })

@@ -8,7 +8,7 @@ import { useLocalStorage } from '../utils/useLocalStorage'
 
 export default function phone() {
   const router = useRouter()
-  const [celular] = useLocalStorage('celular', '')
+  const [celular] = useLocalStorage('mobile_phone', '')
   const formik = useFormik({
     initialValues: {
       celular: celular,
@@ -17,7 +17,8 @@ export default function phone() {
       celular: yup.string('aa').required('O campo é obrigatório.'),
     }),
     onSubmit: (values) => {
-      localStorage.setItem('celular', JSON.stringify(values.celular))
+      localStorage.setItem('type', 1)
+      localStorage.setItem('mobile_phone', JSON.stringify(values.celular))
       router.push('/password')
     },
   })
@@ -30,7 +31,7 @@ export default function phone() {
       <form onSubmit={formik.handleSubmit}>
         <InputMask
           onChange={formik.handleChange}
-          mask="(99) 99999-9999"
+          mask="+55(99) 99999-9999"
           onBlur={formik.handleBlur}
           value={formik.values.celular}
           name="celular"

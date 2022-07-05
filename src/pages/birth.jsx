@@ -7,7 +7,7 @@ import { useLocalStorage } from '../utils/useLocalStorage'
 import InputMask from 'react-input-mask'
 
 export default function birth() {
-  const [birth] = useLocalStorage('birth', '')
+  const [birth] = useLocalStorage('birthdate', '')
   const router = useRouter()
   const formik = useFormik({
     initialValues: {
@@ -17,7 +17,7 @@ export default function birth() {
       birth: yup.string().required('O campo é obrigatório.'),
     }),
     onSubmit: (values) => {
-      localStorage.setItem('birth', JSON.stringify(values.birth))
+      localStorage.setItem('birthdate', JSON.stringify(values.birth))
       router.push('/cpf')
     },
   })

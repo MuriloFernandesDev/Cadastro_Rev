@@ -47,8 +47,10 @@ export default function confirmadress() {
               {district}, {city} - {state}
             </h2>
           </div>
-          <div className="w-[24px] h-[24px]">
-            <Image src={EditImg} layout="responsive"></Image>
+          <div className="w-[24px] h-[24px] hover:opacity-50 duration-300">
+            <a href="#abrirtelaedicaoinformacoes">
+              <Image src={EditImg} layout="responsive"></Image>
+            </a>
           </div>
         </div>
 

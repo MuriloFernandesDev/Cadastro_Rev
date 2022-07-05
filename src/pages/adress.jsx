@@ -17,7 +17,7 @@ export default function adress() {
       adress: yup
         .string()
         .required('Campo nome é Obrigatório!')
-        .min(10, 'Digite seu nome completo!')
+        .min(3, 'Digite seu nome completo!')
         .max(40, 'Nome muito longo!'),
     }),
     onSubmit: (values) => {
