@@ -4,6 +4,7 @@ import Button from './components/Button'
 import TextField from '@material-ui/core/TextField'
 import { useRouter } from 'next/router'
 import { useLocalStorage } from '../utils/useLocalStorage'
+import Progress from './components/Progress'
 
 export default function name() {
   const [name] = useLocalStorage('name', '')
@@ -28,6 +29,7 @@ export default function name() {
 
   return (
     <>
+      <Progress value="20" />
       <h1 className="font-semibold text-sm text-black opacity-50">
         Vamos começar
       </h1>

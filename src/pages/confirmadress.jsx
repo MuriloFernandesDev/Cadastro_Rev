@@ -7,6 +7,7 @@ import { useLocalStorage } from '../utils/useLocalStorage'
 import Image from 'next/image'
 import MapImg from '../../public/undraw.svg'
 import EditImg from '../../public/Create.svg'
+import Progress from './components/Progress'
 
 export default function confirmadress() {
   const [email] = useLocalStorage('email', '')
@@ -34,6 +35,7 @@ export default function confirmadress() {
 
   return (
     <>
+      <Progress value="90" />
       <form onSubmit={formik.handleSubmit}>
         <div className="w-64 h-auto mx-auto">
           <Image src={MapImg} layout="responsive"></Image>

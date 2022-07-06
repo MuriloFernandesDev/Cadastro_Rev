@@ -3,8 +3,6 @@ import { ReactElement, cloneElement } from 'react'
 import styles from './styles.module.scss'
 import Image from 'next/image'
 import LogoSvg from '../../../../public/LogoPurple.svg'
-import Link from 'next/link'
-import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 
 interface Homeprops {
   children: ReactElement
@@ -36,18 +34,6 @@ export default function Corpo({ children }: Homeprops) {
       </div>
       <div className="card bg-white mb-10 z-50 w-full flex flex-col shadow-lg max-w-xl mx-auto">
         <div className="card-body">
-          <div className="flex w-full items-center justify-between">
-            <Link href={'/'}>
-              <a>
-                <ArrowBackIcon></ArrowBackIcon>
-              </a>
-            </Link>
-            <progress
-              className="progress progress-primary ml-3 w-full bg-[rgba(0, 0, 0, 0.1)]"
-              value="2"
-              max="100"
-            ></progress>
-          </div>
           <div className="flex flex-col justify-between">
             <div className="mt-2">{children}</div>
           </div>

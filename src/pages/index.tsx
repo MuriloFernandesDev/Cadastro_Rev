@@ -49,63 +49,6 @@ export default function Home() {
                     Tenha acesso a preços imbatíveis de iPhones nacionais
                     lacrados para revenda!
                   </p>
-                  {/* <label
-                    htmlFor="my-modal-4"
-                    className="w-full h-[38px] text-white font-medium text-xs uppercase bg-Loja rounded-md flex items-center justify-center hover:scale-105 ease-in-out duration-300"
-                  >
-                    entrar
-                  </label>
-
-                  <input
-                    type="checkbox"
-                    id="my-modal-4"
-                    className="modal-toggle"
-                  />
-                  <label
-                    htmlFor="my-modal-4"
-                    className="modal cursor-pointer modal-bottom md:bg-white sm:modal-middle"
-                  >
-                    <label
-                      className="modal-box relative justify-between gap-4 pb-20 flex flex-col text-center items-center bg-white shadow-lg"
-                      htmlFor=""
-                    >
-                      <div className="h-[1px] bg-Loja mt-[0.85rem] opacity-50 w-5/6 absolute"></div>
-                      <h1 className="text-lg font-bold z-10 flex justify-center uppercase w-24 bg-white">
-                        Entrar
-                      </h1>
-                      <div className="flex flex-col gap-3 w-full">
-                        <TextField
-                          label="Email"
-                          type="email"
-                          name="email"
-                          fullWidth
-                          variant="outlined"
-                        />
-                        <TextField
-                          label="Senha"
-                          type="password"
-                          name="password"
-                          fullWidth
-                          variant="outlined"
-                        />
-                      </div>
-                      <div className="w-full flex flex-col mt-3">
-                        <button
-                          className="flex justify-center mx-auto uppercase w-full text-white text-base py-2 rounded-md bg-Loja"
-                          type="submit"
-                        >
-                          Entrar
-                        </button>
-                        <a
-                          className="font-semibold mt-2"
-                          target="_blank"
-                          href="https://pedidos.buyphone.com.br/forgot-password"
-                        >
-                          Esqueci minha senha
-                        </a>
-                      </div>
-                    </label>
-                  </label> */}
                   <Link href={'https://pedidos.buyphone.com.br/login'}>
                     <a className="w-full h-[38px] text-white font-medium text-xs uppercase bg-Loja rounded-md flex items-center justify-center hover:scale-105 ease-in-out duration-300">
                       Entrar

@@ -6,6 +6,7 @@ import { useRouter } from 'next/router'
 import axios from 'axios'
 import { useLocalStorage } from '../utils/useLocalStorage'
 import toast from 'react-hot-toast'
+import Progress from './components/Progress'
 
 export default function password() {
   const router = useRouter()
@@ -65,7 +66,7 @@ export default function password() {
       axios
         .post(`https://loja.buyphone.com.br/api/register`, data)
         .then((res) => {
-          router.push('/confirmation')
+          router.push('/confirm')
         })
         .catch((error) => {
           var Error = error.response.data.message
@@ -108,6 +109,7 @@ export default function password() {
 
   return (
     <>
+      <Progress value="70" />
       <h1 className="pb-5 text-black text-xl font-semibold">
         Vamos criar uma senha!
       </h1>

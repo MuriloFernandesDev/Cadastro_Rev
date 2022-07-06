@@ -4,6 +4,7 @@ import Button from './components/Button'
 import TextField from '@material-ui/core/TextField'
 import { useRouter } from 'next/router'
 import { useLocalStorage } from '../utils/useLocalStorage'
+import Progress from './components/Progress'
 
 export default function email() {
   const [email] = useLocalStorage('email', '')
@@ -26,6 +27,7 @@ export default function email() {
 
   return (
     <>
+      <Progress value="50" />
       <form onSubmit={formik.handleSubmit}>
         <h1 className="pb-5 text-black text-xl font-semibold">
           Qual seu email?

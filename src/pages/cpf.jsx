@@ -5,6 +5,7 @@ import TextField from '@material-ui/core/TextField'
 import { useRouter } from 'next/router'
 import { useLocalStorage } from '../utils/useLocalStorage'
 import InputMask from 'react-input-mask'
+import Progress from './components/Progress'
 
 export default function cpf() {
   const [cpf] = useLocalStorage('document', '')
@@ -15,9 +16,6 @@ export default function cpf() {
     },
     validationSchema: yup.object({
       cpf: yup.string().required('O campo é obrigatório.'),
-      // .transform((value) => value.replace(/[^\d]/g, ''))
-      // .min(11, 'Digite um CPF!')
-      // .max(11, 'Digite um CPF!'),
     }),
     onSubmit: (values) => {
       localStorage.setItem('document', JSON.stringify(values.cpf))
@@ -27,6 +25,7 @@ export default function cpf() {
 
   return (
     <>
+      <Progress value="40" />
       <h1 className="pb-5 text-black text-xl font-semibold">Qual seu CPF?</h1>
       <form onSubmit={formik.handleSubmit}>
         <InputMask

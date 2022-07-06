@@ -26,8 +26,15 @@
     "src/utils/useLocalStorage.jsx",
     "src/pages/components/Corpo/index.jsx",
     "src/pages/name.jsx",
-    "src/pages/password.jsx",
-    "src/pages/componente.jsx"
+    "src/pages/password.tsx",
+    "src/pages/componente.jsx",
+    "src/pages/confirmation.jsx",
+    "src/pages/confirmadress.jsx",
+    "src/pages/adress.jsx",
+    "src/pages/postal.jsx",
+    "src/pages/companyname.jsx",
+    "src/pages/cnpj.Jsx",
+    "src/pages/birth.jsx"
   ],
   "exclude": ["node_modules"]
 }

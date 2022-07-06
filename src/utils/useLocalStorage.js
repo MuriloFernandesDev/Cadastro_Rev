@@ -11,14 +11,8 @@ function getStorageValue(key, defaultValue) {
 }
 
 export const useLocalStorage = (key, initial) => {
-  const [value, setValue] = useState(() => {
+  const [value] = useState(() => {
     return getStorageValue(key, initial)
   })
-
-  //   useEffect(() => {
-  //     // storing input name
-  //     // localStorage.setItem(key, JSON.stringify(value))
-  //   }, [key, value])
-
   return [value]
 }

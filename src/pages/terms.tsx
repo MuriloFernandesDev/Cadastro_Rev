@@ -1,9 +1,11 @@
 import Image from 'next/image'
 import ConcluirImg from '../../public/undrawn.png'
+import Progress from './components/Progress'
 
 export default function RegTermos() {
   return (
     <>
+      <Progress value="90" />
       <h1 className="pb-5 text-black text-xl font-semibold">
         Termos & Condições
       </h1>

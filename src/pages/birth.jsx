@@ -5,6 +5,7 @@ import TextField from '@material-ui/core/TextField'
 import { useRouter } from 'next/router'
 import { useLocalStorage } from '../utils/useLocalStorage'
 import InputMask from 'react-input-mask'
+import Progress from './components/Progress'
 
 export default function birth() {
   const [birth] = useLocalStorage('birthdate', '')
@@ -24,6 +25,7 @@ export default function birth() {
 
   return (
     <>
+      <Progress value="30" />
       <h1 className="pb-5 text-black text-xl font-semibold">
         Qual sua data de nascimento?
       </h1>
