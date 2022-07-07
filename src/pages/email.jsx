@@ -28,8 +28,8 @@ export default function email() {
   return (
     <>
       <Progress value="50" />
-      <form onSubmit={formik.handleSubmit}>
-        <h1 className="pb-5 text-black text-xl font-semibold">
+      <form className="grid gap-8" onSubmit={formik.handleSubmit}>
+        <h1 className="mt-8 text-black text-xl font-semibold">
           Qual seu email?
         </h1>
         <TextField

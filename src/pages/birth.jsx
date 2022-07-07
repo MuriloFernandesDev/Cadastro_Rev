@@ -26,10 +26,11 @@ export default function birth() {
   return (
     <>
       <Progress value="30" />
-      <h1 className="pb-5 text-black text-xl font-semibold">
-        Qual sua data de nascimento?
-      </h1>
-      <form onSubmit={formik.handleSubmit}>
+
+      <form className="grid gap-8" onSubmit={formik.handleSubmit}>
+        <h1 className="text-black text-xl font-semibold mt-8">
+          Qual sua data de nascimento?
+        </h1>
         <InputMask
           onChange={formik.handleChange}
           mask="99/99/9999"

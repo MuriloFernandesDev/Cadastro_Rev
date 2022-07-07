@@ -121,51 +121,53 @@ export default function confirm(props) {
   return (
     <>
       <Progress value="90" />
-      <h1 className="font-semibold text-sm text-black opacity-50">
-        Falta pouco
-      </h1>
-      <h2 className="pb-5 text-black text-xl font-semibold">
-        Confirmação de e-mail
-      </h2>
-      <h3 className="font-medium text-sm text-black opacity-50">
-        Informe o código enviado para o e-mail:
-      </h3>
-      <p className="font-medium pb-5 text-sm text-black opacity-50">{email}</p>
-      <Watch />
+      <form className="grid gap-8">
+        <div className="mt-8 grid gap-3">
+          <h1 className="font-semibold text-sm text-black opacity-50">
+            Falta pouco
+          </h1>
+          <h2 className="text-black text-xl font-semibold">
+            Confirmação de e-mail
+          </h2>
+          <div>
+            <h3 className="font-medium text-sm text-black opacity-50">
+              Informe o código enviado para o e-mail:
+            </h3>
+            <p className="font-medium text-sm text-black opacity-50">{email}</p>
+          </div>
+        </div>
+        <Watch />
 
-      <div className="flex gap-2 justify-center mt-4">
-        {inputRefsArray.map((ref, index) => {
-          return (
-            <input
-              ref={ref}
-              type="tel"
-              className="border border-Loja rounded-md w-16 h-16 text-center text-2xl text-Loja"
-              id={`box${index}-1`}
-              onChange={(e) => {
-                const { value } = e.target
-                setLetters((letters) =>
-                  letters.map((letter, letterIndex) =>
-                    letterIndex === index ? value : letter
+        <div className="flex gap-2 justify-center mt-4">
+          {inputRefsArray.map((ref, index) => {
+            return (
+              <input
+                ref={ref}
+                type="tel"
+                className="border border-Loja rounded-md w-16 h-16 text-center text-2xl text-Loja"
+                id={`box${index}-1`}
+                onChange={(e) => {
+                  const { value } = e.target
+                  setLetters((letters) =>
+                    letters.map((letter, letterIndex) =>
+                      letterIndex === index ? value : letter
+                    )
                   )
-                )
-              }}
-              onClick={(e) => {
-                setCurrentIndex(index)
-                e.target.select()
-              }}
-              value={letters[index]}
-              maxLength={1}
-            />
-          )
-        })}
-      </div>
-      <button
-        onClick={handleClick}
-        className="flex mt-[1.5rem] justify-center mx-auto font-bold uppercase w-full text-white text-xl py-3 rounded-xl hover:scale-105 ease-in-out duration-300 bg-Loja"
-        type="submit"
-      >
-        FINALIZAR CADASTRO
-      </button>
+                }}
+                onClick={(e) => {
+                  setCurrentIndex(index)
+                  e.target.select()
+                }}
+                value={letters[index]}
+                maxLength={1}
+              />
+            )
+          })}
+        </div>
+        <button onClick={handleClick} className="btn btn-primary" type="submit">
+          FINALIZAR CADASTRO
+        </button>
+      </form>
     </>
   )
 }
