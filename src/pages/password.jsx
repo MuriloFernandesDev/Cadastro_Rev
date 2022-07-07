@@ -110,31 +110,34 @@ export default function password() {
   return (
     <>
       <Progress value="70" />
-      <h1 className="pb-5 text-black text-xl font-semibold">
-        Vamos criar uma senha!
-      </h1>
-      <form className="gap-3 h-auto" onSubmit={formik.handleSubmit}>
-        <TextField
-          label="Senha"
-          fullWidth
-          variant="outlined"
-          type="password"
-          name="password"
-          onBlur={formik.handleBlur}
-          onChange={formik.handleChange}
-          value={formik.values.password}
-        />
-        <div className="p-2"></div>
-        <TextField
-          label="Confirme sua senha"
-          fullWidth
-          variant="outlined"
-          type="password"
-          name="changepassword"
-          onBlur={formik.handleBlur}
-          onChange={formik.handleChange}
-          value={formik.values.changepassword}
-        />
+
+      <form className="grid gap-8" onSubmit={formik.handleSubmit}>
+        <h1 className="mt-8 text-black text-xl font-semibold">
+          Vamos criar uma senha!
+        </h1>
+        <div className="grid gap-3">
+          <TextField
+            label="Senha"
+            fullWidth
+            variant="outlined"
+            type="password"
+            name="password"
+            onBlur={formik.handleBlur}
+            onChange={formik.handleChange}
+            value={formik.values.password}
+          />
+
+          <TextField
+            label="Confirme sua senha"
+            fullWidth
+            variant="outlined"
+            type="password"
+            name="changepassword"
+            onBlur={formik.handleBlur}
+            onChange={formik.handleChange}
+            value={formik.values.changepassword}
+          />
+        </div>
         {(formik.touched.password && formik.errors.password) ||
         (formik.touched.changepassword && formik.errors.changepassword) ? (
           <div className="badge badge-warning badge-lg bg-opacity-80 text-xs mt-[1.5rem]">

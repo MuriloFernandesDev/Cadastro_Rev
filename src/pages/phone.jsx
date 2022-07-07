@@ -27,17 +27,18 @@ export default function phone() {
   return (
     <>
       <Progress value="60" />
-      <h1 className="pb-5 text-black text-xl font-semibold">
-        Qual seu Celular?
-      </h1>
-      <form onSubmit={formik.handleSubmit}>
+
+      <form className="grid gap-8" onSubmit={formik.handleSubmit}>
+        <h1 className="mt-8 text-black text-xl font-semibold">
+          Qual seu Celular?
+        </h1>
         <InputMask
           onChange={formik.handleChange}
           mask="+55(99) 99999-9999"
           onBlur={formik.handleBlur}
           value={formik.values.celular}
           name="celular"
-          type="text"
+          type="tel"
         >
           {() => (
             <TextField

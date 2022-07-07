@@ -42,7 +42,7 @@ export default function postal() {
           onBlur={formik.handleBlur}
           value={formik.values.postal}
           name="postal"
-          type="number"
+          type="tel"
         >
           {() => (
             <TextField

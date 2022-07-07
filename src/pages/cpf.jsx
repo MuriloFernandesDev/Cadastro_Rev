@@ -26,8 +26,9 @@ export default function cpf() {
   return (
     <>
       <Progress value="40" />
-      <h1 className="pb-5 text-black text-xl font-semibold">Qual seu CPF?</h1>
-      <form onSubmit={formik.handleSubmit}>
+
+      <form className="grid gap-8" onSubmit={formik.handleSubmit}>
+        <h1 className="mt-8 text-black text-xl font-semibold">Qual seu CPF?</h1>
         <InputMask
           onChange={formik.handleChange}
           mask="999.999.999-99"

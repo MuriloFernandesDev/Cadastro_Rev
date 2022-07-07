@@ -30,14 +30,14 @@ export default function name() {
   return (
     <>
       <Progress value="20" />
-      <h1 className="font-semibold text-sm text-black opacity-50">
-        Vamos começar
-      </h1>
 
-      <h2 className="pb-5 text-black text-xl font-semibold">
-        Qual seu nome completo?
-      </h2>
-      <form className="gap-3 h-auto" onSubmit={formik.handleSubmit}>
+      <form className="gap-8 grid h-auto" onSubmit={formik.handleSubmit}>
+        <div className="mt-8">
+          <h1 className="font-semibold text-sm text-black opacity-50">
+            Vamos começar
+          </h1>
+          <h2 className="text-black text-xl">Qual seu nome completo?</h2>
+        </div>
         <TextField
           label="Nome"
           type="text"
