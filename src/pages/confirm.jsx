@@ -140,7 +140,7 @@ export default function confirm(props) {
           return (
             <input
               ref={ref}
-              type="number"
+              type="tel"
               className="border border-Loja rounded-md w-16 h-16 text-center text-2xl text-Loja"
               id={`box${index}-1`}
               onChange={(e) => {
