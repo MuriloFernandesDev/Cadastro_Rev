@@ -32,7 +32,6 @@ export default function confirm(props) {
       return nextIndex
     })
   }
-
   useEffect(() => {
     if (inputRefsArray?.[0]?.current) {
       inputRefsArray?.[0]?.current?.focus()
@@ -43,7 +42,6 @@ export default function confirm(props) {
       window.removeEventListener('keyup', handleKeyPress)
     }
   }, [])
-
   function handleClick(event) {
     event.preventDefault()
     var arr = JSON.stringify(letters)
