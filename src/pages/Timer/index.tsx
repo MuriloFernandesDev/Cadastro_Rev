@@ -33,7 +33,7 @@ const Watch = (props: any) => {
           Tempo Expirado - Envie Novamente
         </h1>
       ) : (
-        <h1 className="flex justify-center text-black font-normal">
+        <h1 className="flex justify-center text-Loja font-normal">
           {' '}
           <Timer />
           {minutes}:{seconds < 10 ? `0${seconds}` : seconds}

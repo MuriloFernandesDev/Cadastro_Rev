@@ -24,7 +24,7 @@ export default function Corpo({ children }: Homeprops) {
         <li></li>
         <li></li>
       </ul>
-      <div className="pt-4 w-3/5 z-50 h-auto mx-auto relative pb-2 lg:w-80">
+      <div className="pt-2 w-3/5 z-50 h-auto mx-auto relative pb-2 lg:w-80">
         <Image
           src={LogoSvg}
           layout="responsive"
@@ -32,10 +32,12 @@ export default function Corpo({ children }: Homeprops) {
           alt="Logo BuyPhone"
         />
       </div>
-      <div className="card bg-white mb-10 z-50 w-full flex flex-col shadow-lg max-w-xl mx-auto">
-        <div className="card-body">
-          <div className="flex flex-col justify-between">
-            <div className="mt-2">{children}</div>
+      <div className="px-6">
+        <div className="card bg-white mb-10 z-50 w-full flex flex-col shadow-lg max-w-xl mx-auto">
+          <div className="card-body">
+            <div className="flex flex-col justify-between">
+              <div className="mt-2">{children}</div>
+            </div>
           </div>
         </div>
       </div>

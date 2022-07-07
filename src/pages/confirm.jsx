@@ -51,7 +51,6 @@ export default function confirm(props) {
       .replace(/"/g, '')
       .replace('[', '')
       .replace(']', '')
-    console.log(arr)
 
     const data = {
       email: localStorage.getItem('email').replace('"', '').replace('"', ''),
@@ -86,7 +85,7 @@ export default function confirm(props) {
             </div>
           ))
           setTimeout(() => {
-            router.push('/conclusion')
+            router.push('/terms')
           }, 3000)
         } else {
           toast.custom((t) => (
@@ -120,75 +119,6 @@ export default function confirm(props) {
       })
   }
 
-  function greeting() {
-    // event.preventDefault()
-    // const data = {
-    //   email: localStorage.getItem('email').replace('"', '').replace('"', ''),
-    //   code: values.code.replace('"', '').replace('"', ''),
-    // }
-    // axios
-    //   .post(`https://loja.buyphone.com.br/api/confirm-email`, data)
-    //   .then((res) => {
-    //     if (res.data.message == 'E-mail validado com sucesso.') {
-    //       toast.custom((t) => (
-    //         <div
-    //           className={`${
-    //             t.visible ? 'animate-enter' : 'animate-leave'
-    //           } w-full lg:w-1/4 bg-[#FECACA] text-[#484752] h-auto items-center shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5`}
-    //         >
-    //           <div className="flex-1 w-0 p-4">
-    //             <div className="flex items-center">
-    //               <div className="flex-shrink-0 pt-0.5">
-    //                 <img
-    //                   className="h-auto w-10"
-    //                   src="/success.webp"
-    //                   alt="success img"
-    //                 />
-    //               </div>
-    //               <div className="ml-3 flex-1">
-    //                 <p className="text-xs font-medium text-gray-900">
-    //                   Parabéns, seu e-mail foi validado com sucesso!
-    //                 </p>
-    //               </div>
-    //             </div>
-    //           </div>
-    //         </div>
-    //       ))
-    //       setTimeout(() => {
-    //         router.push('/conclusion')
-    //       }, 3000)
-    //     } else {
-    //       toast.custom((t) => (
-    //         <div
-    //           className={`${
-    //             t.visible ? 'animate-enter' : 'animate-leave'
-    //           } w-full lg:w-1/4 bg-[#FECACA] text-[#484752] h-auto items-center shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5`}
-    //         >
-    //           <div className="flex-1 w-0 p-4">
-    //             <div className="flex items-center">
-    //               <div className="flex-shrink-0 pt-0.5">
-    //                 <img
-    //                   className="h-auto w-10"
-    //                   src="/error.webp"
-    //                   alt="Error img"
-    //                 />
-    //               </div>
-    //               <div className="ml-3 flex-1">
-    //                 <p className="text-xs font-medium text-gray-900">
-    //                   Verifique o alerta abaixo e corrija:
-    //                 </p>
-    //                 <p className="mt-1 text-[11px] text-gray-900 opacity-70">
-    //                   {res.data.message}
-    //                 </p>
-    //               </div>
-    //             </div>
-    //           </div>
-    //         </div>
-    //       ))
-    //     }
-    //   })
-  }
-
   return (
     <>
       <Progress value="90" />
@@ -201,7 +131,7 @@ export default function confirm(props) {
       <h3 className="font-medium text-sm text-black opacity-50">
         Informe o código enviado para o e-mail:
       </h3>
-      <p className="font-medium pb-5 text-sm text-black opacity-50">asa</p>
+      <p className="font-medium pb-5 text-sm text-black opacity-50">{email}</p>
       <Watch />
 
       <div className="flex gap-2 justify-center mt-4">
@@ -235,7 +165,7 @@ export default function confirm(props) {
         className="flex mt-[1.5rem] justify-center mx-auto font-bold uppercase w-full text-white text-xl py-3 rounded-xl hover:scale-105 ease-in-out duration-300 bg-Loja"
         type="submit"
       >
-        Próximo
+        FINALIZAR CADASTRO
       </button>
     </>
   )
