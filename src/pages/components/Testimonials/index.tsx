@@ -11,7 +11,7 @@ import Quote2Img from '../../../../public/quote2.png'
 export function Testimonials() {
   return (
     <div className={styles.pallets_color}>
-      <div className="flex flex-col mx-auto md:w-5/6 gap-28 max-w-7xl mx-auto">
+      <div className="flex flex-col mx-auto md:w-5/6 gap-28 max-w-7xl">
         <div className="flex justify-between items-center flex-col gap-4 md:flex-row md:items-start">
           <div className="flex flex-col w-full justify-center md:justify-start">
             <div className="flex">
