@@ -76,7 +76,7 @@ export default function confirm(props) {
                     />
                   </div>
                   <div className="ml-3 flex-1">
-                    <p className="text-xs font-medium text-gray-900">
+                    <p className="text-xs font-medium text-green-500">
                       Parabéns, seu e-mail foi validado com sucesso!
                     </p>
                   </div>
@@ -104,10 +104,10 @@ export default function confirm(props) {
                     />
                   </div>
                   <div className="ml-3 flex-1">
-                    <p className="text-xs font-medium text-gray-900">
+                    <p className="text-xs font-medium text-red-900">
                       Verifique o alerta abaixo e corrija:
                     </p>
-                    <p className="mt-1 text-[11px] text-gray-900 opacity-70">
+                    <p className="mt-1 text-[11px] text-red-900 opacity-70">
                       {res.data.message}
                     </p>
                   </div>
@@ -139,7 +139,7 @@ export default function confirm(props) {
           return (
             <input
               ref={ref}
-              type="text"
+              type="number"
               className="border border-Loja rounded-md w-16 h-16 text-center text-2xl text-Loja"
               id={`box${index}-1`}
               onChange={(e) => {
