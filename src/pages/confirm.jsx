@@ -76,7 +76,7 @@ export default function confirm(props) {
                     />
                   </div>
                   <div className="ml-3 flex-1">
-                    <p className="text-xs font-medium text-green-500">
+                    <p className="text-xs font-medium text-green-700">
                       Parabéns, seu e-mail foi validado com sucesso!
                     </p>
                   </div>
