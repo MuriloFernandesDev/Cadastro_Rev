@@ -85,8 +85,9 @@ export default function confirm(props) {
             </div>
           ))
           setTimeout(() => {
+            localStorage.clear()
             router.push('/terms')
-          }, 3000)
+          }, 2000)
         } else {
           toast.custom((t) => (
             <div
