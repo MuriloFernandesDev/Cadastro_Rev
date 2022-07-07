@@ -25,10 +25,7 @@ export default function conclusion() {
         className="flex mt-[1.5rem] justify-center mx-auto font-bold uppercase w-full text-white text-xl py-3 rounded-xl hover:scale-105 ease-in-out duration-300 bg-Loja"
         type="submit"
       >
-        <a
-          className="w-full h-full"
-          href="https://pedidos.buyphone.com.br/login"
-        >
+        <a className="w-full h-full" href="https://loja.buyphone.com.br/login">
           {' '}
           entrar
         </a>

@@ -33,7 +33,7 @@ export default function email() {
           Qual seu email?
         </h1>
         <TextField
-          label="Seu Email"
+          label="Seu email"
           type="text"
           name="email"
           fullWidth
