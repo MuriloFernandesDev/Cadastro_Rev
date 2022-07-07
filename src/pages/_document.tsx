@@ -5,6 +5,9 @@ export default class MyDocument extends Document {
     return (
       <Html lang="pt-BR">
         <Head>
+          <title>Cadastro | BuyPhone</title>
+          <meta name="description" content="Buy Phone para revendedores!" />
+
           <link rel="icon" type="image/ico" href="/favicon.ico" />
 
           <link rel="preconnect" href="https://fonts.googleapis.com" />

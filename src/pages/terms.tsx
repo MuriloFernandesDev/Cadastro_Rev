@@ -11,7 +11,7 @@ export default function RegTermos() {
   return (
     <>
       <Progress value="90" />
-      <div className="grid gap-8">
+      <div className="grid gap-3">
         <h1 className="text-black text-xl font-semibold mt-8">
           Termos & Condições
         </h1>

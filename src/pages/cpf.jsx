@@ -35,7 +35,7 @@ export default function cpf() {
           onBlur={formik.handleBlur}
           value={formik.values.cpf}
           name="cpf"
-          type="number"
+          type="tel"
         >
           {() => (
             <TextField
