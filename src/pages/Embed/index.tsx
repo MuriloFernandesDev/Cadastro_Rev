@@ -1,4 +1,4 @@
-export function Embed() {
+export default function Embed() {
   return (
     <div className="flex mx-auto max-w-7xl md:w-2/3 items-center mt-32 flex-col">
       <h1 className="pb-2 font-bold text-2xl text-purple-store tracking-wide text-center md:">

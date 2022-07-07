@@ -6,7 +6,7 @@ import LogoSvg from '../../public/LogoPurple.svg'
 import CelSvg from '../../public/Cel.svg'
 import { TextField } from '@mui/material'
 
-export default function Home() {
+export default function home() {
   return (
     <>
       <div className="min-h-screen w-full relative bg-white flex items-center justify-center">

@@ -1,11 +1,11 @@
 import Image from 'next/image'
-import CasasBahiaImg from '../../../../../public/CasasBahia.svg'
-import MagazineImg from '../../../../../public/Magalu.svg'
-import AmericanasImg from '../../../../../public/Americanas.svg'
-import PontoFrioImg from '../../../../../public/PontoFrio.svg'
-import ExtraImg from '../../../../../public/Extra.svg'
+import CasasBahiaImg from '../../../public/CasasBahia.svg'
+import MagazineImg from '../../../public/Magalu.svg'
+import AmericanasImg from '../../../public/Americanas.svg'
+import PontoFrioImg from '../../../public/PontoFrio.svg'
+import ExtraImg from '../../../public/Extra.svg'
 
-export function Logo() {
+export default function Logo() {
   return (
     <div className="w-full pt-14 ">
       <div className="w-5/6 mx-auto flex flex-col gap-4 items-center justify-between md:flex-row md:gap-0">
