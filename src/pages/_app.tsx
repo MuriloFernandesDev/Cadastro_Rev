@@ -2,8 +2,7 @@ import '../../styles/globals.scss'
 import type { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
 import Corpo from './components/Corpo'
-import toast, { Toaster } from 'react-hot-toast'
-import Home from './home'
+import { Toaster } from 'react-hot-toast'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
