@@ -3,13 +3,13 @@ import type { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
 import Corpo from './components/Corpo'
 import toast, { Toaster } from 'react-hot-toast'
-import { style } from '@mui/system'
+import Home from './home'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
   return (
     <>
-      {router.route === `/` ? (
+      {router.route === `/` || router.route === `/home` ? (
         <Component {...pageProps} />
       ) : (
         <>

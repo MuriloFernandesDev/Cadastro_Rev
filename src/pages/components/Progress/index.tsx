@@ -10,9 +10,9 @@ export default function Progress({ value }: ProgressProps) {
 
   return (
     <>
-      <div className="flex w-full items-center justify-between">
+      <div className="flex w-full text-Loja items-center justify-between">
         <button onClick={() => router.back()}>
-          <ArrowBackIcon></ArrowBackIcon>
+          <ArrowBackIcon />
         </button>
         <progress
           className="progress progress-primary duration-700 ml-3 w-full bg-[rgba(0, 0, 0, 0.1)]"

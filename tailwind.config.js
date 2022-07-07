@@ -9,6 +9,10 @@ module.exports = {
       colors: {
         Loja: '#201942',
         '--glass-blur': '10px',
+        'purple-store': '#201942',
+        dark: '#161C24',
+        dark_doubts: '#212B36',
+        button: '#FD4357',
       },
     },
   },

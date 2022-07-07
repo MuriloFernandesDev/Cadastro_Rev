@@ -34,7 +34,8 @@
     "src/pages/postal.jsx",
     "src/pages/companyname.jsx",
     "src/pages/cnpj.Jsx",
-    "src/pages/birth.jsx"
+    "src/pages/birth.jsx",
+    "src/pages/confirm.jsx"
   ],
   "exclude": ["node_modules"]
 }
