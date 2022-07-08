@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import ConcluirImg from '../../public/undrawn.png'
 import Progress from './components/Progress'
 
-export default function RegTermos() {
+export default function terms() {
   const router = useRouter()
   function handleClick() {
     router.push('/conclusion')

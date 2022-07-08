@@ -148,7 +148,7 @@ export default function index() {
                     className="text-white font-medium text-lg hover:text-blue-500 md:text-purple-store"
                     href="#WeAre"
                   >
-                    Nós somos
+                    Quem somos
                   </a>
                 </li>
                 <li className="mr-6">
@@ -200,7 +200,7 @@ export default function index() {
                 className="text-purple-store font-medium text-lg hover:text-blue-500"
                 href="#WeAre"
               >
-                Nós somos
+                Quem somos
               </a>
             </li>
             <li className="mr-6">
@@ -218,10 +218,10 @@ export default function index() {
       <main>
         <div
           id="Main"
-          className="w-full text-purple-store pt-40 pb-20 min-h-screen mx-auto max-w-7xl"
+          className="w-full text-purple-store pt-40 pb-20 mx-auto max-w-7xl"
         >
           <div className="w-5/6 flex flex-col mx-auto items-center md:flex-row">
-            <div className="w-full flex flex-col items-center gap-4 text-center md:w-[41%] md:block md:text-start md:gap-0">
+            <div className="w-full flex flex-col items-center gap-4 text-center md:w-1/2 md:block md:text-start md:gap-0">
               <h1 className="text-purple-store opacity-10 text-6xl md:text-8xl font-bold md:absolute md:leading-3">
                 UMA NOVA
               </h1>
@@ -780,7 +780,7 @@ export default function index() {
 
         <div id="PosiY" ref={boxRef2}>
           <div className="w-full bg-dark" id="doubts">
-            <div className="max-w-7xl w-5/6 md:w-full mx-auto pb-24 flex flex-col items-center min-h-screen relative">
+            <div className="max-w-7xl w-5/6 md:w-full mx-auto pb-24 flex flex-col items-center relative">
               <div className="pt-24 pb-10 flex flex-col items-center md:pt-24">
                 <h1 className="text-3xl md:text-[3rem] text-white opacity-10 text-center md:text-start font-extrabold md:absolute md:leading-3">
                   DÚVIDAS FREQUENTES
@@ -950,7 +950,7 @@ export default function index() {
         </div>
       </main>
       <div id="WeAre" className="w-full bg-white">
-        <div className="max-w-7xl mx-auto items-center pt-5 pb-10 flex flex-col text-center text-purple-store md:min-h-[40vw] md:pt-10 md:flex-row md:text-left md:w-5/6">
+        <div className="max-w-7xl mx-auto items-center p-20 flex flex-col text-center text-purple-store md:flex-row md:text-left md:p-40">
           <div className="w-1/2 relative pb-5">
             <div className="absolute -mt-16 ml-14 hidden md:block">
               <div className="w-10 h-10 -rotate-[40deg] border-[2px] border-button rounded-lg absolute ml-14"></div>
@@ -969,7 +969,7 @@ export default function index() {
           </div>
           <div className="flex flex-col w-4/5 gap-5 md:w-1/2 md:pb-5">
             <div>
-              <h1 className="text-xl uppercase tracking-wide">nós somos:</h1>
+              <h1 className="text-xl uppercase tracking-wide">Quem somos:</h1>
               <h2 className="text-3xl font-semibold text-button">BUYPHONE</h2>
             </div>
             <div className="w-full h-[1px] bg-button"></div>
