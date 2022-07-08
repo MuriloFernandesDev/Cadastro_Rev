@@ -8,10 +8,10 @@ export default function Embed() {
         ASSISTA AO VÍDEO E ENTENDA MELHOR!
       </h2>
       <div className="bg-button w-20 h-[5px] rounded-3xl"></div>
-      <div className="flex relative justify-center mt-2 max-w-7xl h-full pb-[45%] md:pb-[56.25%]">
+      <div className="flex relative justify-center mt-2 max-w-7xl h-full pb-[45%] md:pb-[65%]">
         <iframe
           className="absolute w-[80vw] max-w-7xl h-full border-none"
-          src="https://www.youtube.com/embed/FrYS9Hj_yEk"
+          src="https://www.youtube.com/embed/44p08kXybnA"
           loading="lazy"
           title="YouTube video player"
           frameBorder="0"

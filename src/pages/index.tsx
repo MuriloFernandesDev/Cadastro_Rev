@@ -949,14 +949,14 @@ export default function index() {
         </div>
       </main>
       <div id="WeAre" className="w-full bg-white">
-        <div className="max-w-7xl mx-auto items-center p-20 flex flex-col text-center text-purple-store md:flex-row md:text-left md:p-40">
+        <div className="max-w-7xl mx-auto items-center py-10 flex flex-col text-center text-purple-store md:flex-row md:text-left md:p-40">
           <div className="w-1/2 relative pb-5">
             <div className="absolute -mt-16 ml-14 hidden md:block">
               <div className="w-10 h-10 -rotate-[40deg] border-[2px] border-button rounded-lg absolute ml-14"></div>
               <div className="w-10 h-10 -rotate-[40deg] border-[2px] bg-button border-none rounded-lg absolute ml-12 mt-4 "></div>
             </div>
             <div className="flex justify-center md:justify-end md:pr-14">
-              <div className="w-2/3 h-auto">
+              <div className="w-full h-auto md:w-2/3">
                 <Image
                   src={LogoMatchImg}
                   layout="responsive"
@@ -967,7 +967,7 @@ export default function index() {
             </div>
           </div>
           <div className="flex flex-col w-4/5 gap-5 md:w-1/2 md:pb-5">
-            <div>
+            <div className="flex flex-col justify-center items-center text-center md:items-start">
               <h1 className="text-xl uppercase tracking-wide">Quem somos:</h1>
               <h2 className="text-3xl font-semibold text-button">BUYPHONE</h2>
             </div>
