@@ -59,7 +59,7 @@ export default function home() {
                     </a>
                   </Link>
 
-                  <Link href={'/welcome'}>
+                  <Link href={'/Welcome'}>
                     <a className="btn btn-danger bg-transparent border hover:bg-white border-Loja text-Loja font-normal min-h-6 h-[2.5rem]">
                       Cadastrar
                     </a>
