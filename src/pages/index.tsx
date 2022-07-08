@@ -114,17 +114,33 @@ export default function index() {
                 <li className="mr-6">
                   <a
                     className="text-white font-medium text-lg hover:text-blue-500 md:text-purple-store"
-                    href="#Experience"
+                    href="#understand"
                   >
-                    Experiência
+                    Entenda melhor
                   </a>
                 </li>
                 <li className="mr-6">
                   <a
                     className="text-white font-medium text-lg hover:text-blue-500 md:text-purple-store"
-                    href="#OurSite"
+                    href="#Experience"
                   >
-                    Nosso site
+                    Como funciona
+                  </a>
+                </li>
+                <li className="mr-6">
+                  <a
+                    className="text-white font-medium text-lg hover:text-blue-500 md:text-purple-store"
+                    href="#depoiments"
+                  >
+                    Depoimentos
+                  </a>
+                </li>
+                <li className="mr-6">
+                  <a
+                    className="text-white font-medium text-lg hover:text-blue-500 md:text-purple-store"
+                    href="#doubts"
+                  >
+                    Dúvidas
                   </a>
                 </li>
                 <li className="mr-6">
@@ -149,18 +165,34 @@ export default function index() {
           <ul className="DESKTOP-MENU hidden space-x-8 lg:flex items-center">
             <li>
               <a
-                className="text-purple-store font-medium text-lg hover:text-blue-500"
-                href="#Experience"
+                className="text-white font-medium text-lg hover:text-blue-500 md:text-purple-store"
+                href="#understand"
               >
-                Experiência
+                Entenda melhor
               </a>
             </li>
             <li className="mr-6">
               <a
                 className="text-purple-store font-medium text-lg hover:text-blue-500"
-                href="#OurSite"
+                href="#Experience"
               >
-                Nosso site
+                Como funciona
+              </a>
+            </li>
+            <li className="mr-6">
+              <a
+                className="text-purple-store font-medium text-lg hover:text-blue-500"
+                href="#depoiments"
+              >
+                Depoimentos
+              </a>
+            </li>
+            <li className="mr-6">
+              <a
+                className="text-purple-store font-medium text-lg hover:text-blue-500"
+                href="#doubts"
+              >
+                Dúvidas
               </a>
             </li>
             <li className="mr-6">
@@ -213,6 +245,7 @@ export default function index() {
             </div>
           </div>
           <Logo /> {/*LOGOS DAS LOJAS / IMPORTANDO DA PASTA LOGOS*/}
+          <div id="understand"></div>
           <Embed />
         </div>
         <div id="PosiX" ref={boxRef}>
@@ -430,7 +463,7 @@ export default function index() {
           </div>
         </div>
 
-        <div className="w-full bg-white pb-20 ">
+        <div className="w-full bg-white pb-20" id="depoiments">
           <div className="w-5/6 mx-auto pt-20 flex flex-col items-center">
             <h1 className="text-3xl md:text-[7rem] font-bold text-purple-store opacity-10 absolute leading-3">
               DEPOIMENTOS
@@ -746,10 +779,10 @@ export default function index() {
         </div>
 
         <div id="PosiY" ref={boxRef2}>
-          <div className="w-full bg-dark">
+          <div className="w-full bg-dark" id="doubts">
             <div className="max-w-7xl w-5/6 md:w-full mx-auto pb-24 flex flex-col items-center min-h-screen relative">
               <div className="pt-24 pb-10 flex flex-col items-center md:pt-24">
-                <h1 className="text-3xl md:text-[3rem] text-white opacity-10 font-extrabold md:absolute md:leading-3">
+                <h1 className="text-3xl md:text-[3rem] text-white opacity-10 text-center md:text-start font-extrabold md:absolute md:leading-3">
                   DÚVIDAS FREQUENTES
                 </h1>
                 <h2 className="uppercase text-white text-4xl text-center font-bold mt-2 md:text-left">
