@@ -54,13 +54,13 @@ export default function home() {
                     lacrados para revenda!
                   </p>
                   <Link href={'https://loja.buyphone.com.br/login'}>
-                    <a className="w-full h-[38px] text-white font-medium text-xs uppercase bg-Loja rounded-md flex items-center justify-center hover:scale-105 ease-in-out duration-300">
+                    <a className="btn btn-danger font-normal min-h-6 h-[2.5rem] bg-Loja">
                       Entrar
                     </a>
                   </Link>
 
                   <Link href={'/welcome'}>
-                    <a className="w-full h-[38px] border font-medium text-xs uppercase border-Loja rounded-md flex items-center justify-center hover:scale-105 ease-in-out duration-300">
+                    <a className="btn btn-danger bg-transparent border hover:bg-white border-Loja text-Loja font-normal min-h-6 h-[2.5rem]">
                       Cadastrar
                     </a>
                   </Link>
