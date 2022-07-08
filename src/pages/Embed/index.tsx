@@ -4,7 +4,7 @@ export default function Embed() {
       <h1 className="text-purple-store opacity-10 text-6xl md:text-8xl font-bold md:absolute md:leading-3">
         ENTENDA
       </h1>
-      <h2 className="uppercase text-2xl text-center ml-4 font-bold pb-2 md:mt-2">
+      <h2 className="uppercase text-2xl text-center ml-4 font-bold pb-2 md:mt-[1rem]">
         ASSISTA AO VÍDEO E ENTENDA MELHOR!
       </h2>
       <div className="bg-button w-20 h-[5px] rounded-3xl"></div>
