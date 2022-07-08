@@ -60,7 +60,7 @@ export default function home() {
                   </Link>
 
                   <Link href={'/Welcome'}>
-                    <a className="btn btn-danger bg-transparent border hover:bg-white border-Loja text-Loja font-normal min-h-6 h-[2.5rem]">
+                    <a className="btn btn-danger bg-transparent border hover:bg-white border-Loja text-Loja font-medium min-h-6 h-[2.5rem]">
                       Cadastrar
                     </a>
                   </Link>

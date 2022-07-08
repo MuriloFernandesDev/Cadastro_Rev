@@ -19,8 +19,22 @@ export default function terms() {
           <Image src={ConcluirImg} layout="fixed"></Image>
         </div>
         <h2>
-          Ao finalizar, você aceita os Termos & Condições e Política de
-          Privacidade
+          Ao finalizar, você aceita os{' '}
+          <a
+            href="https://pedidos.buyphone.com.br/terms-of-service"
+            className="font-medium"
+            target="_blank"
+          >
+            Termos & Condições
+          </a>{' '}
+          e{' '}
+          <a
+            href="https://pedidos.buyphone.com.br/terms-of-service"
+            className="font-medium"
+            target="_blank"
+          >
+            Politíca de Privacidade
+          </a>
         </h2>
         <button onClick={handleClick} className="btn btn-primary" type="submit">
           finalizar
