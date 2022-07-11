@@ -5,6 +5,7 @@ import TextField from '@material-ui/core/TextField'
 import { useRouter } from 'next/router'
 import { useLocalStorage } from '../utils/useLocalStorage'
 import InputMask from 'react-input-mask'
+import Progress from './components/Progress'
 
 export default function cnpj() {
   const [cnpj] = useLocalStorage('cnpj', '')
@@ -24,35 +25,38 @@ export default function cnpj() {
 
   return (
     <>
-      <h1 className="pb-5 text-black text-xl font-semibold">
-        Qual o CNPJ da sua empresa?
-      </h1>
-      <form onSubmit={formik.handleSubmit}>
-        <InputMask
-          onChange={formik.handleChange}
-          mask="99.999.999/9999-99"
-          onBlur={formik.handleBlur}
-          value={formik.values.cnpj}
-          name="cpf"
-          type="text"
-        >
-          {() => (
-            <TextField
-              fullWidth
-              onBlur={formik.handleBlur}
-              value={formik.values.cnpj}
-              name="cnpj"
-              label="CNPJ"
-              variant="outlined"
-            />
-          )}
-        </InputMask>
-        <h2 className="text-Loja opacity-50 text-sm mt-2">
-          Digite apenas os números
-        </h2>
+      <Progress value="10" />
+      <form className="grid gap-8 mt-8" onSubmit={formik.handleSubmit}>
+        <h1 className="pb-5 text-black text-xl font-semibold">
+          Qual o CNPJ da sua empresa?
+        </h1>
+        <div>
+          <InputMask
+            onChange={formik.handleChange}
+            mask="99.999.999/9999-99"
+            onBlur={formik.handleBlur}
+            value={formik.values.cnpj}
+            name="cpf"
+            type="text"
+          >
+            {() => (
+              <TextField
+                fullWidth
+                onBlur={formik.handleBlur}
+                value={formik.values.cnpj}
+                name="cnpj"
+                label="CNPJ"
+                variant="outlined"
+              />
+            )}
+          </InputMask>
+          <h2 className="text-Loja opacity-50 text-sm mt-2">
+            Digite apenas os números
+          </h2>
+        </div>
 
         {formik.touched.cnpj && formik.errors.cnpj ? (
-          <div className="badge badge-warning badge-lg bg-opacity-80 text-xs mt-[1.5rem]">
+          <div className="badge badge-warning badge-lg bg-opacity-80 text-xs">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="stroke-current flex-shrink-0 h-6 w-6"

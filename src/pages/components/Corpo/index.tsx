@@ -11,7 +11,7 @@ interface Homeprops {
 export default function Corpo({ children }: Homeprops) {
   return (
     <>
-      <div className="glass z-10 absolute left-0 w-full h-[100vh]"></div>
+      <div className="glass z-10 fixed left-0 w-full h-full"></div>
       <ul className={styles.circles}>
         <li></li>
         <li></li>

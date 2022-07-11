@@ -4,6 +4,7 @@ import Button from './components/Button'
 import TextField from '@material-ui/core/TextField'
 import { useRouter } from 'next/router'
 import { useLocalStorage } from '../utils/useLocalStorage'
+import Progress from './components/Progress'
 
 export default function adress() {
   const [adress] = useLocalStorage('adress', '')
@@ -22,30 +23,34 @@ export default function adress() {
     }),
     onSubmit: (values) => {
       localStorage.setItem('adress', JSON.stringify(values.adress))
+
       router.push('/number')
     },
   })
 
   return (
     <>
-      <h1 className="pb-5 text-black text-xl font-semibold">
-        Qual o nome da rua?
-      </h1>
-      <form className="gap-3 h-auto" onSubmit={formik.handleSubmit}>
-        <TextField
-          label="Rua"
-          type="text"
-          name="adress"
-          fullWidth
-          variant="outlined"
-          onChange={formik.handleChange}
-          value={formik.values.adress}
-        />
-        <h2 className="text-Loja opacity-50 text-sm mt-2">
-          Na próxima tela pediremos o número e complemento
-        </h2>
+      <Progress value="40" />
+      <form className="grid gap-8 mt-8" onSubmit={formik.handleSubmit}>
+        <h1 className="pb-5 text-black text-xl font-semibold">
+          Qual o nome da rua?
+        </h1>
+        <div>
+          <TextField
+            label="Rua"
+            type="text"
+            name="adress"
+            fullWidth
+            variant="outlined"
+            onChange={formik.handleChange}
+            value={formik.values.adress}
+          />
+          <h2 className="text-Loja opacity-50 text-sm">
+            Na próxima tela pediremos o número e complemento
+          </h2>
+        </div>
         {formik.touched.adress && formik.errors.adress ? (
-          <div className="badge badge-warning badge-lg bg-opacity-80 text-xs mt-[1.5rem]">
+          <div className="badge badge-warning badge-lg bg-opacity-80 text-xs">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="stroke-current flex-shrink-0 h-6 w-6"
