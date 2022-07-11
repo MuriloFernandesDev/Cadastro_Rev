@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import ConcluirImg from '../../public/undrawn.png'
 import Progress from './components/Progress'
 
-export default function RegTermos() {
+export default function terms() {
   const router = useRouter()
   function handleClick() {
     router.push('/conclusion')
@@ -19,8 +19,22 @@ export default function RegTermos() {
           <Image src={ConcluirImg} layout="fixed"></Image>
         </div>
         <h2>
-          Ao finalizar, você aceita os Termos & Condições e Política de
-          Privacidade
+          Ao finalizar, você aceita os{' '}
+          <a
+            href="https://pedidos.buyphone.com.br/terms-of-service"
+            className="font-medium"
+            target="_blank"
+          >
+            Termos & Condições
+          </a>{' '}
+          e{' '}
+          <a
+            href="https://pedidos.buyphone.com.br/terms-of-service"
+            className="font-medium"
+            target="_blank"
+          >
+            Politíca de Privacidade
+          </a>
         </h2>
         <button onClick={handleClick} className="btn btn-primary" type="submit">
           finalizar
