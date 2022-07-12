@@ -6,6 +6,8 @@ import { useRouter } from 'next/router'
 import { useLocalStorage } from '../utils/useLocalStorage'
 import InputMask from 'react-input-mask'
 import Progress from './components/Progress'
+import ApiCnpj from '../utils/getCnpj'
+import axios from 'axios'
 
 export default function cnpj() {
   const [cnpj] = useLocalStorage('cnpj', '')
@@ -19,7 +21,16 @@ export default function cnpj() {
     }),
     onSubmit: (values) => {
       localStorage.setItem('cnpj', JSON.stringify(values.cnpj))
-      router.push('/companyname')
+
+      const result = cnpj
+        .replace('.', '')
+        .replace('.', '')
+        .replace('/', '')
+        .replace('-', '')
+
+      // Chamando api e salvando localstorage
+      ApiCnpj(result)
+      // router.push('/companyname')
     },
   })
 
