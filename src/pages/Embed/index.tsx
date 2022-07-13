@@ -8,9 +8,9 @@ export default function Embed() {
         ASSISTA AO VÍDEO E ENTENDA MELHOR!
       </h2>
       <div className="bg-button w-20 h-[5px] rounded-3xl"></div>
-      <div className="flex relative justify-center mt-2 max-w-7xl h-full pb-[45%] md:pb-[65%]">
+      <div className="flex relative justify-center w-[90%] md:w-[130%] max-w-7xl mt-2 h-full pb-[51%] md:pb-[73%]">
         <iframe
-          className="absolute w-[80vw] max-w-7xl h-full border-none"
+          className="absolute h-full w-full border-none"
           src="https://www.youtube.com/embed/44p08kXybnA"
           loading="lazy"
           title="YouTube video player"
