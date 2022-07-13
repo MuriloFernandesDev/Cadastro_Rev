@@ -449,7 +449,6 @@ export default function index() {
                       className="w-full h-full flex justify-center items-center"
                       href="/home"
                     >
-                      {' '}
                       quero me cadastrar
                     </a>
                   </button>
