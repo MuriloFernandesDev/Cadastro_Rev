@@ -1,8 +1,22 @@
 import Image from 'next/image'
 import Progress from './components/Progress'
 import { useState } from 'react'
-import { Router, useRouter } from 'next/router'
+import { useRouter } from 'next/router'
 import Button from './components/Button'
+import Radio from '@mui/material/Radio'
+import RadioGroup from '@mui/material/RadioGroup'
+import FormControlLabel from '@mui/material/FormControlLabel'
+import FormControl from '@mui/material/FormControl'
+import { createTheme, ThemeProvider } from '@mui/material/styles'
+
+//criando paleta de tema
+const theme = createTheme({
+  palette: {
+    secondary: {
+      main: '#201942',
+    },
+  },
+})
 
 export default function mean() {
   const router = useRouter()
@@ -11,6 +25,19 @@ export default function mean() {
     router.push('/category')
   }
 
+  const [selectedValue, setSelectedValue] = useState('a')
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSelectedValue(event.target.value)
+  }
+  const controlProps = (item: string) => ({
+    checked: selectedValue === item,
+    onChange: handleChange,
+    value: item,
+    name: 'color-radio-button-demo',
+    inputProps: { 'aria-label': item },
+  })
+
   return (
     <>
       <Progress value="70" />
@@ -18,63 +45,49 @@ export default function mean() {
         <h1 className="text-black text-xl font-semibold">
           Em média quantos iPhones você vende por mês?
         </h1>
-        <div className="grid gap-3">
-          <div className="form-control flex-row border rounded-md border-Loja">
-            <label className="label cursor-pointer flex w-full justify-start gap-2">
-              <input
-                type="radio"
-                name="radio-2"
-                className="radio radio-primary"
-                checked
+
+        <FormControl>
+          <ThemeProvider theme={theme}>
+            <RadioGroup
+              className="grid gap-3"
+              aria-labelledby="demo-radio-buttons-group-label"
+              defaultValue="female"
+              name="radio-buttons-group"
+            >
+              <FormControlLabel
+                className="border rounded-md border-Loja mr-0"
+                value="1a3"
+                control={<Radio color="secondary" />}
+                label="De 1 a 3"
               />
-              <span className="label-text text-lg font-medium">De 1 a 3</span>
-            </label>
-          </div>
-          <div className="form-control flex-row border rounded-md border-Loja">
-            <label className="label cursor-pointer flex w-full justify-start gap-2">
-              <input
-                type="radio"
-                name="radio-2"
-                className="radio radio-primary"
-                checked
+              <FormControlLabel
+                className="border rounded-md border-Loja mr-0"
+                value="3a5"
+                control={<Radio color="secondary" />}
+                label="De 3 a 5"
               />
-              <span className="label-text text-lg font-medium">De 3 a 5</span>
-            </label>
-          </div>
-          <div className="form-control flex-row border rounded-md border-Loja">
-            <label className="label cursor-pointer flex w-full justify-start gap-2">
-              <input
-                type="radio"
-                name="radio-2"
-                className="radio radio-primary"
-                checked
+              <FormControlLabel
+                className="border rounded-md border-Loja mr-0"
+                value="5a10"
+                control={<Radio color="secondary" />}
+                label="De 5 a 10"
               />
-              <span className="label-text text-lg font-medium">De 5 a 10</span>
-            </label>
-          </div>
-          <div className="form-control flex-row border rounded-md border-Loja">
-            <label className="label cursor-pointer flex w-full justify-start gap-2">
-              <input
-                type="radio"
-                name="radio-2"
-                className="radio radio-primary"
-                checked
+              <FormControlLabel
+                className="border rounded-md border-Loja mr-0"
+                value="10a30"
+                control={<Radio color="secondary" />}
+                label="De 10 a 30"
               />
-              <span className="label-text text-lg font-medium">De 10 a 30</span>
-            </label>
-          </div>
-          <div className="form-control flex-row border rounded-md border-Loja">
-            <label className="label cursor-pointer flex w-full justify-start gap-2">
-              <input
-                type="radio"
-                name="radio-2"
-                className="radio radio-primary"
-                checked
+              <FormControlLabel
+                className="border rounded-md border-Loja mr-0"
+                value="mais30"
+                control={<Radio color="secondary" />}
+                label="Mais de 30"
               />
-              <span className="label-text text-lg font-medium">Mais de 30</span>
-            </label>
-          </div>
-        </div>
+            </RadioGroup>
+          </ThemeProvider>
+        </FormControl>
+
         <div onClick={submit}>
           <Button />
         </div>

@@ -9,7 +9,7 @@ export default function category() {
   const router = useRouter()
 
   function submit() {
-    router.push('/phone')
+    router.push('/sendfile')
   }
 
   return (

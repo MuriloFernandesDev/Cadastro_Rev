@@ -2,7 +2,6 @@ import axios from 'axios'
 
 export default async function ApiCep(cep) {
   const res = await axios.get(`https://viacep.com.br/ws/${cep}/json`)
-  console.log(res.data)
 
   if (res.data.erro) {
     return

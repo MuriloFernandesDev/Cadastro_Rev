@@ -18,7 +18,7 @@ export default function confirmadress() {
   const router = useRouter()
 
   function submit() {
-    router.push('/phone')
+    router.push('/mean')
   }
 
   function BackCep() {

@@ -22,13 +22,12 @@ export default function postal() {
     }),
     onSubmit: (values) => {
       localStorage.setItem('postal', JSON.stringify(values.postal))
-      const result = postal.replace('-', '')
-
+      const result = values.postal.replace('-', '')
       // Chamando api e salvando localstorage
       ApiCep(result)
       setTimeout(() => {
         router.push('/adress')
-      }, 3000)
+      }, 1000)
     },
   })
 
