@@ -1,7 +1,3 @@
-import * as yup from 'yup'
-import { useFormik } from 'formik'
-import Button from './components/Button'
-import TextField from '@material-ui/core/TextField'
 import { useRouter } from 'next/router'
 import { useLocalStorage } from '../utils/useLocalStorage'
 import Image from 'next/image'
@@ -22,6 +18,7 @@ export default function confirmadress() {
   }
 
   function BackCep() {
+    localStorage.removeItem('number')
     router.push('/postal')
   }
 
@@ -41,11 +38,13 @@ export default function confirmadress() {
               {district ?? ''}, {city ?? ''} - {state ?? ''}
             </h2>
           </div>
-          <div className="w-[24px] h-[24px] hover:opacity-50 duration-300">
-            <a onClick={BackCep}>
-              <Image src={EditImg} layout="responsive"></Image>
-            </a>
-          </div>
+          <button>
+            <div className="w-[24px] h-[24px] hover:opacity-50 duration-300">
+              <a onClick={BackCep}>
+                <Image src={EditImg} layout="responsive"></Image>
+              </a>
+            </div>
+          </button>
         </div>
 
         <button onClick={submit} className="btn btn-primary w-full">
