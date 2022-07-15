@@ -1,18 +1,10 @@
-import { useRouter } from 'next/router'
 import { useReducer } from 'react'
-// import Button from './components/Button'
 import Progress from './components/Progress'
 import DropZone from '../utils/dropzone'
-// import MultipleFileUploadField from './MultipleFileUpload'
-
-import { Button, Card, CardContent, Grid } from '@material-ui/core'
-import { Form, Formik } from 'formik'
-import React from 'react'
-import { array, object, string } from 'yup'
 
 export default function sendfile() {
-  // reducer function to handle state changes
-  function reducer(state: any, action: any) {
+  // função redutora para lidar com mudanças de estado
+  const reducer = (state: any, action: any) => {
     switch (action.type) {
       case 'SET_IN_DROP_ZONE':
         return { ...state, inDropZone: action.inDropZone }
@@ -23,13 +15,11 @@ export default function sendfile() {
     }
   }
 
-  // destructuring state and dispatch, initializing fileList to empty array
+  // desestruturando o estado e despachando, inicializando fileList para um array vazio
   const [data, dispatch] = useReducer(reducer, {
     inDropZone: false,
     fileList: [],
   })
-
-  const router = useRouter()
 
   return (
     <>
@@ -45,48 +35,7 @@ export default function sendfile() {
             <li>3. Comprovante de endereço</li>
           </ul>
         </div>
-
         <DropZone data={data} dispatch={dispatch} />
-
-        {/* <Card>
-          <CardContent>
-            <Formik
-              initialValues={{ files: [] }}
-              validationSchema={object({
-                files: array(
-                  object({
-                    url: string().required(),
-                  })
-                ),
-              })}
-              onSubmit={(values) => {
-                console.log('values', values)
-                return new Promise((res) => setTimeout(res, 2000))
-              }}
-            >
-              {({ values, errors, isValid, isSubmitting }) => (
-                <Form>
-                  <Grid container spacing={2} direction="column">
-                    <MultipleFileUploadField name="files" />
-
-                    <Grid item>
-                      <Button
-                        variant="contained"
-                        color="primary"
-                        disabled={!isValid || isSubmitting}
-                        type="submit"
-                      >
-                        Submit
-                      </Button>
-                    </Grid>
-                  </Grid>
-
-                  <pre>{JSON.stringify({ values, errors }, null, 4)}</pre>
-                </Form>
-              )}
-            </Formik>
-          </CardContent>
-        </Card> */}
       </div>
     </>
   )

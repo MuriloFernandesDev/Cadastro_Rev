@@ -1,10 +1,8 @@
-import Head from 'next/head'
 import Link from 'next/link'
 import styles from './styles.module.scss'
 import Image from 'next/image'
 import LogoSvg from '../../public/LogoPurple.svg'
 import CelSvg from '../../public/Cel.svg'
-import { TextField } from '@mui/material'
 
 export default function home() {
   return (

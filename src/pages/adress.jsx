@@ -5,7 +5,6 @@ import TextField from '@material-ui/core/TextField'
 import { useRouter } from 'next/router'
 import { useLocalStorage } from '../utils/useLocalStorage'
 import Progress from './components/Progress'
-import ApiCep from '../utils/getCep'
 
 export default function adress() {
   const [adress] = useLocalStorage('adress', '')

@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import Progress from './components/Progress'
-import { useState } from 'react'
 import { useRouter } from 'next/router'
 import Button from './components/Button'
 import Checkbox from './components/checkbox'
@@ -25,10 +24,12 @@ export default function category() {
             funcionalidades que sejam mais compatíveis com seu negócio.
           </h2>
         </div>
-
-        <Checkbox value="11 (128Gb - Branco)" value2="check1" />
-        <Checkbox value="13 Pro Max (256Gb - Prateado)" value2="check2" />
-
+        <div className="flex flex-wrap gap-3">
+          <Checkbox value="11 (128Gb - Branco)" value2="check1" />
+          <Checkbox value="13 Pro Max (256Gb - Prateado)" value2="check2" />
+          <Checkbox value="13 Pro Max (256Gb - Prateado)" value2="check3" />
+          <Checkbox value="13 Pro Max (256Gb - Prateado)" value2="check4" />
+        </div>
         <div onClick={submit}>
           <Button />
         </div>

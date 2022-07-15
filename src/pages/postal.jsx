@@ -24,10 +24,16 @@ export default function postal() {
       localStorage.setItem('postal', JSON.stringify(values.postal))
       const result = values.postal.replace('-', '')
       // Chamando api e salvando localstorage
-      ApiCep(result)
-      setTimeout(() => {
-        router.push('/adress')
-      }, 1000)
+      if (postal == result) {
+        setTimeout(() => {
+          router.push('/adress')
+        }, 1000)
+      } else {
+        ApiCep(result)
+        setTimeout(() => {
+          router.push('/adress')
+        }, 1000)
+      }
     },
   })
 

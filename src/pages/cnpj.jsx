@@ -1,12 +1,13 @@
 import * as yup from 'yup'
-import { replace, useFormik } from 'formik'
+import { useFormik } from 'formik'
 import Button from './components/Button'
 import TextField from '@material-ui/core/TextField'
 import { useRouter } from 'next/router'
 import { useLocalStorage } from '../utils/useLocalStorage'
 import InputMask from 'react-input-mask'
 import Progress from './components/Progress'
-import ApiCnpj from '../utils/getCnpj'
+import axios from 'axios'
+import toast from 'react-hot-toast'
 
 export default function cnpj() {
   const [cnpj] = useLocalStorage('cnpj', '')
@@ -18,15 +19,81 @@ export default function cnpj() {
     validationSchema: yup.object({
       cnpj: yup.string().required('O campo é obrigatório.'),
     }),
-    onSubmit: (values) => {
+    onSubmit: async (values) => {
       localStorage.setItem('cnpj', JSON.stringify(values.cnpj))
       const result = values.cnpj
         .replace('-', '')
         .replace('.', '')
         .replace('.', '')
         .replace('/', '')
-      ApiCnpj(result)
-      // router.push('/companyname')
+
+      const res = await axios.get(
+        `https://api-publica.speedio.com.br/buscarcnpj?cnpj=${result}/json`
+      )
+
+      if (res.data.STATUS == 'ATIVA') {
+        const { BAIRRO, CEP, LOGRADOURO, MUNICIPIO, NUMERO, UF } = res.data
+
+        localStorage.setItem('adress', JSON.stringify(LOGRADOURO))
+        localStorage.setItem('city', JSON.stringify(MUNICIPIO))
+        localStorage.setItem('state', JSON.stringify(UF))
+        localStorage.setItem('district', JSON.stringify(BAIRRO))
+        localStorage.setItem('number', JSON.stringify(NUMERO))
+        localStorage.setItem('postal', JSON.stringify(CEP))
+        router.push('/companyname')
+      }
+      if (res.data.STATUS == 'BAIXADA') {
+        toast.custom((t) => (
+          <div
+            className={`${
+              t.visible ? 'animate-enter' : 'animate-leave'
+            } w-full lg:w-1/4 bg-[#FECACA] text-[#484752] h-auto items-center shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5`}
+          >
+            <div className="flex-1 w-0 p-4">
+              <div className="flex items-center">
+                <div className="flex-shrink-0 pt-0.5">
+                  <img
+                    className="h-auto w-10"
+                    src="/error.webp"
+                    alt="Error img"
+                  />
+                </div>
+                <div className="ml-3 flex-1">
+                  <p className="text-xs font-medium text-red-900">
+                    Esse CNPJ não está ativo na receita federal.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+      if (res.data.error != undefined) {
+        toast.custom((t) => (
+          <div
+            className={`${
+              t.visible ? 'animate-enter' : 'animate-leave'
+            } w-full lg:w-1/4 bg-[#FECACA] text-[#484752] h-auto items-center shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5`}
+          >
+            <div className="flex-1 w-0 p-4">
+              <div className="flex items-center">
+                <div className="flex-shrink-0 pt-0.5">
+                  <img
+                    className="h-auto w-10"
+                    src="/error.webp"
+                    alt="Error img"
+                  />
+                </div>
+                <div className="ml-3 flex-1">
+                  <p className="text-xs font-medium text-red-900">
+                    Digite um CNPJ existente.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))
+      }
     },
   })
 

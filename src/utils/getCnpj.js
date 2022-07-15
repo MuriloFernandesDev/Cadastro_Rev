@@ -5,13 +5,17 @@ export default async function ApiCnpj(cnpj) {
     `https://api-publica.speedio.com.br/buscarcnpj?cnpj=${cnpj}/json`
   )
 
-  // var currentFont = localStorage.getItem('TESTES')
-  // const { teste } = res.data
-  // console.log(teste)
+  if (res.data.erro) {
+    return
+  }
 
-  // if (res.data.erro) {
-  //   return
-  // }
+  const { BAIRRO, CEP, LOGRADOURO, MUNICIPIO, NUMERO, UF } = res.data
 
+  localStorage.setItem('adress', JSON.stringify(LOGRADOURO))
+  localStorage.setItem('city', JSON.stringify(MUNICIPIO))
+  localStorage.setItem('state', JSON.stringify(UF))
+  localStorage.setItem('district', JSON.stringify(BAIRRO))
+  localStorage.setItem('number', JSON.stringify(NUMERO))
+  localStorage.setItem('postal', JSON.stringify(CEP))
   return
 }
