@@ -35,7 +35,8 @@
     "src/pages/companyname.jsx",
     "src/pages/cnpj.Jsx",
     "src/pages/birth.jsx",
-    "src/pages/confirm.jsx"
+    "src/pages/confirm.jsx",
+    "src/pages/mean.jsx"
   ],
   "exclude": ["node_modules"]
 }
