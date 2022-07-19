@@ -1,22 +1,29 @@
+//IMPORT'S REACT AND STYLE
 import Head from 'next/head'
-import styles from './styles.module.scss'
-import LogoImg from '../../public/LogoPurple.svg'
-import LogoActiveImg from '../../public/LogoWhite.svg'
 import Image from 'next/image'
 import React, { useState, useEffect, useRef } from 'react'
-import DinheiroImg from '../../public/Group28.svg'
-import Logo from './Logos'
-import Embed from './Embed'
-import MockupImg from '../../public/mockup.png'
+import styles from './styles.module.scss'
+//ICONS MATERIAL
 import PanToolIcon from '@mui/icons-material/PanTool'
 import { AttachMoney, Leaderboard } from '@mui/icons-material'
-import LogoMatchImg from '../../public/LogoMatch.svg'
+//PNG
 import CLyviaImg from '../../public/client_lyvia.png'
 import CGabrielImg from '../../public/client_gabriel.png'
 import CLuizImg from '../../public/client_luiz.png'
 import CIgorImg from '../../public/client_igor.png'
 import CAmandaImg from '../../public/client_amanda.png'
 import Quote2Img from '../../public/quote2.png'
+import MockupImg from '../../public/mockup.png'
+//SVG
+import CasasBahiaImg from '../../public/CasasBahia.svg'
+import LogoMatchImg from '../../public/LogoMatch.svg'
+import LogoImg from '../../public/LogoPurple.svg'
+import LogoActiveImg from '../../public/LogoWhite.svg'
+import DinheiroImg from '../../public/Group28.svg'
+import MagazineImg from '../../public/Magalu.svg'
+import AmericanasImg from '../../public/Americanas.svg'
+import PontoFrioImg from '../../public/PontoFrio.svg'
+import ExtraImg from '../../public/Extra.svg'
 
 export default function index() {
   const [isNavOpen, setIsNavOpen] = useState(false) // initiate isNavOpen state with false // RESPONSIVO
@@ -243,9 +250,71 @@ export default function index() {
               ></Image>
             </div>
           </div>
-          <Logo /> {/*LOGOS DAS LOJAS / IMPORTANDO DA PASTA LOGOS*/}
+          <div className="w-full pt-14 ">
+            <div className="w-5/6 mx-auto flex flex-col gap-4 items-center justify-between md:flex-row md:gap-0">
+              <div className="w-60 h-auto p-2">
+                <Image
+                  className="md:grayscale hover:grayscale-0 transition duration-300"
+                  src={CasasBahiaImg}
+                  layout="responsive"
+                  alt="Logo Casas Bahia"
+                ></Image>
+              </div>
+              <div className="w-40 h-auto mt-[1rem] p-2">
+                <Image
+                  className="md:grayscale hover:grayscale-0 transition duration-300"
+                  src={MagazineImg}
+                  layout="responsive"
+                  alt="Logo Magalu"
+                ></Image>
+              </div>
+              <div className="w-60 h-auto p-2">
+                <Image
+                  className="md:grayscale hover:grayscale-0 transition duration-300"
+                  src={AmericanasImg}
+                  layout="responsive"
+                  alt="Logo Americanas"
+                ></Image>
+              </div>
+              <div className="w-40 h-auto p-2">
+                <Image
+                  className="md:grayscale hover:grayscale-0 transition duration-300"
+                  src={PontoFrioImg}
+                  layout="responsive"
+                  alt="Logo Ponto Frio"
+                ></Image>
+              </div>
+              <div className="w-32 h-auto md:-mt-[1.50rem] p-2">
+                <Image
+                  className="md:grayscale hover:grayscale-0 transition duration-300"
+                  src={ExtraImg}
+                  layout="responsive"
+                  alt="Logo Extra"
+                ></Image>
+              </div>
+            </div>
+          </div>
           <div id="understand"></div>
-          <Embed />
+          <div className="flex mx-auto max-w-7xl md:w-2/3 items-center mt-32 flex-col">
+            <h1 className="text-purple-store opacity-10 text-6xl md:text-8xl font-bold md:absolute md:leading-3">
+              ENTENDA
+            </h1>
+            <h2 className="uppercase text-2xl text-center ml-4 font-bold pb-2 md:mt-[1rem]">
+              ASSISTA AO VÍDEO E ENTENDA MELHOR!
+            </h2>
+            <div className="bg-button w-20 h-[5px] rounded-3xl"></div>
+            <div className="flex relative justify-center w-[90%] md:w-[130%] max-w-7xl mt-2 h-full pb-[51%] md:pb-[73%]">
+              <iframe
+                className="absolute h-full w-full border-none"
+                src="https://www.youtube.com/embed/44p08kXybnA"
+                loading="lazy"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+          </div>
         </div>
         <div id="PosiX" ref={boxRef}>
           <div id="Experience" className="w-full bg-dark">

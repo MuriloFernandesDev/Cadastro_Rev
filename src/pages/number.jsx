@@ -45,7 +45,7 @@ export default function number() {
   return (
     <>
       <Progress value="50" />
-      <h1 className="text-black text-xl font-semibold">{adress}</h1>
+      <h1 className="text-black text-xl font-semibold mt-8">{adress}</h1>
       <h2 className="text-Loja opacity-50 text-sm pb-4">
         {city}, {state}
       </h2>
