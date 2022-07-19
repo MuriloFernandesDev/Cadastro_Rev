@@ -11,7 +11,7 @@ interface Homeprops {
 export default function Corpo({ children }: Homeprops) {
   return (
     <>
-      <div className="glass z-10 absolute left-0 w-full h-[100vh]"></div>
+      <div className="glass z-10 fixed left-0 w-full h-full"></div>
       <ul className={styles.circles}>
         <li></li>
         <li></li>
@@ -24,7 +24,7 @@ export default function Corpo({ children }: Homeprops) {
         <li></li>
         <li></li>
       </ul>
-      <div className="pt-2 w-3/5 z-50 h-auto mx-auto relative pb-2 lg:w-80">
+      <div className="w-3/5 z-50 h-auto mx-auto relative p-4 lg:w-64">
         <Image
           src={LogoSvg}
           layout="responsive"

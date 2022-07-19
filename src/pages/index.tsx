@@ -5,8 +5,8 @@ import LogoActiveImg from '../../public/LogoWhite.svg'
 import Image from 'next/image'
 import React, { useState, useEffect, useRef } from 'react'
 import DinheiroImg from '../../public/Group28.svg'
-import Embed from './Embed'
 import Logo from './Logos'
+import Embed from './Embed'
 import MockupImg from '../../public/mockup.png'
 import PanToolIcon from '@mui/icons-material/PanTool'
 import { AttachMoney, Leaderboard } from '@mui/icons-material'
@@ -148,16 +148,18 @@ export default function index() {
                     className="text-white font-medium text-lg hover:text-blue-500 md:text-purple-store"
                     href="#WeAre"
                   >
-                    Nós somos
+                    Quem somos
                   </a>
                 </li>
                 <li className="mr-6">
-                  <a
-                    className="bg-button h-10 w-full text-white flex justify-center items-center p-5 rounded-xl hover:scale-125 ease-in-out duration-300"
-                    href="/home"
-                  >
-                    Cadastrar
-                  </a>
+                  <button className="btn btn-error">
+                    <a
+                      className="w-full h-full flex justify-center items-center"
+                      href="/home"
+                    >
+                      Cadastrar
+                    </a>
+                  </button>
                 </li>
               </ul>
             </div>
@@ -200,16 +202,13 @@ export default function index() {
                 className="text-purple-store font-medium text-lg hover:text-blue-500"
                 href="#WeAre"
               >
-                Nós somos
+                Quem somos
               </a>
             </li>
             <li className="mr-6">
-              <a
-                className="bg-button h-10 w-full text-white uppercase font-bold flex justify-center items-center p-5 rounded-xl hover:scale-125 ease-in-out duration-300"
-                href="/home"
-              >
-                Cadastrar
-              </a>
+              <button className="btn btn-error text-white py-1 rounded-xl">
+                <a href="/home">Cadastrar</a>
+              </button>
             </li>
           </ul>
         </div>
@@ -218,10 +217,10 @@ export default function index() {
       <main>
         <div
           id="Main"
-          className="w-full text-purple-store pt-40 pb-20 min-h-screen mx-auto max-w-7xl"
+          className="w-full text-purple-store pt-40 pb-20 mx-auto max-w-7xl"
         >
           <div className="w-5/6 flex flex-col mx-auto items-center md:flex-row">
-            <div className="w-full flex flex-col items-center gap-4 text-center md:w-[41%] md:block md:text-start md:gap-0">
+            <div className="w-full flex flex-col items-center gap-4 text-center md:w-1/2 md:block md:text-start md:gap-0">
               <h1 className="text-purple-store opacity-10 text-6xl md:text-8xl font-bold md:absolute md:leading-3">
                 UMA NOVA
               </h1>
@@ -317,7 +316,7 @@ export default function index() {
               <h1 className="text-2xl md:text-7xl text-white opacity-10 font-extrabold md:absolute md:leading-3">
                 COMO FUNCIONA?
               </h1>
-              <h2 className="uppercase text-white text-xl text-center font-bold md:mt-3 md:text-left">
+              <h2 className="uppercase text-white text-2xl text-center font-bold md:mt-[0.5rem] md:text-left">
                 cONFIRA 6 PASSOS IMPORTANTES
               </h2>
               <div className="bg-button w-16 h-1 rounded-xl mt-4"></div>
@@ -398,7 +397,7 @@ export default function index() {
                   <div className="w-10 h-10 -rotate-[40deg] border-[2px] border-button rounded-lg absolute ml-14"></div>
                   <div className="w-10 h-10 -rotate-[40deg] border-[2px] bg-button border-none rounded-lg  ml-12 mt-4 "></div>
                 </div>
-                <h1 className="text-3xl md:text-[4rem] text-white opacity-10 font-extrabold absolute leading-3">
+                <h1 className="text-5xl md:text-[5rem] lg:text-[6rem] xl:text-[7rem] text-white opacity-10 font-extrabold absolute leading-3">
                   #DIFERENTE
                 </h1>
                 <h2 className="uppercase text-white text-lg font-bold mt-6 ml-4 tracking-wide text-center md:text-left">
@@ -418,40 +417,43 @@ export default function index() {
                   <div className="flex items-center text-white pt-10">
                     <div className="w-4 h-4 border-4 border-button rounded-full"></div>
                     <div className="flex flex-col leading-4 ml-2">
-                      <h1>Tenha acesso a preços exclusivos de revendedor</h1>
+                      <h1>Produtos 100% lacrados</h1>
                       <h2 className="font-extralight italic">
-                        Seja um revendedor validado para ter acesso aos melhores
-                        preços!
+                        Os produtos lacrados possuem 1 ano de garantia de
+                        fábrica!
                       </h2>
                     </div>
                   </div>
                   <div className="flex items-center text-white pt-10">
                     <div className="w-4 h-4 border-4 border-button rounded-full"></div>
                     <div className="flex flex-col leading-4 ml-2">
-                      <h1>Tenha acesso a preços exclusivos de revendedor</h1>
+                      <h1>Comprados nas principais lojas</h1>
                       <h2 className="font-extralight italic">
-                        Seja um revendedor validado para ter acesso aos melhores
-                        preços!
+                        Produtos com procedência nacional
                       </h2>
                     </div>
                   </div>
                   <div className="flex items-center text-white pt-10">
                     <div className="w-4 h-4 border-4 border-button rounded-full"></div>
                     <div className="flex flex-col leading-4 ml-2">
-                      <h1>Tenha acesso a preços exclusivos de revendedor</h1>
+                      <h1>Negociação personalizada</h1>
                       <h2 className="font-extralight italic">
-                        Seja um revendedor validado para ter acesso aos melhores
-                        preços!
+                        Tenha o suporte completo de nosso consultor de vendas
+                        para tirar todas as suas dúvidas
                       </h2>
                     </div>
                   </div>
-                  <a
-                    className="h-10 w-3/5 mt-8 bg-button text-[80%] flex justify-center items-center mx-auto rounded-lg text-white uppercase font-medium hover:scale-125 ease-in-out duration-300 md:w-2/5 md:mx-0"
-                    href="/home"
-                  >
-                    quero me cadastrar
-                  </a>
-                  <div className="relative xl:ml-[85%] lg:ml-[68%] hidden md:block md:ml-[62%]">
+
+                  <button className="btn btn-error text-white py-1 w-1/2 mt-10 mx-auto rounded-xl md:mx-0 ">
+                    <a
+                      className="w-full h-full flex justify-center items-center"
+                      href="/home"
+                    >
+                      {' '}
+                      quero me cadastrar
+                    </a>
+                  </button>
+                  <div className="relative xl:ml-[29rem] lg:ml-[68%] hidden md:block md:ml-[62%]">
                     <div className="w-32 flex h-auto absolute justify-end md:block">
                       <div className="w-28 h-28 -rotate-[40deg] border-[4px] border-button rounded-3xl absolute ml-[30%] mt-2"></div>
                       <div className="w-28 h-28 -rotate-[40deg] border-[4px] border-button rounded-3xl"></div>
@@ -465,11 +467,11 @@ export default function index() {
 
         <div className="w-full bg-white pb-20" id="depoiments">
           <div className="w-5/6 mx-auto pt-20 flex flex-col items-center">
-            <h1 className="text-3xl md:text-[7rem] font-bold text-purple-store opacity-10 absolute leading-3">
+            <h1 className="text-3xl md:text-[7rem] font-bold text-purple-store uppercase opacity-10 absolute leading-4">
               DEPOIMENTOS
             </h1>
-            <h2 className="text-2xl text-purple-store mt-4 text-center font-bold md:text-left md:mt-2 md:text-4xl">
-              REVENDEDORES PARCEIROS
+            <h2 className="text-3xl text-purple-store uppercase mt-4 text-center font-bold md:leading-[3.5rem] md:text-left md:mt-2 md:text-4xl">
+              CLIENTES PARCEIROS
             </h2>
 
             <div className={styles.pallets_color}>
@@ -479,13 +481,19 @@ export default function index() {
                     <div className="flex">
                       <div className={styles.effect_border}>
                         <div className="w-[130px] h-auto">
-                          <Image
-                            className="rounded-full"
-                            placeholder="blur"
-                            src={CLyviaImg}
-                            layout="fill"
-                            alt="Lyvia perfil"
-                          />
+                          <a
+                            className="w-full h-full"
+                            target="_blank"
+                            href="https://www.instagram.com/lyvianagib/"
+                          >
+                            <Image
+                              className="rounded-full"
+                              placeholder="blur"
+                              src={CLyviaImg}
+                              layout="fill"
+                              alt="Lyvia perfil"
+                            />
+                          </a>
                         </div>
                       </div>
                       <div className="flex flex-col ml-3 justify-center md:justify-start">
@@ -541,13 +549,19 @@ export default function index() {
                     <div className="flex">
                       <div className={styles.effect_border}>
                         <div className="w-[130px] h-auto">
-                          <Image
-                            className="rounded-full"
-                            placeholder="blur"
-                            src={CGabrielImg}
-                            layout="fill"
-                            alt="Gabriel perfil"
-                          />
+                          <a
+                            className="w-full h-full"
+                            target="_blank"
+                            href="https://www.instagram.com/gabrielpessoamartins/"
+                          >
+                            <Image
+                              className="rounded-full"
+                              placeholder="blur"
+                              src={CGabrielImg}
+                              layout="fill"
+                              alt="Gabriel perfil"
+                            />
+                          </a>
                         </div>
                       </div>
                       <div className="flex flex-col ml-3 justify-center md:justify-start">
@@ -600,13 +614,19 @@ export default function index() {
                     <div className="flex">
                       <div className={styles.effect_border}>
                         <div className="w-[130px] h-auto">
-                          <Image
-                            className="rounded-full"
-                            placeholder="blur"
-                            src={CLuizImg}
-                            layout="fill"
-                            alt="Gabriel perfil"
-                          />
+                          <a
+                            className="w-full h-full"
+                            target="_blank"
+                            href="https://www.instagram.com/luizpuertas/"
+                          >
+                            <Image
+                              className="rounded-full"
+                              placeholder="blur"
+                              src={CLuizImg}
+                              layout="fill"
+                              alt="Gabriel perfil"
+                            />
+                          </a>
                         </div>
                       </div>
                       <div className="flex flex-col ml-3 justify-center md:justify-start">
@@ -661,13 +681,19 @@ export default function index() {
                     <div className="flex">
                       <div className={styles.effect_border}>
                         <div className="w-[130px] h-auto">
-                          <Image
-                            className="rounded-full"
-                            placeholder="blur"
-                            src={CIgorImg}
-                            layout="fill"
-                            alt="Gabriel perfil"
-                          />
+                          <a
+                            className="w-full h-full"
+                            target="_blank"
+                            href="https://www.instagram.com/igorfortin/"
+                          >
+                            <Image
+                              className="rounded-full"
+                              placeholder="blur"
+                              src={CIgorImg}
+                              layout="fill"
+                              alt="Gabriel perfil"
+                            />
+                          </a>
                         </div>
                       </div>
                       <div className="flex flex-col ml-3 justify-center md:justify-start">
@@ -720,13 +746,19 @@ export default function index() {
                     <div className="flex">
                       <div className={styles.effect_border}>
                         <div className="w-[130px] h-auto">
-                          <Image
-                            className="rounded-full"
-                            placeholder="blur"
-                            src={CAmandaImg}
-                            layout="fill"
-                            alt="Gabriel perfil"
-                          />
+                          <a
+                            className="w-full h-full ronded-full"
+                            target="_blank"
+                            href="https://www.instagram.com/_amandalprado/"
+                          >
+                            <Image
+                              className="rounded-full"
+                              placeholder="blur"
+                              src={CAmandaImg}
+                              layout="fill"
+                              alt="Gabriel perfil"
+                            />
+                          </a>
                         </div>
                       </div>
                       <div className="flex flex-col ml-3 justify-center md:justify-start">
@@ -780,12 +812,12 @@ export default function index() {
 
         <div id="PosiY" ref={boxRef2}>
           <div className="w-full bg-dark" id="doubts">
-            <div className="max-w-7xl w-5/6 md:w-full mx-auto pb-24 flex flex-col items-center min-h-screen relative">
+            <div className="max-w-7xl w-5/6 md:w-full mx-auto pb-24 flex flex-col items-center relative">
               <div className="pt-24 pb-10 flex flex-col items-center md:pt-24">
-                <h1 className="text-3xl md:text-[3rem] text-white opacity-10 text-center md:text-start font-extrabold md:absolute md:leading-3">
+                <h1 className="text-3xl md:text-[4rem] text-white opacity-10 text-center md:text-start font-extrabold md:absolute md:leading-3">
                   DÚVIDAS FREQUENTES
                 </h1>
-                <h2 className="uppercase text-white text-4xl text-center font-bold mt-2 md:text-left">
+                <h2 className="uppercase text-white text-4xl md:leading-[1rem] text-center font-bold mt-2 md:text-left">
                   DÚVIDAS FREQUENTES
                 </h2>
                 <div className="bg-button h-1 w-16 rounded-lg mt-4"></div>
@@ -939,25 +971,28 @@ export default function index() {
                 </div>
               </div>
               {/* FIM DUVIDAS FREQUENTES */}
-              <a
-                className="h-10 w-2/3 mt-8 bg-button flex items-center justify-center text-sm rounded-lg text-white uppercase font-medium hover:scale-110 ease-in-out duration-300 md:w-1/3"
-                href="https://api.whatsapp.com/send?phone=5518997188537&text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20pre%C3%A7os%20e%20condi%C3%A7%C3%B5es%20de%20pagamento%20da%20BuyPhone"
-              >
-                falar com um consultor
-              </a>
+              <button className="btn btn-error text-white py-1 w-2/4 mt-10 mx-auto rounded-xl md:mx-0 ">
+                <a
+                  className="w-full h-full flex justify-center items-center"
+                  href="https://api.whatsapp.com/send?phone=5518997188537&text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20pre%C3%A7os%20e%20condi%C3%A7%C3%B5es%20de%20pagamento%20da%20BuyPhone"
+                >
+                  {' '}
+                  quero me cadastrar
+                </a>
+              </button>
             </div>
           </div>
         </div>
       </main>
       <div id="WeAre" className="w-full bg-white">
-        <div className="max-w-7xl mx-auto items-center pt-5 pb-10 flex flex-col text-center text-purple-store md:min-h-[40vw] md:pt-10 md:flex-row md:text-left md:w-5/6">
+        <div className="max-w-7xl mx-auto items-center py-10 flex flex-col text-center text-purple-store md:flex-row md:text-left md:p-40">
           <div className="w-1/2 relative pb-5">
             <div className="absolute -mt-16 ml-14 hidden md:block">
               <div className="w-10 h-10 -rotate-[40deg] border-[2px] border-button rounded-lg absolute ml-14"></div>
               <div className="w-10 h-10 -rotate-[40deg] border-[2px] bg-button border-none rounded-lg absolute ml-12 mt-4 "></div>
             </div>
             <div className="flex justify-center md:justify-end md:pr-14">
-              <div className="w-2/3 h-auto">
+              <div className="w-full h-auto md:w-2/3">
                 <Image
                   src={LogoMatchImg}
                   layout="responsive"
@@ -968,8 +1003,8 @@ export default function index() {
             </div>
           </div>
           <div className="flex flex-col w-4/5 gap-5 md:w-1/2 md:pb-5">
-            <div>
-              <h1 className="text-xl uppercase tracking-wide">nós somos:</h1>
+            <div className="flex flex-col justify-center items-center text-center md:items-start">
+              <h1 className="text-xl uppercase tracking-wide">Quem somos:</h1>
               <h2 className="text-3xl font-semibold text-button">BUYPHONE</h2>
             </div>
             <div className="w-full h-[1px] bg-button"></div>

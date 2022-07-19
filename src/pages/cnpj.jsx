@@ -1,10 +1,13 @@
 import * as yup from 'yup'
-import { replace, useFormik } from 'formik'
+import { useFormik } from 'formik'
 import Button from './components/Button'
 import TextField from '@material-ui/core/TextField'
 import { useRouter } from 'next/router'
 import { useLocalStorage } from '../utils/useLocalStorage'
 import InputMask from 'react-input-mask'
+import Progress from './components/Progress'
+import axios from 'axios'
+import toast from 'react-hot-toast'
 
 export default function cnpj() {
   const [cnpj] = useLocalStorage('cnpj', '')
@@ -16,43 +19,118 @@ export default function cnpj() {
     validationSchema: yup.object({
       cnpj: yup.string().required('O campo é obrigatório.'),
     }),
-    onSubmit: (values) => {
+    onSubmit: async (values) => {
       localStorage.setItem('cnpj', JSON.stringify(values.cnpj))
-      router.push('/companyname')
+      const result = values.cnpj
+        .replace('-', '')
+        .replace('.', '')
+        .replace('.', '')
+        .replace('/', '')
+
+      const res = await axios.get(
+        `https://api-publica.speedio.com.br/buscarcnpj?cnpj=${result}/json`
+      )
+
+      if (res.data.STATUS == 'ATIVA') {
+        const { BAIRRO, CEP, LOGRADOURO, MUNICIPIO, NUMERO, UF } = res.data
+
+        localStorage.setItem('adress', JSON.stringify(LOGRADOURO))
+        localStorage.setItem('city', JSON.stringify(MUNICIPIO))
+        localStorage.setItem('state', JSON.stringify(UF))
+        localStorage.setItem('district', JSON.stringify(BAIRRO))
+        localStorage.setItem('number', JSON.stringify(NUMERO))
+        localStorage.setItem('postal', JSON.stringify(CEP))
+        router.push('/companyname')
+      }
+      if (res.data.STATUS == 'BAIXADA') {
+        toast.custom((t) => (
+          <div
+            className={`${
+              t.visible ? 'animate-enter' : 'animate-leave'
+            } w-full lg:w-1/4 bg-[#FECACA] text-[#484752] h-auto items-center shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5`}
+          >
+            <div className="flex-1 w-0 p-4">
+              <div className="flex items-center">
+                <div className="flex-shrink-0 pt-0.5">
+                  <img
+                    className="h-auto w-10"
+                    src="/error.webp"
+                    alt="Error img"
+                  />
+                </div>
+                <div className="ml-3 flex-1">
+                  <p className="text-xs font-medium text-red-900">
+                    Esse CNPJ não está ativo na receita federal.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+      if (res.data.error != undefined) {
+        toast.custom((t) => (
+          <div
+            className={`${
+              t.visible ? 'animate-enter' : 'animate-leave'
+            } w-full lg:w-1/4 bg-[#FECACA] text-[#484752] h-auto items-center shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5`}
+          >
+            <div className="flex-1 w-0 p-4">
+              <div className="flex items-center">
+                <div className="flex-shrink-0 pt-0.5">
+                  <img
+                    className="h-auto w-10"
+                    src="/error.webp"
+                    alt="Error img"
+                  />
+                </div>
+                <div className="ml-3 flex-1">
+                  <p className="text-xs font-medium text-red-900">
+                    Digite um CNPJ existente.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))
+      }
     },
   })
 
   return (
     <>
-      <h1 className="pb-5 text-black text-xl font-semibold">
-        Qual o CNPJ da sua empresa?
-      </h1>
-      <form onSubmit={formik.handleSubmit}>
-        <InputMask
-          onChange={formik.handleChange}
-          mask="99.999.999/9999-99"
-          onBlur={formik.handleBlur}
-          value={formik.values.cnpj}
-          name="cpf"
-          type="text"
-        >
-          {() => (
-            <TextField
-              fullWidth
-              onBlur={formik.handleBlur}
-              value={formik.values.cnpj}
-              name="cnpj"
-              label="CNPJ"
-              variant="outlined"
-            />
-          )}
-        </InputMask>
-        <h2 className="text-Loja opacity-50 text-sm mt-2">
-          Digite apenas os números
-        </h2>
+      <Progress value="10" />
+      <form className="grid gap-8 mt-8" onSubmit={formik.handleSubmit}>
+        <h1 className="pb-5 text-black text-xl font-semibold">
+          Qual o CNPJ da sua empresa?
+        </h1>
+        <div>
+          <InputMask
+            onChange={formik.handleChange}
+            mask="99.999.999/9999-99"
+            onBlur={formik.handleBlur}
+            value={formik.values.cnpj}
+            name="cpf"
+            type="text"
+          >
+            {() => (
+              <TextField
+                fullWidth
+                onBlur={formik.handleBlur}
+                value={formik.values.cnpj}
+                name="cnpj"
+                label="CNPJ"
+                variant="outlined"
+              />
+            )}
+          </InputMask>
+          <h2 className="text-Loja opacity-50 text-sm mt-2">
+            Digite apenas os números
+          </h2>
+        </div>
 
         {formik.touched.cnpj && formik.errors.cnpj ? (
-          <div className="badge badge-warning badge-lg bg-opacity-80 text-xs mt-[1.5rem]">
+          <div className="badge badge-warning badge-lg bg-opacity-80 text-xs">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="stroke-current flex-shrink-0 h-6 w-6"

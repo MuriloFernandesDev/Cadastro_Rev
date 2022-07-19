@@ -1,5 +1,4 @@
 import { useState, createRef, useEffect } from 'react'
-import Button from './components/Button'
 import Progress from './components/Progress'
 import Watch from './Timer'
 import { useLocalStorage } from '../utils/useLocalStorage'

@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import Corpo from './components/Corpo'
 import { Toaster } from 'react-hot-toast'
 
-function MyApp({ Component, pageProps }: AppProps) {
+export default function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
   return (
     <>
@@ -21,5 +21,3 @@ function MyApp({ Component, pageProps }: AppProps) {
     </>
   )
 }
-
-export default MyApp

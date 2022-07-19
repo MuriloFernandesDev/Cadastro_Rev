@@ -6,6 +6,7 @@ import { useRouter } from 'next/router'
 import { useLocalStorage } from '../utils/useLocalStorage'
 import InputMask from 'react-input-mask'
 import ApiCep from '../utils/getCep'
+import Progress from './components/Progress'
 
 export default function postal() {
   const [postal] = useLocalStorage('postal', '')
@@ -21,21 +22,28 @@ export default function postal() {
     }),
     onSubmit: (values) => {
       localStorage.setItem('postal', JSON.stringify(values.postal))
-      const result = postal.replace('-', '')
-
+      const result = values.postal.replace('-', '')
       // Chamando api e salvando localstorage
-      ApiCep(result)
-
-      router.push('/adress')
+      if (postal == result) {
+        setTimeout(() => {
+          router.push('/adress')
+        }, 1000)
+      } else {
+        ApiCep(result)
+        setTimeout(() => {
+          router.push('/adress')
+        }, 1000)
+      }
     },
   })
 
   return (
     <>
-      <h1 className="pb-5 text-black text-xl font-semibold">
-        Pode nos informar seu CEP?
-      </h1>
-      <form className="gap-3 h-auto" onSubmit={formik.handleSubmit}>
+      <Progress value="30" />
+      <form className="grid gap-8 mt-8" onSubmit={formik.handleSubmit}>
+        <h1 className="pb-5 text-black text-xl font-semibold">
+          Pode nos informar seu CEP?
+        </h1>
         <InputMask
           onChange={formik.handleChange}
           mask="99999-999"
@@ -56,7 +64,7 @@ export default function postal() {
           )}
         </InputMask>
         {formik.touched.postal && formik.errors.postal ? (
-          <div className="badge badge-warning badge-lg bg-opacity-80 text-xs mt-[1.5rem]">
+          <div className="badge badge-warning badge-lg bg-opacity-80 text-xs">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="stroke-current flex-shrink-0 h-6 w-6"

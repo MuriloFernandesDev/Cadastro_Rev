@@ -4,6 +4,7 @@ import Button from './components/Button'
 import TextField from '@material-ui/core/TextField'
 import { useRouter } from 'next/router'
 import { useLocalStorage } from '../utils/useLocalStorage'
+import Progress from './components/Progress'
 
 export default function companyname() {
   const [companyname] = useLocalStorage('companyname', '')
@@ -28,24 +29,27 @@ export default function companyname() {
 
   return (
     <>
-      <h1 className="pb-5 text-black text-xl font-semibold">
-        Escreva o nome da sua empresa como está na Receita Federal
-      </h1>
-      <form className="gap-3 h-auto" onSubmit={formik.handleSubmit}>
-        <TextField
-          label="Empresa"
-          type="text"
-          name="companyname"
-          fullWidth
-          variant="outlined"
-          onChange={formik.handleChange}
-          value={formik.values.companyname}
-        />
-        <h2 className="text-Loja opacity-50 text-sm mt-2">
-          Pode ser o nome fantasia ou a razão social
-        </h2>
+      <Progress value="20" />
+      <form className="grid gap-8 mt-8" onSubmit={formik.handleSubmit}>
+        <h1 className="pb-5 text-black text-xl font-semibold">
+          Escreva o nome da sua empresa como está na Receita Federal
+        </h1>
+        <div>
+          <TextField
+            label="Empresa"
+            type="text"
+            name="companyname"
+            fullWidth
+            variant="outlined"
+            onChange={formik.handleChange}
+            value={formik.values.companyname}
+          />
+          <h2 className="text-Loja opacity-50 text-sm">
+            Pode ser o nome fantasia ou a razão social
+          </h2>
+        </div>
         {formik.touched.companyname && formik.errors.companyname ? (
-          <div className="badge badge-warning badge-lg bg-opacity-80 text-xs mt-[1.5rem]">
+          <div className="badge badge-warning badge-lg bg-opacity-80 text-xs">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="stroke-current flex-shrink-0 h-6 w-6"

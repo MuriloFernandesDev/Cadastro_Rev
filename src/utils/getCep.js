@@ -3,6 +3,10 @@ import axios from 'axios'
 export default async function ApiCep(cep) {
   const res = await axios.get(`https://viacep.com.br/ws/${cep}/json`)
 
+  if (res.data.erro) {
+    return
+  }
+
   const { logradouro, localidade, uf, bairro } = res.data
 
   localStorage.setItem('adress', JSON.stringify(logradouro))

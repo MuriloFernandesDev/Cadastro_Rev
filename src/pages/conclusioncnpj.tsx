@@ -1,8 +1,8 @@
 import Image from 'next/image'
-import GroupImg from '../../public/group.svg'
+import GroupImg from '../../public/Group105.svg'
 import RocketImg1 from '../../public/rocket.gif'
 
-export default function conclusion() {
+export default function conclusioncnpj() {
   return (
     <>
       <div className="grid gap-8">
@@ -13,7 +13,7 @@ export default function conclusion() {
             <Image src={RocketImg1} layout="responsive" quality={100}></Image>
           </div>
           <h3 className="text-sm">
-            O seu cadastro de usuário foi concluído e está sob análise.
+            O cadastro da sua empresa foi concluído e está sob análise.
             Enviaremos a resposta da sua solicitação em seu e-mail.
           </h3>
         </div>

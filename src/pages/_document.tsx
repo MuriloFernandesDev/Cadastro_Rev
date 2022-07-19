@@ -6,7 +6,10 @@ export default class MyDocument extends Document {
       <Html lang="pt-BR">
         <Head>
           <title>Cadastro | BuyPhone</title>
-          <meta name="description" content="Buy Phone para revendedores!" />
+          <meta
+            name="description"
+            content="Nós conectamos com um match, quem deseja comprar produtos da marca Apple com quem deseja vender. O comprador economiza até 30% e o associado ganha dinheiro com seus pontos!"
+          />
 
           <link rel="icon" type="image/ico" href="/favicon.ico" />
 
