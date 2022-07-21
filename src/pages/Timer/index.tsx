@@ -6,6 +6,7 @@ const Watch = (props: any) => {
   const { initialMinute = 5, initialSeconds = 0 } = props
   const [minutes, setMinutes] = useState(initialMinute)
   const [seconds, setSeconds] = useState(initialSeconds)
+
   useEffect(() => {
     let myInterval = setInterval(() => {
       if (seconds > 0) {
