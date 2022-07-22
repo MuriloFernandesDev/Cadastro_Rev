@@ -516,7 +516,7 @@ export default function index() {
                   <button className="btn btn-error text-white py-1 w-1/2 mt-10 mx-auto rounded-xl md:mx-0 ">
                     <a
                       className="w-full h-full flex justify-center items-center"
-                      href="/home"
+                      href="/register/home"
                     >
                       {' '}
                       quero me cadastrar
@@ -1046,7 +1046,7 @@ export default function index() {
                   href="https://api.whatsapp.com/send?phone=5518997188537&text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20pre%C3%A7os%20e%20condi%C3%A7%C3%B5es%20de%20pagamento%20da%20BuyPhone"
                 >
                   {' '}
-                  quero me cadastrar
+                  Falar com consultor
                 </a>
               </button>
             </div>

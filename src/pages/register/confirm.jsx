@@ -1,6 +1,6 @@
 import { useState, createRef, useEffect } from 'react'
 import Progress from '../../components/Progress'
-import Watch from '../Timer'
+import Watch from '../../components/Timer'
 import { useLocalStorage } from '../../utils/useLocalStorage'
 import axios from 'axios'
 import toast from 'react-hot-toast'

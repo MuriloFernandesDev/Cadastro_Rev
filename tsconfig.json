@@ -25,7 +25,7 @@
     "src/utils/useLocalStorage.jsx",
     "src/utils/useLocalStorage.jsx",
     "src/components/Corpo/index.jsx",
-    "src/pages/name.jsx",
+    "src/pages/register/name.jsx",
     "src/pages/password.tsx",
     "src/pages/componente.jsx",
     "src/pages/confirmation.jsx",
@@ -34,8 +34,8 @@
     "src/pages/postal.jsx",
     "src/pages/companyname.jsx",
     "src/pages/cnpj.Jsx",
-    "src/pages/birth.jsx",
-    "src/pages/confirm.jsx",
+    "src/pages/register/birth.jsx",
+    "src/pages/register/confirm.jsx",
     "src/pages/mean.jsx"
   ],
   "exclude": ["node_modules"]
