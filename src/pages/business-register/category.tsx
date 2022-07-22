@@ -1,14 +1,14 @@
 import Image from 'next/image'
-import Progress from '../components/Progress'
+import Progress from '../../components/Progress'
 import { useRouter } from 'next/router'
-import Button from '../components/Button'
-import Checkbox from '../components/checkbox'
+import Button from '../../components/Button'
+import Checkbox from '../../components/checkbox'
 
 export default function category() {
   const router = useRouter()
 
   function submit() {
-    router.push('/sendfile')
+    router.push('/business-register/sendfile')
   }
 
   return (

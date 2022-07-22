@@ -1,10 +1,10 @@
 import * as yup from 'yup'
 import { useFormik } from 'formik'
-import Button from '../components/Button'
+import Button from '../../components/Button'
 import TextField from '@material-ui/core/TextField'
 import { useRouter } from 'next/router'
-import { useLocalStorage } from '../utils/useLocalStorage'
-import Progress from '../components/Progress'
+import { useLocalStorage } from '../../utils/useLocalStorage'
+import Progress from '../../components/Progress'
 
 export default function number() {
   const [number] = useLocalStorage('number', '')
@@ -38,7 +38,7 @@ export default function number() {
       localStorage.setItem('number', JSON.stringify(values.number))
       localStorage.setItem('district', JSON.stringify(values.district))
       localStorage.setItem('complemento', JSON.stringify(values.complemento))
-      router.push('/confirmaddress')
+      router.push('/business-register/confirm')
     },
   })
 

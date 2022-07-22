@@ -2,12 +2,12 @@ import * as yup from 'yup'
 import { useFormik } from 'formik'
 import TextField from '@material-ui/core/TextField'
 import { useRouter } from 'next/router'
-import { useLocalStorage } from '../utils/useLocalStorage'
+import { useLocalStorage } from '../../utils/useLocalStorage'
 import InputMask from 'react-input-mask'
-import Progress from '../components/Progress'
+import Progress from '../../components/Progress'
 import axios from 'axios'
 import toast from 'react-hot-toast'
-import Button from '../components/Button'
+import Button from '../../components/Button'
 
 export default function cnpj() {
   const [cnpj] = useLocalStorage('cnpj', '')
@@ -40,7 +40,7 @@ export default function cnpj() {
         localStorage.setItem('district', JSON.stringify(BAIRRO))
         localStorage.setItem('number', JSON.stringify(NUMERO))
         localStorage.setItem('postal', JSON.stringify(CEP))
-        router.push('/companyname')
+        router.push('/business-register/companyname')
       }
       if (res.data.STATUS == 'BAIXADA') {
         toast.custom((t) => (

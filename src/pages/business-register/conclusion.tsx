@@ -1,8 +1,8 @@
 import Image from 'next/image'
-import GroupImg from '../../public/Group105.svg'
-import RocketImg1 from '../../public/rocket.gif'
+import GroupImg from '../../../public/Group105.svg'
+import RocketImg1 from '../../../public/rocket.gif'
 
-export default function conclusioncnpj() {
+export default function conclusion() {
   return (
     <>
       <div className="grid gap-8">

@@ -105,7 +105,7 @@ const DropZone = ({ data, dispatch }) => {
       //criando data para teste enviar dados para o BD
 
       localStorage.clear()
-      window.location.replace('/conclusioncnpj')
+      window.location.replace('/business-register/conclusion')
     } else {
       // upload de arquivo sem sucesso
       //exibir erro // apagar abaixo
@@ -127,7 +127,7 @@ const DropZone = ({ data, dispatch }) => {
       //criando data para teste
 
       localStorage.clear()
-      window.location.replace('/conclusioncnpj')
+      window.location.replace('/business-register/conclusion')
     }
   }
 

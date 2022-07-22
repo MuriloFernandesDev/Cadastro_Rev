@@ -29,14 +29,14 @@
     "src/pages/password.tsx",
     "src/pages/componente.jsx",
     "src/pages/confirmation.jsx",
-    "src/pages/confirmaddress.jsx",
-    "src/pages/address.jsx",
-    "src/pages/postal.jsx",
-    "src/pages/companyname.jsx",
-    "src/pages/cnpj.Jsx",
+    "src/pages/confirm.jsx",
+    "src/pages/business-register/address.jsx",
+    "src/pages/business-register/postal.jsx",
+    "src/pages/business-register/companyname.jsx",
+    "src/pages/business-register/cnpj.jsx",
     "src/pages/register/birth.jsx",
     "src/pages/register/confirm.jsx",
-    "src/pages/mean.jsx"
+    "src/pages/business-register/mean.jsx"
   ],
   "exclude": ["node_modules"]
 }

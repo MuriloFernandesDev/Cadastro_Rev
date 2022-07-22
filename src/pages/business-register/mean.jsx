@@ -1,8 +1,8 @@
 import Image from 'next/image'
-import Progress from '../components/Progress'
+import Progress from '../../components/Progress'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
-import Button from '../components/Button'
+import Button from '../../components/Button'
 import Radio from '@mui/material/Radio'
 import RadioGroup from '@mui/material/RadioGroup'
 import FormControlLabel from '@mui/material/FormControlLabel'
@@ -55,7 +55,7 @@ export default function mean() {
         'input[name="radiogroup"]:checked'
       ).value
       localStorage.setItem('mean', JSON.stringify(value))
-      router.push('/category')
+      router.push('/business-register/category')
     }
   }
 
@@ -76,35 +76,35 @@ export default function mean() {
               name="radio-buttons-group"
             >
               <FormControlLabel
-                className="border rounded-md border-Loja mr-0"
+                className="border rounded-md border-Loja mx-0"
                 value="1a3"
                 control={<Radio color="secondary" />}
                 label="De 1 a 3"
                 name="radiogroup"
               />
               <FormControlLabel
-                className="border rounded-md border-Loja mr-0"
+                className="border rounded-md border-Loja mx-0"
                 value="3a5"
                 control={<Radio color="secondary" />}
                 label="De 3 a 5"
                 name="radiogroup"
               />
               <FormControlLabel
-                className="border rounded-md border-Loja mr-0"
+                className="border rounded-md border-Loja mx-0"
                 value="5a10"
                 control={<Radio color="secondary" />}
                 label="De 5 a 10"
                 name="radiogroup"
               />
               <FormControlLabel
-                className="border rounded-md border-Loja mr-0"
+                className="border rounded-md border-Loja mx-0"
                 value="10a30"
                 control={<Radio color="secondary" />}
                 label="De 10 a 30"
                 name="radiogroup"
               />
               <FormControlLabel
-                className="border rounded-md border-Loja mr-0"
+                className="border rounded-md border-Loja mx-0"
                 value="mais30"
                 control={<Radio color="secondary" />}
                 label="Mais de 30"

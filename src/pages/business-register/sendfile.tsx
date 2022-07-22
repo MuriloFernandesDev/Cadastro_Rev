@@ -1,6 +1,6 @@
 import { useReducer } from 'react'
-import Progress from '../components/Progress'
-import DropZone from '../utils/dropzone'
+import Progress from '../../components/Progress'
+import DropZone from '../../utils/dropzone'
 
 export default function sendfile() {
   // função redutora para lidar com mudanças de estado

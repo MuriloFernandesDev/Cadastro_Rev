@@ -1,11 +1,11 @@
 import { useRouter } from 'next/router'
-import { useLocalStorage } from '../utils/useLocalStorage'
+import { useLocalStorage } from '../../utils/useLocalStorage'
 import Image from 'next/image'
-import MapImg from '../../public/undraw.svg'
-import EditImg from '../../public/Create.svg'
-import Progress from '../components/Progress'
+import MapImg from '../../../public/undraw.svg'
+import EditImg from '../../../public/Create.svg'
+import Progress from '../../components/Progress'
 
-export default function confirmaddress() {
+export default function confirm() {
   const [district] = useLocalStorage('district', '')
   const [city] = useLocalStorage('city', '')
   const [state] = useLocalStorage('state', '')
@@ -14,12 +14,12 @@ export default function confirmaddress() {
   const router = useRouter()
 
   function submit() {
-    router.push('/mean')
+    router.push('/business-register/mean')
   }
 
   function BackCep() {
     localStorage.removeItem('number')
-    router.push('/postal')
+    router.push('/business-register/postal')
   }
 
   return (
