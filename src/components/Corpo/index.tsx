@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import { ReactElement, cloneElement } from 'react'
 import styles from './styles.module.scss'
 import Image from 'next/image'
-import LogoSvg from '../../../../public/LogoPurple.svg'
+import LogoSvg from '../../../public/LogoPurple.svg'
 
 interface Homeprops {
   children: ReactElement

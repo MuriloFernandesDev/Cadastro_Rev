@@ -1,13 +1,13 @@
 import * as yup from 'yup'
 import { useFormik } from 'formik'
-import Button from './components/Button'
 import TextField from '@material-ui/core/TextField'
 import { useRouter } from 'next/router'
 import { useLocalStorage } from '../utils/useLocalStorage'
 import InputMask from 'react-input-mask'
-import Progress from './components/Progress'
+import Progress from '../components/Progress'
 import axios from 'axios'
 import toast from 'react-hot-toast'
+import Button from '../components/Button'
 
 export default function cnpj() {
   const [cnpj] = useLocalStorage('cnpj', '')
@@ -34,7 +34,7 @@ export default function cnpj() {
       if (res.data.STATUS == 'ATIVA') {
         const { BAIRRO, CEP, LOGRADOURO, MUNICIPIO, NUMERO, UF } = res.data
 
-        localStorage.setItem('adress', JSON.stringify(LOGRADOURO))
+        localStorage.setItem('address', JSON.stringify(LOGRADOURO))
         localStorage.setItem('city', JSON.stringify(MUNICIPIO))
         localStorage.setItem('state', JSON.stringify(UF))
         localStorage.setItem('district', JSON.stringify(BAIRRO))

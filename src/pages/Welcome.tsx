@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import Button from './components/Button'
-import Progress from './components/Progress'
+import Button from '../components/Button'
+import Progress from '../components/Progress'
 
 export default function Welcome() {
   return (

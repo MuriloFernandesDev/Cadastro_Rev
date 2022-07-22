@@ -1,5 +1,5 @@
 import { useState, createRef, useEffect } from 'react'
-import Progress from './components/Progress'
+import Progress from '../components/Progress'
 import Watch from './Timer'
 import { useLocalStorage } from '../utils/useLocalStorage'
 import axios from 'axios'

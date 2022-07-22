@@ -1,12 +1,12 @@
 import * as yup from 'yup'
 import { useFormik } from 'formik'
-import Button from './components/Button'
+import Button from '../components/Button'
 import TextField from '@material-ui/core/TextField'
 import { useRouter } from 'next/router'
 import { useLocalStorage } from '../utils/useLocalStorage'
 import InputMask from 'react-input-mask'
-import ApiCep from '../utils/getCep'
-import Progress from './components/Progress'
+import ApiCep from '../service/getCep'
+import Progress from '../components/Progress'
 
 export default function postal() {
   const [postal] = useLocalStorage('postal', '')
@@ -26,12 +26,12 @@ export default function postal() {
       // Chamando api e salvando localstorage
       if (postal == result) {
         setTimeout(() => {
-          router.push('/adress')
+          router.push('/address')
         }, 1000)
       } else {
         ApiCep(result)
         setTimeout(() => {
-          router.push('/adress')
+          router.push('/address')
         }, 1000)
       }
     },

@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import ConcluirImg from '../../public/undrawn.png'
-import Progress from './components/Progress'
+import Progress from '../components/Progress'
 
 export default function terms() {
   const router = useRouter()

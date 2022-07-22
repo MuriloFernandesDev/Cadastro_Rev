@@ -1,6 +1,6 @@
 import { useState, useRouter } from 'react'
 import FilePreview from './filepreview'
-import Button from '../pages/components/Button'
+import Button from '../components/Button'
 import toast from 'react-hot-toast'
 
 const DropZone = ({ data, dispatch }) => {

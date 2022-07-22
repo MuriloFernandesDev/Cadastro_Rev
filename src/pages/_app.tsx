@@ -1,7 +1,7 @@
 import '../../styles/globals.scss'
 import type { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
-import Corpo from './components/Corpo'
+import Corpo from '../components/Corpo'
 import { Toaster } from 'react-hot-toast'
 
 export default function MyApp({ Component, pageProps }: AppProps) {

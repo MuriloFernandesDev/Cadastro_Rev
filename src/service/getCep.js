@@ -9,7 +9,7 @@ export default async function ApiCep(cep) {
 
   const { logradouro, localidade, uf, bairro } = res.data
 
-  localStorage.setItem('adress', JSON.stringify(logradouro))
+  localStorage.setItem('address', JSON.stringify(logradouro))
   localStorage.setItem('city', JSON.stringify(localidade))
   localStorage.setItem('state', JSON.stringify(uf))
   localStorage.setItem('district', JSON.stringify(bairro))

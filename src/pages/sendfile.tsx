@@ -1,5 +1,5 @@
 import { useReducer } from 'react'
-import Progress from './components/Progress'
+import Progress from '../components/Progress'
 import DropZone from '../utils/dropzone'
 
 export default function sendfile() {

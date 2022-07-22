@@ -3,13 +3,13 @@ import { useLocalStorage } from '../utils/useLocalStorage'
 import Image from 'next/image'
 import MapImg from '../../public/undraw.svg'
 import EditImg from '../../public/Create.svg'
-import Progress from './components/Progress'
+import Progress from '../components/Progress'
 
-export default function confirmadress() {
+export default function confirmaddress() {
   const [district] = useLocalStorage('district', '')
   const [city] = useLocalStorage('city', '')
   const [state] = useLocalStorage('state', '')
-  const [adress] = useLocalStorage('adress', '')
+  const [address] = useLocalStorage('address', '')
   const [number] = useLocalStorage('number', '')
   const router = useRouter()
 
@@ -32,7 +32,7 @@ export default function confirmadress() {
         <div className="flex justify-between items-center">
           <div className="flex flex-col">
             <h1 className="pb-2 mt-6 text-black text-xl font-semibold">
-              {adress ?? ''}, {number ?? ''}
+              {address ?? ''}, {number ?? ''}
             </h1>
             <h2 className="text-Loja opacity-50 text-sm">
               {district ?? ''}, {city ?? ''} - {state ?? ''}
