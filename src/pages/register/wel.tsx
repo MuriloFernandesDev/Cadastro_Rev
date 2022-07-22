@@ -1,8 +1,13 @@
 import Link from 'next/link'
-import Button from '../components/Button'
-import Progress from '../components/Progress'
+import Button from '../../components/Button'
+import Progress from '../../components/Progress'
+import Router, { useRouter } from 'next/router'
 
-export default function Welcome() {
+export default function wel() {
+  const router = useRouter()
+  function Rota() {
+    router.push('/register/name')
+  }
   return (
     <>
       <Progress value="10" />
@@ -27,11 +32,9 @@ export default function Welcome() {
           <li>4. Tem seus documentos em mãos.</li>
         </ul>
 
-        <Link className="w-full" href="/name">
-          <a className="w-full h-full">
-            <Button />
-          </a>
-        </Link>
+        <button onClick={Rota}>
+          <Button />
+        </button>
       </div>
     </>
   )

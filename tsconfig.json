@@ -29,7 +29,7 @@
     "src/pages/password.tsx",
     "src/pages/componente.jsx",
     "src/pages/confirmation.jsx",
-    "src/pages/confirmadress.jsx",
+    "src/pages/confirmaddress.jsx",
     "src/pages/address.jsx",
     "src/pages/postal.jsx",
     "src/pages/companyname.jsx",

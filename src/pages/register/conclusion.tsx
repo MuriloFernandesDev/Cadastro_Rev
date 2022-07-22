@@ -1,6 +1,6 @@
 import Image from 'next/image'
-import GroupImg from '../../public/group.svg'
-import RocketImg1 from '../../public/rocket.gif'
+import GroupImg from '../../../public/group.svg'
+import RocketImg1 from '../../../public/rocket.gif'
 
 export default function conclusion() {
   return (

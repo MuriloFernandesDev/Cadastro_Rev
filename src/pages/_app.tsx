@@ -8,7 +8,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
   return (
     <>
-      {router.route === `/` || router.route === `/home` ? (
+      {router.route === `/` || router.route === `/register/home` ? (
         <Component {...pageProps} />
       ) : (
         <>

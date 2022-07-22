@@ -1,48 +1,53 @@
 import * as yup from 'yup'
 import { useFormik } from 'formik'
-import Button from '../components/Button'
+import Button from '../../components/Button'
 import TextField from '@material-ui/core/TextField'
 import { useRouter } from 'next/router'
-import { useLocalStorage } from '../utils/useLocalStorage'
-import Progress from '../components/Progress'
+import { useLocalStorage } from '../../utils/useLocalStorage'
+import Progress from '../../components/Progress'
 
-export default function email() {
-  const [email] = useLocalStorage('email', '')
+export default function name() {
+  const [name] = useLocalStorage('name', '')
   const router = useRouter()
+
   const formik = useFormik({
     initialValues: {
-      email: email,
+      nome: name,
     },
     validationSchema: yup.object({
-      email: yup
+      nome: yup
         .string()
-        .email('Digite um e-mail válido!')
-        .required('O campo é obrigatório.'),
+        .required('Campo nome é Obrigatório!')
+        .min(10, 'Digite seu nome completo!')
+        .max(40, 'Nome muito longo!'),
     }),
     onSubmit: (values) => {
-      localStorage.setItem('email', JSON.stringify(values.email))
-      router.push('/phone')
+      localStorage.setItem('name', JSON.stringify(values.nome))
+      router.push('/register/birth')
     },
   })
 
   return (
     <>
-      <Progress value="50" />
-      <form className="grid gap-8" onSubmit={formik.handleSubmit}>
-        <h1 className="mt-8 text-black text-xl font-semibold">
-          Qual seu email?
-        </h1>
+      <Progress value="20" />
+
+      <form className="gap-8 grid h-auto" onSubmit={formik.handleSubmit}>
+        <div className="mt-8">
+          <h1 className="font-semibold text-sm text-black opacity-50">
+            Vamos começar
+          </h1>
+          <h2 className="text-black text-xl">Qual seu nome completo?</h2>
+        </div>
         <TextField
-          label="Seu email"
+          label="Nome"
           type="text"
-          name="email"
+          name="nome"
           fullWidth
           variant="outlined"
           onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.email}
+          value={formik.values.nome}
         />
-        {formik.touched.email && formik.errors.email ? (
+        {formik.touched.nome && formik.errors.nome ? (
           <div className="badge badge-warning badge-lg bg-opacity-80 text-xs mt-[1.5rem]">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -57,7 +62,7 @@ export default function email() {
                 d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
               />
             </svg>
-            <span className="pl-2"> {formik.errors.email}</span>
+            <span className="pl-2"> {formik.errors.nome}</span>
           </div>
         ) : null}
         <Button />

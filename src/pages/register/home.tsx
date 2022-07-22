@@ -1,8 +1,8 @@
 import Link from 'next/link'
-import styles from './styles.module.scss'
+import styles from '../styles.module.scss'
 import Image from 'next/image'
-import LogoSvg from '../../public/LogoPurple.svg'
-import CelSvg from '../../public/Cel.svg'
+import LogoSvg from '../../../public/LogoPurple.svg'
+import CelSvg from '../../../public/Cel.svg'
 
 export default function home() {
   return (
@@ -57,7 +57,7 @@ export default function home() {
                     </a>
                   </Link>
 
-                  <Link href={'/Welcome'}>
+                  <Link href={'/register/wel'}>
                     <a className="btn btn-danger bg-transparent border hover:bg-white border-Loja text-Loja font-medium min-h-6 h-[2.5rem]">
                       Cadastrar
                     </a>

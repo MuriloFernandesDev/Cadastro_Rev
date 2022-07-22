@@ -1,12 +1,12 @@
 import * as yup from 'yup'
 import { useFormik } from 'formik'
-import Button from '../components/Button'
+import Button from '../../components/Button'
 import TextField from '@material-ui/core/TextField'
 import { useRouter } from 'next/router'
 import axios from 'axios'
-import { useLocalStorage } from '../utils/useLocalStorage'
+import { useLocalStorage } from '../../utils/useLocalStorage'
 import toast from 'react-hot-toast'
-import Progress from '../components/Progress'
+import Progress from '../../components/Progress'
 
 export default function password() {
   const router = useRouter()
@@ -66,7 +66,7 @@ export default function password() {
       axios
         .post(`https://loja.buyphone.com.br/api/register`, data)
         .then((res) => {
-          router.push('/confirm')
+          router.push('/register/confirm')
         })
         .catch((error) => {
           var Error = error.response.data.message

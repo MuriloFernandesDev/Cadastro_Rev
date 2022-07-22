@@ -162,7 +162,7 @@ export default function index() {
                   <button className="btn btn-error">
                     <a
                       className="w-full h-full flex justify-center items-center"
-                      href="/home"
+                      href="/register/home"
                     >
                       Cadastrar
                     </a>
@@ -214,7 +214,7 @@ export default function index() {
             </li>
             <li className="mr-6">
               <button className="btn btn-error text-white py-1 rounded-xl">
-                <a href="/home">Cadastrar</a>
+                <a href="/register/home">Cadastrar</a>
               </button>
             </li>
           </ul>
