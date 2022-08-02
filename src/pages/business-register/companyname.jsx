@@ -18,8 +18,7 @@ export default function companyname() {
       companyname: yup
         .string()
         .required('Campo nome é Obrigatório!')
-        .min(8, 'Nome muito curto!')
-        .max(40, 'Nome muito longo!'),
+        .min(5, 'Nome muito curto!'),
     }),
     onSubmit: (values) => {
       localStorage.setItem('companyname', JSON.stringify(values.companyname))

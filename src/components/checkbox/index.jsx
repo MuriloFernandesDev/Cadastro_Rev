@@ -1,11 +1,21 @@
 import CheckIcon from '@mui/icons-material/Check'
+import { useEffect, useState } from 'react'
 
-interface Check {
-  value: string
-  value2: string
-}
+export default function Checkbox({ value, value2 }) {
+  const [change, setChange] = useState(false)
+  const [storage, setStorage] = useState('')
 
-export default function Checkbox({ value, value2 }: Check) {
+  useEffect(() => {
+    const storage = localStorage.getItem('category')
+
+    if (storage == null && change == false) {
+      return
+    } else {
+      localStorage.setItem('category', storage + [value2 + ','])
+      setStorage(storage)
+    }
+  }, [change])
+
   return (
     <div className="flex w-max relative">
       <input
@@ -14,6 +24,7 @@ export default function Checkbox({ value, value2 }: Check) {
         value="yes"
         name="answer"
         id={value2}
+        onClick={() => setChange(!change)}
         placeholder="Vanilla"
       />
 

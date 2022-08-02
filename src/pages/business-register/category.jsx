@@ -3,8 +3,9 @@ import Progress from '../../components/Progress'
 import { useRouter } from 'next/router'
 import Button from '../../components/Button'
 import Checkbox from '../../components/checkbox'
+import React from 'react'
 
-export default function category() {
+export default function category({ data }) {
   const router = useRouter()
 
   function submit() {
@@ -25,10 +26,15 @@ export default function category() {
           </h2>
         </div>
         <div className="flex flex-wrap gap-3">
-          <Checkbox value="11 (128Gb - Branco)" value2="check1" />
-          <Checkbox value="13 Pro Max (256Gb - Prateado)" value2="check2" />
-          <Checkbox value="13 Pro Max (256Gb - Prateado)" value2="check3" />
-          <Checkbox value="13 Pro Max (256Gb - Prateado)" value2="check4" />
+          {data.data.length > 0 ? (
+            data.data.map((p) => (
+              <Checkbox key={p.id} value={p.name} value2={p.id}>
+                {' '}
+              </Checkbox>
+            ))
+          ) : (
+            <span>Categoria de produtos não disponíveis.</span>
+          )}
         </div>
         <div onClick={submit}>
           <Button />
@@ -36,4 +42,13 @@ export default function category() {
       </div>
     </>
   )
+}
+
+export async function getServerSideProps() {
+  const Auth = 'ef7223f0-55b4-49a7-9eed-f4b4ef14b2f1'
+  const URL = 'https://pedidos.buyphone.com.br/api/categories'
+
+  const res = await fetch(URL, { headers: { token: Auth } })
+  const data = await res.json()
+  return { props: { data } }
 }
