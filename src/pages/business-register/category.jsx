@@ -50,5 +50,11 @@ export async function getServerSideProps() {
 
   const res = await fetch(URL, { headers: { token: Auth } })
   const data = await res.json()
-  return { props: { data } }
+  // return { props: { data } }
+  return {
+    props: {
+      data,
+    },
+    revalidate: 60 * 60 * 24 * 30,
+  }
 }
