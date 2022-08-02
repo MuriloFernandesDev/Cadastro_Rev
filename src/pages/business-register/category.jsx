@@ -44,13 +44,12 @@ export default function category({ data }) {
   )
 }
 
-export async function getServerSideProps() {
+export const getStaticProps = async () => {
   const Auth = 'ef7223f0-55b4-49a7-9eed-f4b4ef14b2f1'
   const URL = 'https://pedidos.buyphone.com.br/api/categories'
 
   const res = await fetch(URL, { headers: { token: Auth } })
   const data = await res.json()
-  // return { props: { data } }
   return {
     props: {
       data,

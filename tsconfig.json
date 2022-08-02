@@ -36,7 +36,10 @@
     "src/pages/business-register/cnpj.jsx",
     "src/pages/register/birth.jsx",
     "src/pages/register/confirm.jsx",
-    "src/pages/business-register/mean.jsx"
+    "src/pages/business-register/mean.jsx",
+    "src/components/checkbox/index.jsx",
+    "src/components/checkbox/index.jsx",
+    "src/pages/business-register/category.jsx"
   ],
   "exclude": ["node_modules"]
 }
