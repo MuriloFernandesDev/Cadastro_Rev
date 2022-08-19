@@ -7,7 +7,7 @@ import { useLocalStorage } from '../../utils/useLocalStorage'
 import Progress from '../../components/Progress'
 
 export default function companyname() {
-  const [companyname] = useLocalStorage('companyname', '')
+  const [companyname] = useLocalStorage('@BuyPhone_companyname', '')
   const router = useRouter()
 
   const formik = useFormik({
@@ -21,7 +21,10 @@ export default function companyname() {
         .min(5, 'Nome muito curto!'),
     }),
     onSubmit: (values) => {
-      localStorage.setItem('companyname', JSON.stringify(values.companyname))
+      localStorage.setItem(
+        '@BuyPhone_companyname',
+        JSON.stringify(values.companyname)
+      )
       router.push('/business-register/postal')
     },
   })

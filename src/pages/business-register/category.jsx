@@ -12,10 +12,6 @@ export default function category({ Data }) {
     router.push('/business-register/sendfile')
   }
 
-  useEffect(() => {
-    console.log(Data)
-  })
-
   return (
     <>
       <Progress value="80" />

@@ -8,7 +8,7 @@ import InputMask from 'react-input-mask'
 import Progress from '../../components/Progress'
 
 export default function cpf() {
-  const [cpf] = useLocalStorage('document', '')
+  const [cpf] = useLocalStorage('@BuyPhone_document', '')
   const router = useRouter()
   const formik = useFormik({
     initialValues: {
@@ -18,7 +18,7 @@ export default function cpf() {
       cpf: yup.string().required('O campo é obrigatório.'),
     }),
     onSubmit: (values) => {
-      localStorage.setItem('document', JSON.stringify(values.cpf))
+      localStorage.setItem('@BuyPhone_document', JSON.stringify(values.cpf))
       router.push('/register/email')
     },
   })

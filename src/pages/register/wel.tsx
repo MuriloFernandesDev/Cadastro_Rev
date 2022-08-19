@@ -32,9 +32,9 @@ export default function wel() {
           <li>4. Tem seus documentos em mãos.</li>
         </ul>
 
-        <button onClick={Rota}>
+        <div onClick={Rota}>
           <Button />
-        </button>
+        </div>
       </div>
     </>
   )

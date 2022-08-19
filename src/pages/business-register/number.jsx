@@ -7,12 +7,12 @@ import { useLocalStorage } from '../../utils/useLocalStorage'
 import Progress from '../../components/Progress'
 
 export default function number() {
-  const [number] = useLocalStorage('number', '')
-  const [adress] = useLocalStorage('adress', '')
-  const [state] = useLocalStorage('state', '') ?? ''
-  const [city] = useLocalStorage('city', '')
-  const [district] = useLocalStorage('district', '')
-  const [complemento] = useLocalStorage('complemento', '')
+  const [number] = useLocalStorage('@BuyPhone_number', '')
+  const [adress] = useLocalStorage('@BuyPhone_adress', '')
+  const [state] = useLocalStorage('@BuyPhone_state', '') ?? ''
+  const [city] = useLocalStorage('@BuyPhone_city', '')
+  const [district] = useLocalStorage('@BuyPhone_district', '')
+  const [complemento] = useLocalStorage('@BuyPhone_complemento', '')
   const router = useRouter()
 
   const formik = useFormik({
@@ -35,9 +35,15 @@ export default function number() {
       complemento: yup.string().max(30, 'Complemento muito longo!'),
     }),
     onSubmit: (values) => {
-      localStorage.setItem('number', JSON.stringify(values.number))
-      localStorage.setItem('district', JSON.stringify(values.district))
-      localStorage.setItem('complemento', JSON.stringify(values.complemento))
+      localStorage.setItem('@BuyPhone_number', JSON.stringify(values.number))
+      localStorage.setItem(
+        '@BuyPhone_district',
+        JSON.stringify(values.district)
+      )
+      localStorage.setItem(
+        '@BuyPhone_complemento',
+        JSON.stringify(values.complemento)
+      )
       router.push('/business-register/confirm')
     },
   })

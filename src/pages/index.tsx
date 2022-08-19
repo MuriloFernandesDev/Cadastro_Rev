@@ -258,7 +258,6 @@ export default function index() {
                     <li>
                       <button className="btn btn-error py-1 rounded-xl transition-all duration-300 text-white">
                         <Link href={'/register/home'} passHref>
-                          {' '}
                           <a>Cadastrar</a>
                         </Link>
                       </button>

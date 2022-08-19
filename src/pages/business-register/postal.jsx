@@ -9,7 +9,7 @@ import ApiCep from '../../services/getCep'
 import Progress from '../../components/Progress'
 
 export default function postal() {
-  const [postal] = useLocalStorage('postal', '')
+  const [postal] = useLocalStorage('@BuyPhone_postal', '')
 
   const router = useRouter()
 
@@ -21,7 +21,7 @@ export default function postal() {
       postal: yup.string().required('Campo CEP obrigatório!'),
     }),
     onSubmit: (values) => {
-      localStorage.setItem('postal', JSON.stringify(values.postal))
+      localStorage.setItem('@BuyPhone_postal', JSON.stringify(values.postal))
       const result = values.postal.replace('-', '')
       // Chamando api e salvando localstorage
       if (postal == result) {

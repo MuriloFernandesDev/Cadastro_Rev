@@ -7,7 +7,7 @@ import { useLocalStorage } from '../../utils/useLocalStorage'
 import Progress from '../../components/Progress'
 
 export default function address() {
-  const [address] = useLocalStorage('address', '')
+  const [address] = useLocalStorage('@BuyPhone_address', '')
   const router = useRouter()
 
   const formik = useFormik({
@@ -22,7 +22,7 @@ export default function address() {
         .max(40, 'Nome muito longo!'),
     }),
     onSubmit: (values) => {
-      localStorage.setItem('adress', JSON.stringify(values.address))
+      localStorage.setItem('@BuyPhone_adress', JSON.stringify(values.address))
 
       router.push('/business-register/number')
     },

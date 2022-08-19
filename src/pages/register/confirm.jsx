@@ -7,7 +7,7 @@ import toast from 'react-hot-toast'
 import { useRouter } from 'next/router'
 
 export default function confirm(props) {
-  const [email] = useLocalStorage('email', '')
+  const [email] = useLocalStorage('@BuyPhone_email', '')
   const router = useRouter()
   const lineIndex = props.index
   const numerOfInputs = props?.numerOfInputs || 4
@@ -50,7 +50,10 @@ export default function confirm(props) {
       .replace(']', '')
 
     const data = {
-      email: localStorage.getItem('email').replace('"', '').replace('"', ''),
+      email: localStorage
+        .getItem('@BuyPhone_email')
+        .replace('"', '')
+        .replace('"', ''),
       code: arr,
     }
     axios

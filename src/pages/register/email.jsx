@@ -7,7 +7,7 @@ import { useLocalStorage } from '../../utils/useLocalStorage'
 import Progress from '../../components/Progress'
 
 export default function email() {
-  const [email] = useLocalStorage('email', '')
+  const [email] = useLocalStorage('@BuyPhone_email', '')
   const router = useRouter()
   const formik = useFormik({
     initialValues: {
@@ -20,7 +20,7 @@ export default function email() {
         .required('O campo é obrigatório.'),
     }),
     onSubmit: (values) => {
-      localStorage.setItem('email', JSON.stringify(values.email))
+      localStorage.setItem('@BuyPhone_email', JSON.stringify(values.email))
       router.push('/register/phone')
     },
   })

@@ -7,7 +7,7 @@ import { useLocalStorage } from '../../utils/useLocalStorage'
 import Progress from '../../components/Progress'
 
 export default function name() {
-  const [name] = useLocalStorage('name', '')
+  const [name] = useLocalStorage('@BuyPhone_name', '')
   const router = useRouter()
 
   const formik = useFormik({
@@ -22,7 +22,7 @@ export default function name() {
         .max(40, 'Nome muito longo!'),
     }),
     onSubmit: (values) => {
-      localStorage.setItem('name', JSON.stringify(values.nome))
+      localStorage.setItem('@BuyPhone_name', JSON.stringify(values.nome))
       router.push('/register/birth')
     },
   })

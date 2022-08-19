@@ -9,7 +9,7 @@ import Progress from '../../components/Progress'
 
 export default function phone() {
   const router = useRouter()
-  const [celular] = useLocalStorage('mobile_phone', '')
+  const [celular] = useLocalStorage('@BuyPhone_mobile_phone', '')
   const formik = useFormik({
     initialValues: {
       celular: celular,
@@ -18,8 +18,11 @@ export default function phone() {
       celular: yup.string('aa').required('O campo é obrigatório.'),
     }),
     onSubmit: (values) => {
-      localStorage.setItem('type', 1)
-      localStorage.setItem('mobile_phone', JSON.stringify(values.celular))
+      localStorage.setItem('@BuyPhone_type', 1)
+      localStorage.setItem(
+        '@BuyPhone_mobile_phone',
+        JSON.stringify(values.celular)
+      )
       router.push('/register/password')
     },
   })

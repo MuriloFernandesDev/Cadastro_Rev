@@ -10,7 +10,7 @@ import Progress from '../../components/Progress'
 
 export default function password() {
   const router = useRouter()
-  const [password] = useLocalStorage('password', '')
+  const [password] = useLocalStorage('@BuyPhone_password', '')
 
   const formik = useFormik({
     initialValues: {
@@ -36,7 +36,7 @@ export default function password() {
       localStorage.setItem('password', JSON.stringify(values.password))
 
       const data_americana = localStorage
-        .getItem('birthdate')
+        .getItem('@BuyPhone_birthdate')
         .split('/')
         .reverse()
         .join('-')
@@ -45,22 +45,31 @@ export default function password() {
 
       const data = {
         password: localStorage
-          .getItem('password')
+          .getItem('@BuyPhone_password')
           .replace('"', '')
           .replace('"', ''),
-        name: localStorage.getItem('name').replace('"', '').replace('"', ''),
+        name: localStorage
+          .getItem('@BuyPhone_name')
+          .replace('"', '')
+          .replace('"', ''),
         document: localStorage
-          .getItem('document')
+          .getItem('@BuyPhone_document')
           .replace('"', '')
           .replace('"', ''),
         mobile_phone: localStorage
-          .getItem('mobile_phone')
+          .getItem('@BuyPhone_mobile_phone')
           .replace('"', '')
           .replace('"', '')
           .replace(' ', ''),
         birthdate: data_americana,
-        email: localStorage.getItem('email').replace('"', '').replace('"', ''),
-        type: localStorage.getItem('type').replace('"', '').replace('"', ''),
+        email: localStorage
+          .getItem('@BuyPhone_email')
+          .replace('"', '')
+          .replace('"', ''),
+        type: localStorage
+          .getItem('@BuyPhone_type')
+          .replace('"', '')
+          .replace('"', ''),
       }
 
       axios

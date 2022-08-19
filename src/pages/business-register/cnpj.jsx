@@ -10,7 +10,7 @@ import toast from 'react-hot-toast'
 import Button from '../../components/Button'
 
 export default function cnpj() {
-  const [cnpj] = useLocalStorage('cnpj', '')
+  const [cnpj] = useLocalStorage('@BuyPhone_cnpj', '')
   const router = useRouter()
   const formik = useFormik({
     initialValues: {
@@ -20,7 +20,7 @@ export default function cnpj() {
       cnpj: yup.string().required('O campo é obrigatório.'),
     }),
     onSubmit: async (values) => {
-      localStorage.setItem('cnpj', JSON.stringify(values.cnpj))
+      localStorage.setItem('@BuyPhone_cnpj', JSON.stringify(values.cnpj))
       const result = values.cnpj
         .replace('-', '')
         .replace('.', '')

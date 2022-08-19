@@ -6,11 +6,11 @@ import EditImg from '../../../public/Create.svg'
 import Progress from '../../components/Progress'
 
 export default function confirm() {
-  const [district] = useLocalStorage('district', '')
-  const [city] = useLocalStorage('city', '')
-  const [state] = useLocalStorage('state', '')
-  const [address] = useLocalStorage('address', '')
-  const [number] = useLocalStorage('number', '')
+  const [district] = useLocalStorage('@BuyPhone_district', '')
+  const [city] = useLocalStorage('@BuyPhone_city', '')
+  const [state] = useLocalStorage('@BuyPhone_state', '')
+  const [address] = useLocalStorage('@BuyPhone_address', '')
+  const [number] = useLocalStorage('@BuyPhone_number', '')
   const router = useRouter()
 
   function submit() {
@@ -18,7 +18,7 @@ export default function confirm() {
   }
 
   function BackCep() {
-    localStorage.removeItem('number')
+    localStorage.removeItem('@BuyPhone_number')
     router.push('/business-register/postal')
   }
 

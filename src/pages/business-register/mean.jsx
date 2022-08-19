@@ -54,7 +54,7 @@ export default function mean() {
       var value = document.querySelector(
         'input[name="radiogroup"]:checked'
       ).value
-      localStorage.setItem('mean', JSON.stringify(value))
+      localStorage.setItem('@BuyPhone_mean', JSON.stringify(value))
       router.push('/business-register/category')
     }
   }

@@ -8,7 +8,7 @@ import Progress from '../../components/Progress'
 import Button from '../../components/Button'
 
 export default function birth() {
-  const [birth] = useLocalStorage('birthdate', '')
+  const [birth] = useLocalStorage('@BuyPhone_birthdate', '')
   const router = useRouter()
   const formik = useFormik({
     initialValues: {
@@ -18,7 +18,7 @@ export default function birth() {
       birth: yup.string().required('O campo é obrigatório.'),
     }),
     onSubmit: (values) => {
-      localStorage.setItem('birthdate', JSON.stringify(values.birth))
+      localStorage.setItem('@BuyPhone_birthdate', JSON.stringify(values.birth))
       router.push('/register/cpf')
     },
   })
