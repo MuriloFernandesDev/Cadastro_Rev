@@ -24,9 +24,23 @@ import MagazineImg from '../../public/Magalu.svg'
 import AmericanasImg from '../../public/Americanas.svg'
 import PontoFrioImg from '../../public/PontoFrio.svg'
 import ExtraImg from '../../public/Extra.svg'
+import Link from 'next/link'
+import Button from '@mui/material/Button'
+import Menu from '@mui/material/Menu'
+import MenuItem from '@mui/material/MenuItem'
+import Fade from '@mui/material/Fade'
 
 export default function index() {
-  const [isNavOpen, setIsNavOpen] = useState(false) // initiate isNavOpen state with false // RESPONSIVO
+  const [isOn, setIsOn] = useState(false)
+
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
+  const open = Boolean(anchorEl)
+  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget)
+  }
+  const handleClose = () => {
+    setAnchorEl(null)
+  }
 
   const [navbar, setNavbar] = useState(false)
   const boxRef = useRef<HTMLDivElement | null>(null)
@@ -61,170 +75,212 @@ export default function index() {
         <title>Revendedores | BuyPhone</title>
         <meta name="description" content="Buy Phone para revendedores!" />
       </Head>
-      <nav className={navbar ? styles.navbar_active : styles.navbar}>
-        <div className="mx-auto w-4/5 max-w-7xl flex items-center justify-between">
-          <div className="w-28 h-auto">
-            {navbar ? (
-              <a href="#Main">
-                <Image
-                  src={LogoActiveImg}
-                  layout="intrinsic"
-                  alt="logo"
-                  className="object-contain"
-                />
-              </a>
-            ) : (
-              <a href="#Main">
-                <Image
-                  src={LogoImg}
-                  layout="intrinsic"
-                  alt="logo"
-                  className="object-contain"
-                />
-              </a>
-            )}
-          </div>
 
-          <section className="MOBILE-MENU flex lg:hidden shadow-lg">
-            <div
-              className="HAMBURGER-ICON space-y-2"
-              onClick={() => setIsNavOpen((prev) => !prev)} // toggle isNavOpen state on click
-            >
-              <span className="block delay-100 h-0.5 w-8 animate-pulse bg-gray-600"></span>
-              <span className="block delay-100 h-0.5 w-8 animate-pulse bg-gray-600"></span>
-              <span className="block delay-100 h-0.5 w-8 animate-pulse bg-gray-600"></span>
-            </div>
-            <div
-              className={isNavOpen ? styles.showMenuNav : styles.hideMenuNav}
-            >
-              {' '}
-              {/* // toggle class based on isNavOpen state // toggle
-                            class based on isNavOpen state */}
-              <div
-                className="CROSS-ICON absolute top-0 right-0 px-8 py-8"
-                onClick={() => setIsNavOpen(false)} // change isNavOpen state to false to close the menu
-              >
-                <svg
-                  className="h-8 w-8 text-gray-600"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <line x1="18" y1="6" x2="6" y2="18" />
-                  <line x1="6" y1="6" x2="18" y2="18" />
-                </svg>
-              </div>
-              <ul className="MENU-LINK-MOBILE-OPEN flex flex-col items-center justify-between  min-h-[250px]">
-                <li className="mr-6">
-                  <a
-                    className="text-white font-medium text-lg hover:text-blue-500 md:text-purple-store"
-                    href="#understand"
-                  >
-                    Entenda melhor
-                  </a>
-                </li>
-                <li className="mr-6">
-                  <a
-                    className="text-white font-medium text-lg hover:text-blue-500 md:text-purple-store"
-                    href="#Experience"
-                  >
-                    Como funciona
-                  </a>
-                </li>
-                <li className="mr-6">
-                  <a
-                    className="text-white font-medium text-lg hover:text-blue-500 md:text-purple-store"
-                    href="#depoiments"
-                  >
-                    Depoimentos
-                  </a>
-                </li>
-                <li className="mr-6">
-                  <a
-                    className="text-white font-medium text-lg hover:text-blue-500 md:text-purple-store"
-                    href="#doubts"
-                  >
-                    Dúvidas
-                  </a>
-                </li>
-                <li className="mr-6">
-                  <a
-                    className="text-white font-medium text-lg hover:text-blue-500 md:text-purple-store"
-                    href="#WeAre"
-                  >
-                    Quem somos
-                  </a>
-                </li>
-                <li className="mr-6">
-                  <button className="btn btn-error">
-                    <a
-                      className="w-full h-full flex justify-center items-center"
-                      href="/register/home"
+      <div className="fixed z-20 w-full">
+        <div className="glass">
+          <nav
+            className={
+              'relative mt-0 w-full transition-all duration-300 ' +
+              (navbar ? 'bg-[#212b36dc]' : 'bg-white')
+            }
+          >
+            <div className="w-full">
+              <div className="w-full h-16 flex items-center md:h-24 relative p-4 z-10 mx-auto max-w-7xl">
+                <div className="block md:hidden">
+                  <div>
+                    <Button
+                      id="fade-button"
+                      aria-controls={open ? 'fade-menu' : undefined}
+                      aria-haspopup="true"
+                      aria-expanded={open ? 'true' : undefined}
+                      onClick={handleClick}
                     >
-                      Cadastrar
-                    </a>
-                  </button>
-                </li>
-              </ul>
+                      <svg
+                        className={
+                          'swap-off fill-current z-20 ' +
+                          (navbar ? 'text-white' : 'text-Loja')
+                        }
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="32"
+                        height="32"
+                        viewBox="0 0 512 512"
+                      >
+                        <path d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z" />
+                      </svg>
+                    </Button>
+                    <Menu
+                      id="fade-menu"
+                      className="bg-[#00000084]"
+                      MenuListProps={{
+                        'aria-labelledby': 'fade-button',
+                      }}
+                      anchorEl={anchorEl}
+                      open={open}
+                      onClose={handleClose}
+                      TransitionComponent={Fade}
+                    >
+                      <MenuItem
+                        onClick={handleClose}
+                        className="flex flex-col gap-3"
+                      >
+                        <Link href={'#understand'} passHref>
+                          <a className="font-medium text-lg hover:text-blue-500">
+                            Entenda melhor
+                          </a>
+                        </Link>
+                      </MenuItem>
+                      <MenuItem
+                        onClick={handleClose}
+                        className="flex flex-col gap-3"
+                      >
+                        <Link href={'#Experience'} passHref>
+                          <a className="font-medium text-lg hover:text-blue-500">
+                            Como funciona
+                          </a>
+                        </Link>
+                      </MenuItem>
+                      <MenuItem
+                        onClick={handleClose}
+                        className="flex flex-col gap-3"
+                      >
+                        <Link href={'#depoiments'} passHref>
+                          <a className="font-medium text-lg hover:text-blue-500">
+                            Depoimentos
+                          </a>
+                        </Link>
+                      </MenuItem>
+                      <MenuItem
+                        onClick={handleClose}
+                        className="flex flex-col gap-3"
+                      >
+                        <Link href={'#doubts'} passHref>
+                          <a className="font-medium text-lg hover:text-blue-500">
+                            Dúvidas
+                          </a>
+                        </Link>
+                      </MenuItem>
+                      <MenuItem
+                        onClick={handleClose}
+                        className="flex flex-col gap-3"
+                      >
+                        <Link href={'#WeAre'} passHref>
+                          <a className="font-medium text-lg hover:text-blue-500">
+                            Quem somos
+                          </a>
+                        </Link>
+                      </MenuItem>
+                      <MenuItem
+                        onClick={handleClose}
+                        className="flex flex-col gap-3"
+                      >
+                        <button className="btn btn-error py-1 rounded-xl transition-all duration-300 text-white">
+                          <Link href={'/register/home'} passHref>
+                            <a>Cadastrar</a>
+                          </Link>
+                        </button>
+                      </MenuItem>
+                    </Menu>
+                  </div>
+                </div>
+                <div className="flex justify-end w-full items-center md:justify-between">
+                  <div
+                    className={
+                      'w-28 h-auto transition-all duration-300 text-center mt-2 ' +
+                      (isOn == true ? 'hidden' : 'block')
+                    }
+                  >
+                    {navbar ? (
+                      <Link href={'#Main'} passHref>
+                        <a>
+                          <Image
+                            src={LogoActiveImg}
+                            layout="intrinsic"
+                            alt="logo"
+                            className="object-contain"
+                          />
+                        </a>
+                      </Link>
+                    ) : (
+                      <Link href={'#Main'} passHref>
+                        <a>
+                          <Image
+                            src={LogoImg}
+                            layout="intrinsic"
+                            alt="logo"
+                            className="object-contain"
+                          />
+                        </a>
+                      </Link>
+                    )}
+                  </div>
+
+                  <ul
+                    className={
+                      'w-full hidden items-center justify-end gap-5 md:flex transition-all duration-300 ' +
+                      (navbar ? 'text-white' : 'text-Loja')
+                    }
+                  >
+                    <li>
+                      <Link href={'#understand'} passHref>
+                        <a className="font-medium text-lg hover:text-blue-500">
+                          Entenda melhor
+                        </a>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href={'#Experience'} passHref>
+                        <a className="font-medium text-lg hover:text-blue-500">
+                          Como funciona
+                        </a>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href={'#depoiments'} passHref>
+                        <a className="font-medium text-lg hover:text-blue-500">
+                          Depoimentos
+                        </a>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href={'#doubts'} passHref>
+                        <a className="font-medium text-lg hover:text-blue-500">
+                          Dúvidas
+                        </a>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href={'#WeAre'} passHref>
+                        <a className="font-medium text-lg hover:text-blue-500">
+                          Quem somos
+                        </a>
+                      </Link>
+                    </li>
+                    <li>
+                      <button className="btn btn-error py-1 rounded-xl transition-all duration-300 text-white">
+                        <Link href={'/register/home'} passHref>
+                          {' '}
+                          <a>Cadastrar</a>
+                        </Link>
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="w-full mb-2 ">
+                <div className="w-full border-t border-base-200 border-opacity-10 text-primary-content max-w-7xl mx-auto"></div>
+                <div className="overflow-hidden">
+                  <div className={styles.divisorbuyphone}></div>
+                </div>
+              </div>
             </div>
-          </section>
-          <ul className="DESKTOP-MENU hidden space-x-8 lg:flex items-center">
-            <li>
-              <a
-                className="text-white font-medium text-lg hover:text-blue-500 md:text-purple-store"
-                href="#understand"
-              >
-                Entenda melhor
-              </a>
-            </li>
-            <li className="mr-6">
-              <a
-                className="text-purple-store font-medium text-lg hover:text-blue-500"
-                href="#Experience"
-              >
-                Como funciona
-              </a>
-            </li>
-            <li className="mr-6">
-              <a
-                className="text-purple-store font-medium text-lg hover:text-blue-500"
-                href="#depoiments"
-              >
-                Depoimentos
-              </a>
-            </li>
-            <li className="mr-6">
-              <a
-                className="text-purple-store font-medium text-lg hover:text-blue-500"
-                href="#doubts"
-              >
-                Dúvidas
-              </a>
-            </li>
-            <li className="mr-6">
-              <a
-                className="text-purple-store font-medium text-lg hover:text-blue-500"
-                href="#WeAre"
-              >
-                Quem somos
-              </a>
-            </li>
-            <li className="mr-6">
-              <button className="btn btn-error text-white py-1 rounded-xl">
-                <a href="/register/home">Cadastrar</a>
-              </button>
-            </li>
-          </ul>
+          </nav>
         </div>
-      </nav>
+      </div>
 
       <main>
         <div
           id="Main"
-          className="w-full text-purple-store pt-40 pb-20 mx-auto max-w-7xl"
+          className="w-full text-purple-store py-20 mx-auto max-w-7xl"
         >
           <div className="w-5/6 flex flex-col mx-auto items-center md:flex-row">
             <div className="w-full flex flex-col items-center gap-4 text-center md:w-1/2 md:block md:text-start md:gap-0">
@@ -514,13 +570,12 @@ export default function index() {
                   </div>
 
                   <button className="btn btn-error text-white py-1 w-1/2 mt-10 mx-auto rounded-xl md:mx-0 ">
-                    <a
-                      className="w-full h-full flex justify-center items-center"
-                      href="/register/home"
-                    >
-                      {' '}
-                      quero me cadastrar
-                    </a>
+                    <Link href={'/register/home'} passHref>
+                      <a className="w-full h-full flex justify-center items-center">
+                        {' '}
+                        quero me cadastrar
+                      </a>
+                    </Link>
                   </button>
                   <div className="relative xl:ml-[29rem] lg:ml-[68%] hidden md:block md:ml-[62%]">
                     <div className="w-32 flex h-auto absolute justify-end md:block">
@@ -550,19 +605,20 @@ export default function index() {
                     <div className="flex">
                       <div className={styles.effect_border}>
                         <div className="w-[130px] h-auto">
-                          <a
-                            className="w-full h-full"
-                            target="_blank"
-                            href="https://www.instagram.com/lyvianagib/"
+                          <Link
+                            href={'https://www.instagram.com/lyvianagib/'}
+                            passHref
                           >
-                            <Image
-                              className="rounded-full"
-                              placeholder="blur"
-                              src={CLyviaImg}
-                              layout="fill"
-                              alt="Lyvia perfil"
-                            />
-                          </a>
+                            <a className="w-full h-full" target="_blank">
+                              <Image
+                                className="rounded-full"
+                                placeholder="blur"
+                                src={CLyviaImg}
+                                layout="fill"
+                                alt="Lyvia perfil"
+                              />
+                            </a>
+                          </Link>
                         </div>
                       </div>
                       <div className="flex flex-col ml-3 justify-center md:justify-start">

@@ -3,14 +3,18 @@ import Progress from '../../components/Progress'
 import { useRouter } from 'next/router'
 import Button from '../../components/Button'
 import Checkbox from '../../components/checkbox'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
-export default function category({ data }) {
+export default function category({ Data }) {
   const router = useRouter()
 
   function submit() {
     router.push('/business-register/sendfile')
   }
+
+  useEffect(() => {
+    console.log(Data)
+  })
 
   return (
     <>
@@ -26,8 +30,8 @@ export default function category({ data }) {
           </h2>
         </div>
         <div className="flex flex-wrap gap-3">
-          {data.data.length > 0 ? (
-            data.data.map((p) => (
+          {Data.length > 0 ? (
+            Data.map((p) => (
               <Checkbox key={p.id} value={p.name} value2={p.id}>
                 {' '}
               </Checkbox>
@@ -48,11 +52,14 @@ export const getStaticProps = async () => {
   const Auth = 'ef7223f0-55b4-49a7-9eed-f4b4ef14b2f1'
   const URL = 'https://pedidos.buyphone.com.br/api/categories'
 
+  // configurar variavel de ambiente
+
   const res = await fetch(URL, { headers: { token: Auth } })
   const data = await res.json()
+  const Data = data.data
   return {
     props: {
-      data,
+      Data,
     },
     revalidate: 60 * 60 * 24 * 30,
   }
