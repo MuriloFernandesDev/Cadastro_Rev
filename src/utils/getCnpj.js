@@ -10,11 +10,11 @@ export default async function ApiCnpj(cnpj) {
     return
   }
 
-  // const { logradouro, localidade, uf, bairro } = res.data
+  const { logradouro, localidade, uf, bairro } = res.data
 
-  // localStorage.setItem('adress', JSON.stringify(logradouro))
-  // localStorage.setItem('city', JSON.stringify(localidade))
-  // localStorage.setItem('state', JSON.stringify(uf))
-  // localStorage.setItem('district', JSON.stringify(bairro))
+  localStorage.setItem('adress', JSON.stringify(logradouro))
+  localStorage.setItem('city', JSON.stringify(localidade))
+  localStorage.setItem('state', JSON.stringify(uf))
+  localStorage.setItem('district', JSON.stringify(bairro))
   return
 }

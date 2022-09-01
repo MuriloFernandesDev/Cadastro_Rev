@@ -20,11 +20,10 @@ export default function cnpj() {
       cnpj: yup.string().required('O campo é obrigatório.'),
     }),
     onSubmit: async (values) => {
-      localStorage.setItem('@BuyPhone_cnpj', JSON.stringify(values.cnpj))
       const result = values.cnpj
+        .replace('.', '')
+        .replace('.', '')
         .replace('-', '')
-        .replace('.', '')
-        .replace('.', '')
         .replace('/', '')
 
       const res = await axios.get(
@@ -33,13 +32,13 @@ export default function cnpj() {
 
       if (res.data.STATUS == 'ATIVA') {
         const { BAIRRO, CEP, LOGRADOURO, MUNICIPIO, NUMERO, UF } = res.data
-
-        localStorage.setItem('address', JSON.stringify(LOGRADOURO))
-        localStorage.setItem('city', JSON.stringify(MUNICIPIO))
-        localStorage.setItem('state', JSON.stringify(UF))
-        localStorage.setItem('district', JSON.stringify(BAIRRO))
-        localStorage.setItem('number', JSON.stringify(NUMERO))
-        localStorage.setItem('postal', JSON.stringify(CEP))
+        localStorage.setItem('@BuyPhone_cnpj', JSON.stringify(values.cnpj))
+        localStorage.setItem('@BuyPhone_address', JSON.stringify(LOGRADOURO))
+        localStorage.setItem('@BuyPhone_city', JSON.stringify(MUNICIPIO))
+        localStorage.setItem('@BuyPhone_state', JSON.stringify(UF))
+        localStorage.setItem('@BuyPhone_district', JSON.stringify(BAIRRO))
+        localStorage.setItem('@BuyPhone_number', JSON.stringify(NUMERO))
+        localStorage.setItem('@BuyPhone_postal', JSON.stringify(CEP))
         router.push('/business-register/companyname')
       }
       if (res.data.STATUS == 'BAIXADA') {
