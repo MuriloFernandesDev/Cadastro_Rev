@@ -443,12 +443,13 @@ export default function index() {
                       </h2>
                     </div>
                   </div>
+
                   <button className="btn btn-error text-white py-1 w-1/2 mt-10 mx-auto rounded-xl md:mx-0 ">
                     <a
                       className="w-full h-full flex justify-center items-center"
                       href="/home"
                     >
-                      {' '}
+
                       quero me cadastrar
                     </a>
                   </button>
@@ -480,13 +481,19 @@ export default function index() {
                     <div className="flex">
                       <div className={styles.effect_border}>
                         <div className="w-[130px] h-auto">
-                          <Image
-                            className="rounded-full"
-                            placeholder="blur"
-                            src={CLyviaImg}
-                            layout="fill"
-                            alt="Lyvia perfil"
-                          />
+                          <a
+                            className="w-full h-full"
+                            target="_blank"
+                            href="https://www.instagram.com/lyvianagib/"
+                          >
+                            <Image
+                              className="rounded-full"
+                              placeholder="blur"
+                              src={CLyviaImg}
+                              layout="fill"
+                              alt="Lyvia perfil"
+                            />
+                          </a>
                         </div>
                       </div>
                       <div className="flex flex-col ml-3 justify-center md:justify-start">
@@ -542,13 +549,19 @@ export default function index() {
                     <div className="flex">
                       <div className={styles.effect_border}>
                         <div className="w-[130px] h-auto">
-                          <Image
-                            className="rounded-full"
-                            placeholder="blur"
-                            src={CGabrielImg}
-                            layout="fill"
-                            alt="Gabriel perfil"
-                          />
+                          <a
+                            className="w-full h-full"
+                            target="_blank"
+                            href="https://www.instagram.com/gabrielpessoamartins/"
+                          >
+                            <Image
+                              className="rounded-full"
+                              placeholder="blur"
+                              src={CGabrielImg}
+                              layout="fill"
+                              alt="Gabriel perfil"
+                            />
+                          </a>
                         </div>
                       </div>
                       <div className="flex flex-col ml-3 justify-center md:justify-start">
@@ -601,13 +614,19 @@ export default function index() {
                     <div className="flex">
                       <div className={styles.effect_border}>
                         <div className="w-[130px] h-auto">
-                          <Image
-                            className="rounded-full"
-                            placeholder="blur"
-                            src={CLuizImg}
-                            layout="fill"
-                            alt="Gabriel perfil"
-                          />
+                          <a
+                            className="w-full h-full"
+                            target="_blank"
+                            href="https://www.instagram.com/luizpuertas/"
+                          >
+                            <Image
+                              className="rounded-full"
+                              placeholder="blur"
+                              src={CLuizImg}
+                              layout="fill"
+                              alt="Gabriel perfil"
+                            />
+                          </a>
                         </div>
                       </div>
                       <div className="flex flex-col ml-3 justify-center md:justify-start">
@@ -662,13 +681,19 @@ export default function index() {
                     <div className="flex">
                       <div className={styles.effect_border}>
                         <div className="w-[130px] h-auto">
-                          <Image
-                            className="rounded-full"
-                            placeholder="blur"
-                            src={CIgorImg}
-                            layout="fill"
-                            alt="Gabriel perfil"
-                          />
+                          <a
+                            className="w-full h-full"
+                            target="_blank"
+                            href="https://www.instagram.com/igorfortin/"
+                          >
+                            <Image
+                              className="rounded-full"
+                              placeholder="blur"
+                              src={CIgorImg}
+                              layout="fill"
+                              alt="Gabriel perfil"
+                            />
+                          </a>
                         </div>
                       </div>
                       <div className="flex flex-col ml-3 justify-center md:justify-start">
@@ -721,13 +746,19 @@ export default function index() {
                     <div className="flex">
                       <div className={styles.effect_border}>
                         <div className="w-[130px] h-auto">
-                          <Image
-                            className="rounded-full"
-                            placeholder="blur"
-                            src={CAmandaImg}
-                            layout="fill"
-                            alt="Gabriel perfil"
-                          />
+                          <a
+                            className="w-full h-full ronded-full"
+                            target="_blank"
+                            href="https://www.instagram.com/_amandalprado/"
+                          >
+                            <Image
+                              className="rounded-full"
+                              placeholder="blur"
+                              src={CAmandaImg}
+                              layout="fill"
+                              alt="Gabriel perfil"
+                            />
+                          </a>
                         </div>
                       </div>
                       <div className="flex flex-col ml-3 justify-center md:justify-start">
@@ -940,12 +971,15 @@ export default function index() {
                 </div>
               </div>
               {/* FIM DUVIDAS FREQUENTES */}
-              <a
-                className="h-10 w-2/3 mt-8 bg-button flex items-center justify-center text-sm rounded-lg text-white uppercase font-medium hover:scale-110 ease-in-out duration-300 md:w-1/3"
-                href="https://api.whatsapp.com/send?phone=5518997188537&text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20pre%C3%A7os%20e%20condi%C3%A7%C3%B5es%20de%20pagamento%20da%20BuyPhone"
-              >
-                falar com um consultor
-              </a>
+              <button className="btn btn-error text-white py-1 w-2/4 mt-10 mx-auto rounded-xl md:mx-0 ">
+                <a
+                  className="w-full h-full flex justify-center items-center"
+                  href="https://api.whatsapp.com/send?phone=5518997188537&text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20pre%C3%A7os%20e%20condi%C3%A7%C3%B5es%20de%20pagamento%20da%20BuyPhone"
+                >
+                  {' '}
+                  quero me cadastrar
+                </a>
+              </button>
             </div>
           </div>
         </div>
