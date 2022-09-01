@@ -24,6 +24,7 @@
     "next": "latest",
     "react": "18.1.0",
     "react-dom": "18.1.0",
+    "react-dropzone": "^14.2.2",
     "react-hook-form": "^7.33.0",
     "react-hot-toast": "^2.2.0",
     "react-input-auto-tab": "^0.0.5",
