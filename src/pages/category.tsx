@@ -25,10 +25,10 @@ export default function category() {
             funcionalidades que sejam mais compatíveis com seu negócio.
           </h2>
         </div>
-
-        <Checkbox value="11 (128Gb - Branco)" value2="check1" />
-        <Checkbox value="13 Pro Max (256Gb - Prateado)" value2="check2" />
-
+        <div className="grid grid-cols-2">
+          <Checkbox value="11 (128Gb - Branco)" value2="check1" />
+          <Checkbox value="13 Pro Max 11 (128Gb - Branco)" value2="check2" />
+        </div>
         <div onClick={submit}>
           <Button />
         </div>
