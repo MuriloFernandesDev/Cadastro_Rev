@@ -45,12 +45,12 @@ export default function index() {
 
   const changeBackground = () => {
     // CODIGO ABAIXO PEGA A REF DO DARK1
-    const posY = boxRef?.current.offsetTop
-    const posX = boxRef?.current.getBoundingClientRect().height
+    const posY = boxRef?.current?.offsetTop
+    const posX = boxRef?.current?.getBoundingClientRect().height
 
     // CODIGO ABAIXO PEGA A REF DO DARK2
-    const posY2 = boxRef2?.current.offsetTop
-    const posX2 = boxRef2?.current.getBoundingClientRect().height
+    const posY2 = boxRef2?.current?.offsetTop
+    const posX2 = boxRef2?.current?.getBoundingClientRect().height
 
     if (
       (window.scrollY >= posY && window.scrollY <= posY + posX) ||
