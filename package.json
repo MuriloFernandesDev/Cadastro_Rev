@@ -12,6 +12,7 @@
     "@material/textfield": "^14.0.0",
     "@mui/icons-material": "^5.8.4",
     "@mui/material": "^5.8.5",
+    "@mui/styles": "^5.10.3",
     "@react-br-forms/cpf-cnpj-mask": "^1.0.6",
     "@types/react-input-mask": "^3.0.1",
     "@types/react-text-mask": "^5.4.11",
