@@ -18,15 +18,15 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx",
-    "src/pages/RegEmail.tsx",
-    "src/pages/RegCpf.tsx",
+    "**/*.jsx",
+    "src/pages/RegEmail.jsx",
+    "src/pages/RegCpf.jsx",
     "src/pages/Register/RegCelular.jsx",
     "src/utils/useLocalStorage.jsx",
     "src/utils/useLocalStorage.jsx",
     "src/components/Corpo/index.jsx",
     "src/pages/register/name.jsx",
-    "src/pages/password.tsx",
+    "src/pages/password.jsx",
     "src/pages/componente.jsx",
     "src/pages/confirmation.jsx",
     "src/pages/confirm.jsx",
@@ -39,7 +39,8 @@
     "src/pages/business-register/mean.jsx",
     "src/components/checkbox/index.jsx",
     "src/components/checkbox/index.jsx",
-    "src/pages/business-register/category.jsx"
-, "src/pages/404.js"  ],
+    "src/pages/business-register/category.jsx",
+    "src/pages/404.js"
+  ],
   "exclude": ["node_modules"]
 }

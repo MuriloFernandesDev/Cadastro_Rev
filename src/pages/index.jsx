@@ -33,9 +33,9 @@ import Fade from '@mui/material/Fade'
 export default function index() {
   const [isOn, setIsOn] = useState(false)
 
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
+  const [anchorEl, setAnchorEl] = React.useState(null)
   const open = Boolean(anchorEl)
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+  const handleClick = (event) => {
     setAnchorEl(event.currentTarget)
   }
   const handleClose = () => {
@@ -43,17 +43,17 @@ export default function index() {
   }
 
   const [navbar, setNavbar] = useState(false)
-  const boxRef = useRef<HTMLDivElement | null>(null)
-  const boxRef2 = useRef<HTMLDivElement | null>(null)
+  const boxRef = useRef()
+  const boxRef2 = useRef()
 
   const changeBackground = () => {
     // CODIGO ABAIXO PEGA A REF DO DARK1
-    const posY = boxRef.current!.offsetTop
-    const posX = boxRef.current!.getBoundingClientRect().height
+    const posY = boxRef.current.offsetTop
+    const posX = boxRef.current.getBoundingClientRect().height
 
     // CODIGO ABAIXO PEGA A REF DO DARK2
-    const posY2 = boxRef2.current!.offsetTop
-    const posX2 = boxRef2.current!.getBoundingClientRect().height
+    const posY2 = boxRef2.current.offsetTop
+    const posX2 = boxRef2.current.getBoundingClientRect().height
 
     if (
       (window.scrollY >= posY && window.scrollY <= posY + posX) ||
@@ -174,7 +174,7 @@ export default function index() {
                         className="flex flex-col gap-3"
                       >
                         <button className="btn btn-error py-1 rounded-xl transition-all duration-300 text-white">
-                          <Link href={'/register/home'} passHref>
+                          <Link href={'/register/home'}>
                             <a>Cadastrar</a>
                           </Link>
                         </button>
