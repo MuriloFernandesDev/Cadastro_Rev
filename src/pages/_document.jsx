@@ -1,11 +1,36 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
+import { ServerStyleSheets } from '@mui/styles'
 
-export default class MyDocument extends Document {
+class MyDocument extends Document {
+  static async getInitialProps(ctx) {
+    const sheet = new ServerStyleSheets()
+    const originalRenderPage = ctx.renderPage
+
+    try {
+      ctx.renderPage = () =>
+        originalRenderPage({
+          enhanceApp: (App) => (props) => sheet.collect(<App {...props} />),
+        })
+
+      const initialProps = await Document.getInitialProps(ctx)
+      return {
+        ...initialProps,
+        styles: (
+          <>
+            {initialProps.styles}
+            {sheet.getStyleElement()}
+          </>
+        ),
+      }
+    } finally {
+      ctx.renderPage(sheet)
+    }
+  }
   render() {
     return (
       <Html lang="pt-BR">
         <Head>
-          <title>Cadastro | BuyPhone</title>
+          <title>Cadastro para revendedores | BuyPhone</title>
           <meta
             name="description"
             content="Nós conectamos com um match, quem deseja comprar produtos da marca Apple com quem deseja vender. O comprador economiza até 30% e o associado ganha dinheiro com seus pontos!"
@@ -22,7 +47,7 @@ export default class MyDocument extends Document {
           <meta charSet="utf-16" />
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         </Head>
-        <body>
+        <body className="custom_class">
           <Main />
           <NextScript />
         </body>
@@ -30,3 +55,5 @@ export default class MyDocument extends Document {
     )
   }
 }
+
+export default MyDocument

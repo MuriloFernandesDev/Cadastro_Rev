@@ -1,11 +1,7 @@
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import { useRouter } from 'next/router'
 
-interface ProgressProps {
-  value: string
-}
-
-export default function Progress({ value }: ProgressProps) {
+export default function Progress({ value }) {
   const router = useRouter()
 
   return (

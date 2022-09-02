@@ -2,7 +2,7 @@ import { Timer } from '@mui/icons-material'
 import React from 'react'
 import { useState, useEffect } from 'react'
 
-const Watch = (props: any) => {
+const Watch = (props) => {
   const { initialMinute = 5, initialSeconds = 0 } = props
   const [minutes, setMinutes] = useState(initialMinute)
   const [seconds, setSeconds] = useState(initialSeconds)

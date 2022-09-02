@@ -1,14 +1,8 @@
-import { useRouter } from 'next/router'
-import { ReactElement, cloneElement } from 'react'
 import styles from './styles.module.scss'
 import Image from 'next/image'
 import LogoSvg from '../../../public/LogoPurple.svg'
 
-interface Homeprops {
-  children: ReactElement
-}
-
-export default function Corpo({ children }: Homeprops) {
+export default function Corpo({ children }) {
   return (
     <>
       <div className="glass z-10 fixed left-0 w-full h-full"></div>

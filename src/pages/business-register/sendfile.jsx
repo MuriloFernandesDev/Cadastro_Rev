@@ -4,7 +4,7 @@ import DropZone from '../../utils/dropzone'
 
 export default function sendfile() {
   // função redutora para lidar com mudanças de estado
-  const reducer = (state: any, action: any) => {
+  const reducer = (state, action) => {
     switch (action.type) {
       case 'SET_IN_DROP_ZONE':
         return { ...state, inDropZone: action.inDropZone }

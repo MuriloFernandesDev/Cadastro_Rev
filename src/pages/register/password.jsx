@@ -1,7 +1,7 @@
 import * as yup from 'yup'
 import { useFormik } from 'formik'
 import Button from '../../components/Button'
-import TextField from '@material-ui/core/TextField'
+import TextField from '@mui/material/TextField'
 import { useRouter } from 'next/router'
 import axios from 'axios'
 import { useLocalStorage } from '../../utils/useLocalStorage'
@@ -33,7 +33,10 @@ export default function password() {
         }),
     }),
     onSubmit: (values) => {
-      localStorage.setItem('password', JSON.stringify(values.password))
+      localStorage.setItem(
+        '@BuyPhone_password',
+        JSON.stringify(values.password)
+      )
 
       const data_americana = localStorage
         .getItem('@BuyPhone_birthdate')
@@ -78,40 +81,43 @@ export default function password() {
           router.push('/register/confirm')
         })
         .catch((error) => {
-          var Error = error.response.data.message
-            .split('document')
-            .join('CPF')
-            .split('mobile phone')
-            .join('celular')
-            .split('birthdate')
-            .join('data de aniversário')
-          toast.custom((t) => (
-            <div
-              className={`${
-                t.visible ? 'animate-enter' : 'animate-leave'
-              } w-full lg:w-1/4 bg-[#FECACA] text-[#484752] h-auto items-center shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5`}
-            >
-              <div className="flex-1 w-0 p-4">
-                <div className="flex items-center">
-                  <div className="flex-shrink-0 pt-0.5">
-                    <img
-                      className="h-auto w-10"
-                      src="/error.webp"
-                      alt="Error img"
-                    />
-                  </div>
-                  <div className="ml-3 flex-1">
-                    <p className="text-xs font-medium text-gray-900">
-                      Verifique o alerta abaixo e corrija:
-                    </p>
-                    <p className="mt-1 text-[11px] text-gray-900 opacity-70">
-                      {Error}
-                    </p>
+          const resposta = error.response.data.errors
+          var MessageErrorArray = Object.keys(resposta).map(function (key) {
+            return [resposta[key]]
+          })
+
+          toast.custom(
+            (t) => (
+              <div
+                className={`${
+                  t.visible ? 'animate-enter' : 'animate-leave'
+                } w-full lg:w-1/4 bg-[#FECACA] text-[#484752] h-auto items-center shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5`}
+              >
+                <div className="flex-1 w-0 p-4">
+                  <div className="flex items-center">
+                    <div className="flex-shrink-0 pt-0.5">
+                      <img
+                        className="h-auto w-10"
+                        src="/error.webp"
+                        alt="Error img"
+                      />
+                    </div>
+                    <div className="ml-3 flex-1">
+                      <p className="text-xs font-medium text-gray-900">
+                        Verifique o alerta abaixo e corrija:
+                      </p>
+                      <p className="mt-1 text-[11px] text-gray-900 opacity-70">
+                        {MessageErrorArray}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))
+            ),
+            {
+              duration: 8000,
+            }
+          )
         })
     },
   })
