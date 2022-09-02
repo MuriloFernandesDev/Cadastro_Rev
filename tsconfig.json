@@ -40,6 +40,6 @@
     "src/components/checkbox/index.jsx",
     "src/components/checkbox/index.jsx",
     "src/pages/business-register/category.jsx"
-  ],
+, "src/pages/404.js"  ],
   "exclude": ["node_modules"]
 }
