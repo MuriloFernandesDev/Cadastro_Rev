@@ -1,6 +1,6 @@
 import * as yup from 'yup'
 import { useFormik } from 'formik'
-import TextField from '@material-ui/core/TextField'
+import TextField from '@mui/material/TextField'
 import { useRouter } from 'next/router'
 import { useLocalStorage } from '../../utils/useLocalStorage'
 import InputMask from 'react-input-mask'
