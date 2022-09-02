@@ -53,8 +53,8 @@ export default function index() {
     const posX2 = boxRef2?.current?.getBoundingClientRect().height
 
     if (
-      (window.scrollY >= posY && window.scrollY <= posY + posX) ||
-      (window.scrollY >= posY2 && window.scrollY <= posY2 + posX2)
+      (window.scrollY >= posY - 64 && window.scrollY <= posY - 64 + posX) ||
+      (window.scrollY >= posY2 - 64 && window.scrollY <= posY2 - 64 + posX2)
     ) {
       setNavbar(true)
     } else {
