@@ -25,10 +25,7 @@ import AmericanasImg from '../../public/Americanas.svg'
 import PontoFrioImg from '../../public/PontoFrio.svg'
 import ExtraImg from '../../public/Extra.svg'
 import Link from 'next/link'
-import Button from '@mui/material/Button'
-import Menu from '@mui/material/Menu'
-import MenuItem from '@mui/material/MenuItem'
-import Fade from '@mui/material/Fade'
+import ResponsiveDrawer from '../components/Drawer/ResponsiveDrawer'
 
 export default function index() {
   const [isOn, setIsOn] = useState(false)
@@ -48,12 +45,12 @@ export default function index() {
 
   const changeBackground = () => {
     // CODIGO ABAIXO PEGA A REF DO DARK1
-    const posY = boxRef.current.offsetTop
-    const posX = boxRef.current.getBoundingClientRect().height
+    const posY = boxRef?.current.offsetTop
+    const posX = boxRef?.current.getBoundingClientRect().height
 
     // CODIGO ABAIXO PEGA A REF DO DARK2
-    const posY2 = boxRef2.current.offsetTop
-    const posX2 = boxRef2.current.getBoundingClientRect().height
+    const posY2 = boxRef2?.current.offsetTop
+    const posX2 = boxRef2?.current.getBoundingClientRect().height
 
     if (
       (window.scrollY >= posY && window.scrollY <= posY + posX) ||
@@ -77,203 +74,107 @@ export default function index() {
       </Head>
 
       <div className="fixed z-20 w-full">
-        <div className="glass">
-          <nav
-            className={
-              'relative mt-0 w-full transition-all duration-300 ' +
-              (navbar ? 'bg-[#212b36dc]' : 'bg-white')
-            }
-          >
-            <div className="w-full">
-              <div className="w-full h-16 flex items-center md:h-24 relative p-4 z-10 mx-auto max-w-7xl">
+        <nav
+          className={
+            'relative mt-0 w-full transition-all duration-300 ' +
+            (navbar ? 'bg-[#212b36]' : 'bg-white')
+          }
+        >
+          <div className="w-full">
+            <div className="w-full h-16 flex items-center md:h-24 relative p-4 z-10 mx-auto max-w-7xl">
+              <div className="flex w-full items-center justify-between">
+                <div
+                  className={
+                    'w-28 h-auto transition-all duration-300 text-center mt-2 ' +
+                    (isOn == true ? 'hidden' : 'block')
+                  }
+                >
+                  {navbar ? (
+                    <Link href={'#Main'} passHref>
+                      <a>
+                        <Image
+                          src={LogoActiveImg}
+                          layout="intrinsic"
+                          alt="logo"
+                          className="object-contain"
+                        />
+                      </a>
+                    </Link>
+                  ) : (
+                    <Link href={'#Main'} passHref>
+                      <a>
+                        <Image
+                          src={LogoImg}
+                          layout="intrinsic"
+                          alt="logo"
+                          className="object-contain"
+                        />
+                      </a>
+                    </Link>
+                  )}
+                </div>
                 <div className="block md:hidden">
-                  <div>
-                    <Button
-                      id="fade-button"
-                      aria-controls={open ? 'fade-menu' : undefined}
-                      aria-haspopup="true"
-                      aria-expanded={open ? 'true' : undefined}
-                      onClick={handleClick}
-                    >
-                      <svg
-                        className={
-                          'swap-off fill-current z-20 ' +
-                          (navbar ? 'text-white' : 'text-Loja')
-                        }
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="32"
-                        height="32"
-                        viewBox="0 0 512 512"
-                      >
-                        <path d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z" />
-                      </svg>
-                    </Button>
-                    <Menu
-                      id="fade-menu"
-                      className="bg-[#00000084]"
-                      MenuListProps={{
-                        'aria-labelledby': 'fade-button',
-                      }}
-                      anchorEl={anchorEl}
-                      open={open}
-                      onClose={handleClose}
-                      TransitionComponent={Fade}
-                    >
-                      <MenuItem
-                        onClick={handleClose}
-                        className="flex flex-col gap-3"
-                      >
-                        <Link href={'#understand'} passHref>
-                          <a className="font-medium text-lg hover:text-blue-500">
-                            Entenda melhor
-                          </a>
-                        </Link>
-                      </MenuItem>
-                      <MenuItem
-                        onClick={handleClose}
-                        className="flex flex-col gap-3"
-                      >
-                        <Link href={'#Experience'} passHref>
-                          <a className="font-medium text-lg hover:text-blue-500">
-                            Como funciona
-                          </a>
-                        </Link>
-                      </MenuItem>
-                      <MenuItem
-                        onClick={handleClose}
-                        className="flex flex-col gap-3"
-                      >
-                        <Link href={'#depoiments'} passHref>
-                          <a className="font-medium text-lg hover:text-blue-500">
-                            Depoimentos
-                          </a>
-                        </Link>
-                      </MenuItem>
-                      <MenuItem
-                        onClick={handleClose}
-                        className="flex flex-col gap-3"
-                      >
-                        <Link href={'#doubts'} passHref>
-                          <a className="font-medium text-lg hover:text-blue-500">
-                            Dúvidas
-                          </a>
-                        </Link>
-                      </MenuItem>
-                      <MenuItem
-                        onClick={handleClose}
-                        className="flex flex-col gap-3"
-                      >
-                        <Link href={'#WeAre'} passHref>
-                          <a className="font-medium text-lg hover:text-blue-500">
-                            Quem somos
-                          </a>
-                        </Link>
-                      </MenuItem>
-                      <MenuItem
-                        onClick={handleClose}
-                        className="flex flex-col gap-3"
-                      >
-                        <button className="btn btn-error py-1 rounded-xl transition-all duration-300 text-white">
-                          <Link href={'/register/home'}>
-                            <a>Cadastrar</a>
-                          </Link>
-                        </button>
-                      </MenuItem>
-                    </Menu>
-                  </div>
+                  <ResponsiveDrawer navbar={navbar} />
                 </div>
-                <div className="flex justify-end w-full items-center md:justify-between">
-                  <div
-                    className={
-                      'w-28 h-auto transition-all duration-300 text-center mt-2 ' +
-                      (isOn == true ? 'hidden' : 'block')
-                    }
-                  >
-                    {navbar ? (
-                      <Link href={'#Main'} passHref>
-                        <a>
-                          <Image
-                            src={LogoActiveImg}
-                            layout="intrinsic"
-                            alt="logo"
-                            className="object-contain"
-                          />
-                        </a>
+                <ul
+                  className={
+                    'w-full hidden items-center justify-end gap-5 md:flex transition-all duration-300 ' +
+                    (navbar ? 'text-white' : 'text-Loja')
+                  }
+                >
+                  <li>
+                    <Link href={'#understand'} passHref>
+                      <a className="font-medium text-lg hover:text-blue-500">
+                        Entenda melhor
+                      </a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href={'#Experience'} passHref>
+                      <a className="font-medium text-lg hover:text-blue-500">
+                        Como funciona
+                      </a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href={'#depoiments'} passHref>
+                      <a className="font-medium text-lg hover:text-blue-500">
+                        Depoimentos
+                      </a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href={'#doubts'} passHref>
+                      <a className="font-medium text-lg hover:text-blue-500">
+                        Dúvidas
+                      </a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href={'#WeAre'} passHref>
+                      <a className="font-medium text-lg hover:text-blue-500">
+                        Quem somos
+                      </a>
+                    </Link>
+                  </li>
+                  <li>
+                    <button className="btn btn-error py-1 rounded-xl transition-all duration-300 text-white">
+                      <Link href={'/register/home'} passHref>
+                        <a>Cadastrar</a>
                       </Link>
-                    ) : (
-                      <Link href={'#Main'} passHref>
-                        <a>
-                          <Image
-                            src={LogoImg}
-                            layout="intrinsic"
-                            alt="logo"
-                            className="object-contain"
-                          />
-                        </a>
-                      </Link>
-                    )}
-                  </div>
-
-                  <ul
-                    className={
-                      'w-full hidden items-center justify-end gap-5 md:flex transition-all duration-300 ' +
-                      (navbar ? 'text-white' : 'text-Loja')
-                    }
-                  >
-                    <li>
-                      <Link href={'#understand'} passHref>
-                        <a className="font-medium text-lg hover:text-blue-500">
-                          Entenda melhor
-                        </a>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href={'#Experience'} passHref>
-                        <a className="font-medium text-lg hover:text-blue-500">
-                          Como funciona
-                        </a>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href={'#depoiments'} passHref>
-                        <a className="font-medium text-lg hover:text-blue-500">
-                          Depoimentos
-                        </a>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href={'#doubts'} passHref>
-                        <a className="font-medium text-lg hover:text-blue-500">
-                          Dúvidas
-                        </a>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href={'#WeAre'} passHref>
-                        <a className="font-medium text-lg hover:text-blue-500">
-                          Quem somos
-                        </a>
-                      </Link>
-                    </li>
-                    <li>
-                      <button className="btn btn-error py-1 rounded-xl transition-all duration-300 text-white">
-                        <Link href={'/register/home'} passHref>
-                          <a>Cadastrar</a>
-                        </Link>
-                      </button>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div className="w-full mb-2 ">
-                <div className="w-full border-t border-base-200 border-opacity-10 text-primary-content max-w-7xl mx-auto"></div>
-                <div className="overflow-hidden">
-                  <div className={styles.divisorbuyphone}></div>
-                </div>
+                    </button>
+                  </li>
+                </ul>
               </div>
             </div>
-          </nav>
-        </div>
+            <div className="w-full mb-2 ">
+              <div className="w-full border-t border-base-200 border-opacity-10 text-primary-content max-w-7xl mx-auto"></div>
+              <div className="overflow-hidden">
+                <div className={styles.divisorbuyphone}></div>
+              </div>
+            </div>
+          </div>
+        </nav>
       </div>
 
       <main>
