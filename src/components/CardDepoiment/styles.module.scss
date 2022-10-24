@@ -1,0 +1,39 @@
+.effect_border {
+  position: relative;
+  width: 130px;
+  height: 130px;
+  text-align: center;
+  color: #fff;
+  border-radius: 50%;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.effect_border:after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border: 2px solid black;
+  transition: all 0.2s;
+  animation: clippath 3s infinite linear;
+  border-radius: 50%;
+}
+
+@keyframes clippath {
+  0%,
+  100% {
+    clip-path: inset(0 0 60% 0);
+  }
+
+  25% {
+    clip-path: inset(0 60% 0 0);
+  }
+  50% {
+    clip-path: inset(60% 0 0 0);
+  }
+  75% {
+    clip-path: inset(0 0 0 60%);
+  }
+}

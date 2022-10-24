@@ -1,47 +1,30 @@
 //IMPORT'S REACT AND STYLE
 import Head from 'next/head'
 import Image from 'next/image'
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useRef } from 'react'
 import styles from './styles.module.scss'
-//ICONS MATERIAL
-import PanToolIcon from '@mui/icons-material/PanTool'
-import { AttachMoney, Leaderboard } from '@mui/icons-material'
 //PNG
 import CLyviaImg from '../../public/client_lyvia.png'
 import CGabrielImg from '../../public/client_gabriel.png'
 import CLuizImg from '../../public/client_luiz.png'
 import CIgorImg from '../../public/client_igor.png'
 import CAmandaImg from '../../public/client_amanda.png'
-import Quote2Img from '../../public/quote2.png'
 import MockupImg from '../../public/mockup.png'
 //SVG
 import CasasBahiaImg from '../../public/CasasBahia.svg'
 import LogoMatchImg from '../../public/LogoMatch.svg'
 import LogoImg from '../../public/LogoPurple.svg'
-import LogoActiveImg from '../../public/LogoWhite.svg'
 import DinheiroImg from '../../public/Group28.svg'
 import MagazineImg from '../../public/Magalu.svg'
 import AmericanasImg from '../../public/Americanas.svg'
 import PontoFrioImg from '../../public/PontoFrio.svg'
 import ExtraImg from '../../public/Extra.svg'
 import Link from 'next/link'
-import Button from '@mui/material/Button'
-import Menu from '@mui/material/Menu'
-import MenuItem from '@mui/material/MenuItem'
-import Fade from '@mui/material/Fade'
+import dynamic from 'next/dynamic'
+import { CardDepoiments } from '../components/CardDepoiment'
+const NavBar = dynamic(() => import('../components/NavBar'), { ssr: false })
 
 export default function index() {
-  const [isOn, setIsOn] = useState(false)
-
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
-  const open = Boolean(anchorEl)
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget)
-  }
-  const handleClose = () => {
-    setAnchorEl(null)
-  }
-
   const [navbar, setNavbar] = useState(false)
   const boxRef = useRef<HTMLDivElement | null>(null)
   const boxRef2 = useRef<HTMLDivElement | null>(null)
@@ -76,205 +59,7 @@ export default function index() {
         <meta name="description" content="Buy Phone para revendedores!" />
       </Head>
 
-      <div className="fixed z-20 w-full">
-        <div className="glass">
-          <nav
-            className={
-              'relative mt-0 w-full transition-all duration-300 ' +
-              (navbar ? 'bg-[#212b36dc]' : 'bg-white')
-            }
-          >
-            <div className="w-full">
-              <div className="w-full h-16 flex items-center md:h-24 relative p-4 z-10 mx-auto max-w-7xl">
-                <div className="block md:hidden">
-                  <div>
-                    <Button
-                      id="fade-button"
-                      aria-controls={open ? 'fade-menu' : undefined}
-                      aria-haspopup="true"
-                      aria-expanded={open ? 'true' : undefined}
-                      onClick={handleClick}
-                    >
-                      <svg
-                        className={
-                          'swap-off fill-current z-20 ' +
-                          (navbar ? 'text-white' : 'text-Loja')
-                        }
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="32"
-                        height="32"
-                        viewBox="0 0 512 512"
-                      >
-                        <path d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z" />
-                      </svg>
-                    </Button>
-                    <Menu
-                      id="fade-menu"
-                      className="bg-[#00000084]"
-                      MenuListProps={{
-                        'aria-labelledby': 'fade-button',
-                      }}
-                      anchorEl={anchorEl}
-                      open={open}
-                      onClose={handleClose}
-                      TransitionComponent={Fade}
-                    >
-                      <MenuItem
-                        onClick={handleClose}
-                        className="flex flex-col gap-3"
-                      >
-                        <Link href={'#understand'} passHref>
-                          <a className="font-medium text-lg hover:text-blue-500">
-                            Entenda melhor
-                          </a>
-                        </Link>
-                      </MenuItem>
-                      <MenuItem
-                        onClick={handleClose}
-                        className="flex flex-col gap-3"
-                      >
-                        <Link href={'#Experience'} passHref>
-                          <a className="font-medium text-lg hover:text-blue-500">
-                            Como funciona
-                          </a>
-                        </Link>
-                      </MenuItem>
-                      <MenuItem
-                        onClick={handleClose}
-                        className="flex flex-col gap-3"
-                      >
-                        <Link href={'#depoiments'} passHref>
-                          <a className="font-medium text-lg hover:text-blue-500">
-                            Depoimentos
-                          </a>
-                        </Link>
-                      </MenuItem>
-                      <MenuItem
-                        onClick={handleClose}
-                        className="flex flex-col gap-3"
-                      >
-                        <Link href={'#doubts'} passHref>
-                          <a className="font-medium text-lg hover:text-blue-500">
-                            Dúvidas
-                          </a>
-                        </Link>
-                      </MenuItem>
-                      <MenuItem
-                        onClick={handleClose}
-                        className="flex flex-col gap-3"
-                      >
-                        <Link href={'#WeAre'} passHref>
-                          <a className="font-medium text-lg hover:text-blue-500">
-                            Quem somos
-                          </a>
-                        </Link>
-                      </MenuItem>
-                      <MenuItem
-                        onClick={handleClose}
-                        className="flex flex-col gap-3"
-                      >
-                        <button className="btn btn-error py-1 rounded-xl transition-all duration-300 text-white">
-                          <Link href={'/register/home'} passHref>
-                            <a>Cadastrar</a>
-                          </Link>
-                        </button>
-                      </MenuItem>
-                    </Menu>
-                  </div>
-                </div>
-                <div className="flex justify-end w-full items-center md:justify-between">
-                  <div
-                    className={
-                      'w-28 h-auto transition-all duration-300 text-center mt-2 ' +
-                      (isOn == true ? 'hidden' : 'block')
-                    }
-                  >
-                    {navbar ? (
-                      <Link href={'#Main'} passHref>
-                        <a>
-                          <Image
-                            src={LogoActiveImg}
-                            layout="intrinsic"
-                            alt="logo"
-                            className="object-contain"
-                          />
-                        </a>
-                      </Link>
-                    ) : (
-                      <Link href={'#Main'} passHref>
-                        <a>
-                          <Image
-                            src={LogoImg}
-                            layout="intrinsic"
-                            alt="logo"
-                            className="object-contain"
-                          />
-                        </a>
-                      </Link>
-                    )}
-                  </div>
-
-                  <ul
-                    className={
-                      'w-full hidden items-center justify-end gap-5 md:flex transition-all duration-300 ' +
-                      (navbar ? 'text-white' : 'text-Loja')
-                    }
-                  >
-                    <li>
-                      <Link href={'#understand'} passHref>
-                        <a className="font-medium text-lg hover:text-blue-500">
-                          Entenda melhor
-                        </a>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href={'#Experience'} passHref>
-                        <a className="font-medium text-lg hover:text-blue-500">
-                          Como funciona
-                        </a>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href={'#depoiments'} passHref>
-                        <a className="font-medium text-lg hover:text-blue-500">
-                          Depoimentos
-                        </a>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href={'#doubts'} passHref>
-                        <a className="font-medium text-lg hover:text-blue-500">
-                          Dúvidas
-                        </a>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href={'#WeAre'} passHref>
-                        <a className="font-medium text-lg hover:text-blue-500">
-                          Quem somos
-                        </a>
-                      </Link>
-                    </li>
-                    <li>
-                      <button className="btn btn-error py-1 rounded-xl transition-all duration-300 text-white">
-                        <Link href={'/register/home'} passHref>
-                          <a>Cadastrar</a>
-                        </Link>
-                      </button>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div className="w-full mb-2 ">
-                <div className="w-full border-t border-base-200 border-opacity-10 text-primary-content max-w-7xl mx-auto"></div>
-                <div className="overflow-hidden">
-                  <div className={styles.divisorbuyphone}></div>
-                </div>
-              </div>
-            </div>
-          </nav>
-        </div>
-      </div>
+      <NavBar navbar={navbar} />
 
       <main>
         <div
@@ -379,7 +164,7 @@ export default function index() {
                 <div className="flex flex-col pr-[30px] h-[200px] justify-between">
                   <div className="flex items-center md:items-start md:flex-col">
                     <div className="h-10 w-10 text-white flex justify-center items-center bg-button rounded-xl">
-                      <AttachMoney />
+                      {/* <AttachMoney /> */}
                     </div>
                     <h1 className="text-button text-2xl ml-2 font-medium mt-0 md:mt-4 md:ml-0">
                       Obtenha maiores lucros
@@ -399,7 +184,7 @@ export default function index() {
                 <div className="flex flex-col pr-[30px] h-[200px] justify-between">
                   <div className="flex items-center md:items-start md:flex-col">
                     <div className="h-10 w-10 text-white flex justify-center items-center bg-button rounded-xl">
-                      <Leaderboard />
+                      {/* <Leaderboard /> */}
                     </div>
                     <h1 className="text-button text-2xl ml-2 font-medium mt-0 md:mt-4 md:ml-0">
                       Painel de controle do negócio
@@ -418,7 +203,7 @@ export default function index() {
                 <div className="flex flex-col pr-[30px] h-[200px] justify-between">
                   <div className="flex items-center md:items-start md:flex-col">
                     <div className="h-10 w-10 text-white flex justify-center items-center bg-button rounded-xl">
-                      <PanToolIcon />
+                      {/* <PanToolIcon /> */}
                     </div>
                     <h1 className="text-button text-2xl ml-2 font-medium mt-0 md:mt-4 md:ml-0">
                       Tenha acesso exclusivo
@@ -599,336 +384,51 @@ export default function index() {
 
             <div className={styles.pallets_color}>
               <div className="flex flex-col mx-auto md:w-5/6 gap-28 max-w-7xl">
-                <div className="flex justify-between items-center flex-col gap-4 md:flex-row md:items-start">
-                  <div className="flex flex-col w-full justify-center md:justify-start">
-                    <div className="flex">
-                      <div className={styles.effect_border}>
-                        <div className="w-[130px] h-auto">
-                          <Link
-                            href={'https://www.instagram.com/lyvianagib/'}
-                            passHref
-                          >
-                            <a className="w-full h-full" target="_blank">
-                              <Image
-                                className="rounded-full"
-                                placeholder="blur"
-                                src={CLyviaImg}
-                                layout="fill"
-                                alt="Lyvia perfil"
-                              />
-                            </a>
-                          </Link>
-                        </div>
-                      </div>
-                      <div className="flex flex-col ml-3 justify-center md:justify-start">
-                        <h1 className="text-purple-store text-xl font-normal">
-                          Lyvia Nagib Fulanetti
-                        </h1>
-                        <h2 className="text-purple-store text-lg">
-                          Fisioterapeuta
-                        </h2>
-                        <a
-                          className="text-sm"
-                          target="_blank"
-                          href="https://www.instagram.com/lyvianagib/"
-                        >
-                          @lyvianagib
-                        </a>
-                      </div>
-                    </div>
-                    <div className="flex flex-col pt-6 pb-4 md:pb-0">
-                      <div className="absolute w-10 h-auto text-purple-store opacity-50">
-                        <Image
-                          src={Quote2Img}
-                          layout="responsive"
-                          alt="aspas image"
-                          placeholder="blur"
-                        />
-                      </div>
-                      <p className="absolte text-purple-store ml-2 mt-4 z-10">
-                        “Comprei dois celulares, um pra mim e um pra minha irmã,
-                        dois iPhones 11. O preço é muito abaixo. Vale muito a
-                        pena!”
-                      </p>
-                    </div>
-                  </div>
-                  <div className={styles.box_embed}>
-                    <div className={styles.embed_depoiments}>
-                      <div className={styles.embed_dep}>
-                        <iframe
-                          placeholder="blur"
-                          loading="lazy"
-                          src="https://www.youtube.com/embed/Npmw1UcMnxM"
-                          title="YouTube video player"
-                          frameBorder="0"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                          allowFullScreen
-                        ></iframe>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex justify-between items-center flex-col gap-4 md:flex-row md:items-start">
-                  <div className="flex flex-col w-full">
-                    <div className="flex">
-                      <div className={styles.effect_border}>
-                        <div className="w-[130px] h-auto">
-                          <a
-                            className="w-full h-full"
-                            target="_blank"
-                            href="https://www.instagram.com/gabrielpessoamartins/"
-                          >
-                            <Image
-                              className="rounded-full"
-                              placeholder="blur"
-                              src={CGabrielImg}
-                              layout="fill"
-                              alt="Gabriel perfil"
-                            />
-                          </a>
-                        </div>
-                      </div>
-                      <div className="flex flex-col ml-3 justify-center md:justify-start">
-                        <h1 className="text-white text-xl font-normal">
-                          Gabriel Martins
-                        </h1>
-                        <h2 className="text-white text-lg">Empresário</h2>
-                        <a
-                          className="text-sm"
-                          target="_blank"
-                          href="https://www.instagram.com/gabrielpessoamartins/"
-                        >
-                          @gabrielpessoamartins
-                        </a>
-                      </div>
-                    </div>
-                    <div className="flex flex-col pt-6 pb-4 md:pb-0">
-                      <div className="absolute w-10 h-auto text-purple-store opacity-50">
-                        <Image
-                          src={Quote2Img}
-                          placeholder="blur"
-                          layout="responsive"
-                          alt="aspas image"
-                        />
-                      </div>
-                      <p className="absolte text-purple-store ml-2 mt-4 z-10">
-                        “Celular zero, lacrado na caixa! Pesquisei bastante em
-                        vários lugares e o preço deles é bem abaixo do mercado.”
-                      </p>
-                    </div>
-                  </div>
-                  <div className={styles.box_embed}>
-                    <div className={styles.embed_depoiments}>
-                      <div className={styles.embed_dep}>
-                        <iframe
-                          placeholder="blur"
-                          loading="lazy"
-                          src="https://www.youtube.com/embed/w1Sv0QIFxyA"
-                          title="YouTube video player"
-                          frameBorder="0"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                          allowFullScreen
-                        ></iframe>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex justify-between items-center flex-col gap-4 md:flex-row md:items-start">
-                  <div className="flex flex-col w-full">
-                    <div className="flex">
-                      <div className={styles.effect_border}>
-                        <div className="w-[130px] h-auto">
-                          <a
-                            className="w-full h-full"
-                            target="_blank"
-                            href="https://www.instagram.com/luizpuertas/"
-                          >
-                            <Image
-                              className="rounded-full"
-                              placeholder="blur"
-                              src={CLuizImg}
-                              layout="fill"
-                              alt="Gabriel perfil"
-                            />
-                          </a>
-                        </div>
-                      </div>
-                      <div className="flex flex-col ml-3 justify-center md:justify-start">
-                        <h1 className="text-white text-xl font-normal">
-                          Luiz Henrique Puertas
-                        </h1>
-                        <h2 className="text-white text-lg">
-                          Vendas de sistemas fotovoltaicos
-                        </h2>
-                        <a
-                          className="text-sm"
-                          target="_blank"
-                          href="https://www.instagram.com/luizpuertas/"
-                        >
-                          @luizpuertas
-                        </a>
-                      </div>
-                    </div>
-                    <div className="flex flex-col pt-6 pb-4 md:pb-0">
-                      <div className="absolute w-10 h-auto text-purple-store opacity-50">
-                        <Image
-                          src={Quote2Img}
-                          layout="responsive"
-                          placeholder="blur"
-                          alt="aspas image"
-                        />
-                      </div>
-                      <p className="absolte text-purple-store ml-2 mt-4 z-10">
-                        “Um preço muito bom, paguei muito barato no Iphone
-                        original lacrado!”
-                      </p>
-                    </div>
-                  </div>
-                  <div className={styles.box_embed}>
-                    <div className={styles.embed_depoiments}>
-                      <div className={styles.embed_dep}>
-                        <iframe
-                          placeholder="blur"
-                          loading="lazy"
-                          src="https://www.youtube.com/embed/t3U1o2I9WvI"
-                          title="YouTube video player"
-                          frameBorder="0"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                          allowFullScreen
-                        ></iframe>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex justify-between items-center flex-col gap-4 md:flex-row md:items-start">
-                  <div className="flex flex-col w-full">
-                    <div className="flex">
-                      <div className={styles.effect_border}>
-                        <div className="w-[130px] h-auto">
-                          <a
-                            className="w-full h-full"
-                            target="_blank"
-                            href="https://www.instagram.com/igorfortin/"
-                          >
-                            <Image
-                              className="rounded-full"
-                              placeholder="blur"
-                              src={CIgorImg}
-                              layout="fill"
-                              alt="Gabriel perfil"
-                            />
-                          </a>
-                        </div>
-                      </div>
-                      <div className="flex flex-col ml-3 justify-center md:justify-start">
-                        <h1 className="text-white text-xl font-normal">
-                          Igor Fortin
-                        </h1>
-                        <h2 className="text-white text-lg">Advogado</h2>
-                        <a
-                          className="text-sm"
-                          target="_blank"
-                          href="https://www.instagram.com/igorfortin/"
-                        >
-                          @igorfortin
-                        </a>
-                      </div>
-                    </div>
-                    <div className="flex flex-col pt-6 pb-4 md:pb-0">
-                      <div className="absolute w-10 h-auto text-purple-store opacity-50">
-                        <Image
-                          src={Quote2Img}
-                          layout="responsive"
-                          placeholder="blur"
-                          alt="aspas image"
-                        />
-                      </div>
-                      <p className="absolte text-purple-store ml-2 mt-4 z-10">
-                        “IPhone 12 que adquiri na BuyPhone, perfeito! Novo, com
-                        ótimas condições de preço e parcelamento.”
-                      </p>
-                    </div>
-                  </div>
-                  <div className={styles.box_embed}>
-                    <div className={styles.embed_depoiments}>
-                      <div className={styles.embed_dep}>
-                        <iframe
-                          placeholder="blur"
-                          loading="lazy"
-                          src="https://www.youtube.com/embed/vH0EjiMyZaQ"
-                          title="YouTube video player"
-                          frameBorder="0"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                          allowFullScreen
-                        ></iframe>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex justify-between items-center flex-col gap-4 md:flex-row md:items-start">
-                  <div className="flex flex-col w-full">
-                    <div className="flex">
-                      <div className={styles.effect_border}>
-                        <div className="w-[130px] h-auto">
-                          <a
-                            className="w-full h-full ronded-full"
-                            target="_blank"
-                            href="https://www.instagram.com/_amandalprado/"
-                          >
-                            <Image
-                              className="rounded-full"
-                              placeholder="blur"
-                              src={CAmandaImg}
-                              layout="fill"
-                              alt="Gabriel perfil"
-                            />
-                          </a>
-                        </div>
-                      </div>
-                      <div className="flex flex-col ml-3 justify-center md:justify-start">
-                        <h1 className="text-white text-xl font-normal">
-                          Amanda L. Prado
-                        </h1>
-                        <h2 className="text-white text-lg">🧿</h2>
-                        <a
-                          className="text-sm"
-                          target="_blank"
-                          href="https://www.instagram.com/_amandalprado/"
-                        >
-                          @_amandalprado
-                        </a>
-                      </div>
-                    </div>
-                    <div className="flex flex-col pt-6 pb-4 md:pb-0">
-                      <div className="absolute w-10 h-auto text-purple-store opacity-50">
-                        <Image
-                          src={Quote2Img}
-                          layout="responsive"
-                          placeholder="blur"
-                          alt="aspas image"
-                        />
-                      </div>
-                      <p className="absolte text-purple-store ml-2 mt-4 z-10">
-                        “A Amanda adorou o produto que comprou na BuyPhone”
-                      </p>
-                    </div>
-                  </div>
-                  <div className={styles.box_embed}>
-                    <div className={styles.embed_depoiments}>
-                      <div className={styles.embed_dep}>
-                        <iframe
-                          placeholder="blur"
-                          loading="lazy"
-                          src="https://www.youtube.com/embed/xzX8LJv7VuQ"
-                          title="YouTube video player"
-                          frameBorder="0"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                          allowFullScreen
-                        ></iframe>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <CardDepoiments
+                  name="  Lyvia Nagib Fulanetti"
+                  instagram="www.instagram.com/lyvianagib"
+                  linkVideo="https://www.youtube.com/embed/Npmw1UcMnxM?autoplay=0&controls=0&showinfo=0&playlist=Npmw1UcMnxM"
+                  image={CLyviaImg}
+                  profissional="Fisioterapeuta"
+                  depoiment="Comprei dois celulares, um pra mim e um pra minha irmã,
+              dois iPhones 11. O preço é muito abaixo. Vale muito a
+              pena!"
+                />
+                <CardDepoiments
+                  name="Gabriel Martins"
+                  instagram="www.instagram.com/gabrielpessoamartins"
+                  linkVideo="https://www.youtube.com/embed/w1Sv0QIFxyA?autoplay=0&controls=0&showinfo=0&playlist=w1Sv0QIFxyA"
+                  image={CGabrielImg}
+                  profissional="Empresário"
+                  depoiment="Celular zero, lacrado na caixa! Pesquisei bastante em
+                  vários lugares e o preço deles é bem abaixo do mercado."
+                />
+                <CardDepoiments
+                  name="Luiz Henrique Puertas"
+                  instagram="www.instagram.com/luizpuertas"
+                  linkVideo="https://www.youtube.com/embed/t3U1o2I9WvI?autoplay=0&controls=0&showinfo=0&playlist=t3U1o2I9WvI"
+                  image={CLuizImg}
+                  profissional=" Vendas de sistemas fotovoltaicos"
+                  depoiment="Um preço muito bom, paguei muito barato no Iphone
+                  original lacrado!"
+                />
+                <CardDepoiments
+                  name="Igor Fortin"
+                  instagram="www.instagram.com/igorfortin"
+                  linkVideo="https://www.youtube.com/embed/vH0EjiMyZaQ?autoplay=0&controls=0&showinfo=0&playlist=vH0EjiMyZaQ"
+                  image={CIgorImg}
+                  profissional="Empresário"
+                  depoiment="Um preço muito bom, paguei muito barato no Iphone
+                  original lacrado!"
+                />
+                <CardDepoiments
+                  name="Amanda L. Prado"
+                  instagram="www.instagram.com/_amandalprado"
+                  linkVideo="https://www.youtube.com/embed/xzX8LJv7VuQ?autoplay=0&controls=0&showinfo=0&playlist=xzX8LJv7VuQ"
+                  image={CAmandaImg}
+                  profissional="🧿"
+                  depoiment="A Amanda adorou o produto que comprou na BuyPhone"
+                />
               </div>
             </div>
           </div>
