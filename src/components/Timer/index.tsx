@@ -1,4 +1,3 @@
-import { Timer } from '@mui/icons-material'
 import React from 'react'
 import { useState, useEffect } from 'react'
 
@@ -30,13 +29,13 @@ const Watch = (props: any) => {
     <div>
       {minutes === 0 && seconds === 0 ? (
         <h1 className="flex justify-center">
-          <Timer />
+          {/* <Timer /> */}
           Tempo Expirado - Envie Novamente
         </h1>
       ) : (
         <h1 className="flex justify-center text-Loja font-normal">
           {' '}
-          <Timer />
+          {/* <Timer /> */}
           {minutes}:{seconds < 10 ? `0${seconds}` : seconds}
         </h1>
       )}
